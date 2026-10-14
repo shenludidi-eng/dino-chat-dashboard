@@ -1,0 +1,12 @@
+const assert=require('assert'),fs=require('fs'),path=require('path'),vm=require('vm');
+const root=path.join(__dirname,'..'),ctx={window:{},Intl};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'data.js'),'utf8'),ctx);
+const data=ctx.window.DINO_DATA,automatic=data.aiRows.filter(row=>row[8]);
+assert.equal(automatic.length,9630,'all current automatic bad-case candidates are available');
+assert.deepEqual([0,1,2].map(entry=>automatic.filter(row=>row[1]===entry).length),[7493,1332,805]);
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8'),source=fs.readFileSync(path.join(root,'bad-case-library.js'),'utf8');
+assert.ok(html.includes('data-page="badcases"')&&html.includes('id="badCasePage"'));
+assert.ok(source.includes("source:'ai'")&&source.includes("source:'manual'"));
+assert.ok(source.includes("localStorage.setItem(STORAGE_KEY"));
+for(const field of ['entry','age','level','country','tag'])assert.ok(source.includes(`${field}:'all'`),`${field} filter`);
+assert.ok(source.includes('AI 候选需要人工结合完整上下文复核'));
+console.log(JSON.stringify({status:'PASS',automatic:automatic.length,entries:[7493,1332,805],checks:['fifth navigation tab','two sources','profile + entry + other tags','browser-local manual intake','candidate disclaimer']}));

@@ -1,0 +1,17 @@
+const assert=require('assert'),fs=require('fs'),path=require('path'),vm=require('vm');
+const ctx={Intl};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'../round-transcript-sampler.js'),'utf8'),ctx);
+const {bands,bandIndex,translationSafe,firstTimestamp}=ctx.DinoRoundTranscriptSampler;
+const source=fs.readFileSync(path.join(__dirname,'../round-transcript-sampler.js'),'utf8');
+assert.deepEqual(Array.from(bands,band=>band.label),['≤2 轮','3–5 轮','6–10 轮','11–20 轮','21+ 轮']);
+for(const rounds of [0,1,2,3,5,6,10,11,20,21,99])assert.equal(bands.filter(band=>band.test(rounds)).length,1);
+assert.equal(bandIndex(2),0);assert.equal(bandIndex(3),1);assert.equal(bandIndex(10),2);assert.equal(bandIndex(20),3);assert.equal(bandIndex(21),4);
+assert.equal(translationSafe({messages:[{language:0,text:'Hello',translation:null}]}),true);
+assert.equal(translationSafe({messages:[{language:1,text:'你好',translation:'Hello'}]}),true);
+assert.equal(translationSafe({messages:[{language:1,text:'你好',translation:null}]}),false);
+assert.equal(firstTimestamp({messages:[{date:'2026-10-05',timestamp:'2026-10-05 13:14:15'}]}),'2026-10-05 13:14:15');
+assert.equal(firstTimestamp({messages:[{date:'2026-10-05'}]}),'2026-10-05');
+assert.equal(source.includes('<details class="round-sample-card"'),false);assert.equal(source.includes('round-sample-modal-shell'),true);
+assert.equal(source.includes("entry==='POST_CLASS'"),false);assert.equal(source.includes('北京时间'),true);
+assert.equal(source.includes('session.messages.map(messageHtml)'),true);
+assert.equal(source.includes('view=all-entry-time-1'),true);
+console.log(JSON.stringify({status:'PASS',checks:['coarse bands','exclusive boundaries','translation-safe sampling','drawer transcript interaction','all-entry source timestamps']}));

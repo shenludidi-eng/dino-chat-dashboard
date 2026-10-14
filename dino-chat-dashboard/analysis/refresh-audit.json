@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "generatedAt": "2026-10-12T11:44:07+08:00",
+    "dateStart": "2026-09-14",
+    "dateEnd": "2026-10-11",
+    "totalMessages": 211928,
+    "userMessages": 105964,
+    "users": 3790,
+    "sessions": 13347,
+    "sourceStats": {
+      "dino_english_20261008105513_caac5545.json": {
+        "read": 175676,
+        "unique": 175676,
+        "duplicates": 0,
+        "sha256": "1e84650e04c7f82afa01e8c94ecb6e21ba386b51ba8a9f0cb9990be6b3d8974a"
+      },
+      "chat_history_raw_20261005_20261011.csv": {
+        "read": 58200,
+        "unique": 36252,
+        "duplicates": 21948,
+        "sha256": "35ecc07324e076ec8b1d4ccf68d3b6a580ec84da96d4343f941d9cd07a867206"
+      }
+    },
+    "profileStats": {
+      "sourceRows": 9747,
+      "matchedUsers": 3790,
+      "dashboardUsers": 3790,
+      "coveragePct": 100.0,
+      "countrySourceRows": 3790,
+      "matchedCountryUsers": 3781,
+      "countryCoveragePct": 99.8,
+      "gapFillCounts": {
+        "age": 499,
+        "level": 499,
+        "country": 528
+      },
+      "snapshotPolicy": "保留已有画像；同批消息的画像导出仅填补缺失值。",
+      "missingByField": {
+        "age": 22,
+        "level": 2,
+        "country": 9
+      }
+    },
+    "missingEvidenceTranslations": 10128,
+    "analysisStatus": "规则探索性分析；LLM 复核与人工抽检尚未接入。",
+    "timeBasis": "北京时间",
+    "timezone": "Asia/Shanghai",
+    "coverageEndExclusiveUtc": "2026-10-11T16:00:00",
+    "coverageEndExclusiveLocal": "2026-10-12T00:00:00+08:00",
+    "coverageCompleteThroughLocalDate": "2026-10-11",
+    "coverageNote": "数据按北京时间归日与归周；当前导出完整覆盖至 2026-10-11 23:59:59。"
+  },
+  "perEntry": [
+    {
+      "entry": "HOME",
+      "messages": 152492,
+      "users": 3405,
+      "sessions": 9227
+    },
+    {
+      "entry": "EXPLORE",
+      "messages": 37080,
+      "users": 1142,
+      "sessions": 2264
+    },
+    {
+      "entry": "POST_CLASS",
+      "messages": 22356,
+      "users": 653,
+      "sessions": 1856
+    }
+  ]
+}

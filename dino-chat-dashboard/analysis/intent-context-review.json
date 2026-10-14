@@ -1,0 +1,5294 @@
+{
+  "version": "context-review-20261013-home-tool-use-1",
+  "reviewer": "AI full-session contextual review; user corrections retained",
+  "ledgerHash": "5def1a9b07a597ea66f748846b494cfbdeb65beab95cbce1027b656746629fdd",
+  "codebook": {
+    "lesson": {
+      "label": "跟随课后练习",
+      "definition": "回应本课问题、选择选项、复述句式，或明确要求回到课程。",
+      "boundary": "必须有实际课内回应；仅准备好或处于 POST_CLASS 不自动计入。Sing、Guess、I read a book 要看上一轮问的是什么。"
+    },
+    "games": {
+      "label": "想一起玩游戏",
+      "definition": "明确发起、选择或接受与 Dino 玩一项互动游戏。",
+      "boundary": "谈自己玩的游戏不等于要求陪玩；受邀接受与自发发起均可计入，不能据此推断全是主动需求。课内说会唱歌或用手机玩游戏不计。"
+    },
+    "stories": {
+      "label": "想听故事、歌曲或笑话",
+      "definition": "希望 Dino 提供或继续一段可听的故事、歌曲、儿歌或笑话。",
+      "boundary": "提及音乐、分享歌手偏好或回答课内故事题不计；区分点播内容与互动游戏。"
+    },
+    "social": {
+      "label": "自由聊天与陪伴",
+      "definition": "明确想和 Dino 聊天、建立朋友关系，或向 Dino 表达亲近。",
+      "boundary": "普通 Hello / How are you、课内 My friend 及 you/juice 含混转写不单独计入；不据此推断依恋或长期关系。"
+    },
+    "self_expression": {
+      "label": "自我表达与倾诉",
+      "definition": "主动分享自己的生活、兴趣、感受或想法，也包括表达孤独、难受或不适，希望 Dino 倾听、关心、安慰或帮助。",
+      "boundary": "合并原“寻求关心与情绪支持”，同一 Session 即使同时分享经历和寻求支持也只计一次，保留两者的原文证据。课内简短作答、情绪词、Dino 单方面安慰或含混转写不自动计入；需结合上下文确认主动分享或倾诉诉求，不判断实际病情、家庭事实或危险。"
+    },
+    "identity_curiosity": {
+      "label": "对Dino身份、能力好奇",
+      "definition": "主动了解 Dino 的名字、年龄、来历、偏好、交互方式、能力，或是否认识和记得自己。",
+      "boundary": "合并身份好奇与能力、记忆探索，同一 Session 只计一次。需结合上下文确认学生在了解 Dino；复述示范问句、要求改变角色、直接请求办事和询问外部知识不自动计入，粗口或识别失败也不自动视为能力测试。"
+    },
+    "practice": {
+      "label": "英语练习与表达求助",
+      "definition": "明确请求练词句、学习拼写，或求助于如何用英语说出自己想表达的内容。",
+      "boundary": "解释词句含义归入“请求澄清与解释”，不再计入本类。Dino 自行纠错、仅提到 read 或学习经历不计；单纯指定交流语言另列。若同一 Session 另有独立练习或表达请求，可凭不同证据同时保留。"
+    },
+    "language": {
+      "label": "希望调整交流语言",
+      "definition": "明确选择英语或本地语，或请求用另一种语言辅助理解。",
+      "boundary": "使用本地语本身不等于要求切换或翻译；选择说英语不自动等于求英语教学。"
+    },
+    "clarification": {
+      "label": "请求澄清与解释",
+      "definition": "表示没听清或没听懂当前对话，请 Dino 重说、换个说法、解释词句含义或说明当前玩法。",
+      "boundary": "合并原“听不懂”和“解释词义”证据，同一 Session 只计一次，并从原两类移除相应命中。不是获取外部知识，也不是要求 Dino 听懂自己；不能仅凭 What、I don’t know 或 Dino 主动释义命中。需结合前后问答确认澄清诉求，听不清不自动视为词义不懂。"
+    },
+    "repair": {
+      "label": "希望被准确理解",
+      "definition": "纠正 Dino 对自己话语、姓名、回答或操作要求的误听与误解，希望它正确理解并回应。",
+      "boundary": "学生没听懂 Dino、请求重说和询问词义均归入“请求澄清与解释”，不再计入本类。若同一 Session 另有纠正误解的独立证据，可同时保留；单次含混音节或 Dino 单方面猜测不计。"
+    },
+    "tool_use": {
+      "label": "把Dino当成工具使用",
+      "definition": "希望 Dino 提供具体事实、知识或方法答案，或帮忙查找图片、拨打电话、联系他人、完成具体操作。",
+      "boundary": "合并原“希望 Dino 帮忙办事”与“询问具体事实与解释”，同一 Session 即使同时求知和办事也只计一次，两种证据均保留。只计上下文明确的请求，不保证答案正确或任务实际可执行。身份好奇、词句澄清、英语练习及已单列的计算请求不在本次合并范围。"
+    },
+    "calculation": {
+      "label": "请求计算答案",
+      "definition": "直接给出算式并希望 Dino 算出结果。",
+      "boundary": "来自课后样本中连续询问具体加法的案例；与课程数数、星期练习或数学游戏分开，不恢复旧的宽泛知识类。"
+    },
+    "product_help": {
+      "label": "想找老师／切换学习入口",
+      "definition": "希望找到老师、回到老师入口，或进入指定学习级别。",
+      "boundary": "这是产品使用诉求，不等于让 Dino 扮演老师或直接教学。"
+    },
+    "director": {
+      "label": "想设定 Dino 的角色与行动",
+      "definition": "明确给 Dino 设定身份、称呼、外观或说话规则，希望它按自己的安排行动。",
+      "boundary": "你是我的朋友等关系表达不自动当角色指令；请求具体内容或游戏优先记录实际活动。"
+    }
+  },
+  "samples": {
+    "HOME": {
+      "8211": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "问候后连续识别失败；无法从含混回复判断具体诉求。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "06fc5213dc2ffef68c110a3476cebb79319fa248fed4ff1f60f0063a51e3b3e2"
+      },
+      "9324": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 6
+        },
+        "rationale": "两次直接问名字，Dino 回答自己身份；后面的 Guess Kenny 和含混爱你不足以证明游戏或陪伴需求。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "8ea48d4b4504a4a6b11c08158f5690594b35faada0d95a8cd4808c5ac1c7d8b9"
+      },
+      "6011": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "不知道、Apple 均未被接住，且首句缺失，不能反推目的。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "ece2f8265870b55cf49ac8f7e70e70eb6c142f0be398d2166b11139670749d7d"
+      },
+      "2982": {
+        "intents": [
+          "identity_curiosity",
+          "clarification"
+        ],
+        "anchors": {
+          "identity_curiosity": 4,
+          "clarification": 18
+        },
+        "rationale": "先询问名字，后在颜色问答中请求澄清 Dino 当前问题；此处是学生要听懂 Dino，不是纠正 Dino 对自己的理解。",
+        "status": "coded",
+        "messageCount": 32,
+        "sourceHash": "3206fa01a2c2abd97955f3f8bebaa3704c99798b139e6a80bba777452d62645d"
+      },
+      "5436": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 6
+        },
+        "rationale": "Dino 提供游戏或故事选项，学生明确选 Tiny game 并持续回答颜色；这是受邀选择而非自发发起。",
+        "status": "coded",
+        "messageCount": 28,
+        "sourceHash": "f9c6b0b26e1cb7b04abd75e510b72f9458c108d818aca87847f3767038d82c4b"
+      },
+      "6888": {
+        "intents": [
+          "self_expression",
+          "tool_use",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "self_expression": [
+            0,
+            2
+          ],
+          "tool_use": 66,
+          "identity_curiosity": 46
+        },
+        "rationale": "主动讲摔倒和头疼并求助，后请求给水、询问 Dino 家人；分享经历和寻求关心合并为自我表达与倾诉，只计一个 Session，保留两处证据。真假或想象情境无法核实，不作实际伤情推断。",
+        "status": "coded",
+        "messageCount": 68,
+        "sourceHash": "b3a37123919c3f1804dbc4f1113c0c0bfcfa7002316d593aef8100e8e450f563"
+      },
+      "8062": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 6
+        },
+        "rationale": "回答大象偏好后明确说听不懂，Dino 将问题改成具体选项；归入澄清当前问题，不作为英语练习或被准确理解。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "29e55a8065dcb77bc115a6b6463d85ad01995a0f6ca616ca66c9e5c8b5972f6c"
+      },
+      "7483": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "生日词后含混语句，未形成可判断的诉求。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "8650247863f50b2dd2ab561e974bcaef00b97914e5bf4ead3aee3705e5bf183d"
+      },
+      "5812": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只是问候并附和 Dino 喜欢蛋糕，不能推出陪伴或主动分享目的。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "4345867a9b4eeeff6818165b7f356f4de90c9166c46a3796f5708618a77d3d97"
+      },
+      "4454": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有含混声音与识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b2e87867caa55241bee834f53eac0ac4335890ea094b9e679f768ebdccd5fe5c"
+      },
+      "5126": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "问候后回答开心，没有展开经历或请求支持。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "1004309bc71b16b3c75183de0b6480a3100abda7715a00b68f31ccbf23accb8a"
+      },
+      "2290": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "零散词均识别失败；开场引导缺失。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "6c2c9769c1a19d3bd780ed0d8281e396962995c9e40bcb6559b5977498d517e3"
+      },
+      "10280": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Ten，后续数数问题无学生回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "155d802bcf8f7b5012f4c3ab1a00550cc69a042465dfc3f5fbf5950596b105b9"
+      },
+      "4977": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "短句含混，Dino 复述不能证明学生目的。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "b25a5afcff9e9df789a13653f971fba4510f67628af97d741c943d5745593414"
+      },
+      "5129": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有两次招呼，没有回应实际问题。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "3bd593932e2662e99358fda96fadd020c9e716425aadad22f50240fe212c9727"
+      },
+      "8770": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression",
+          "games",
+          "stories",
+          "repair",
+          "clarification"
+        ],
+        "anchors": {
+          "identity_curiosity": 10,
+          "self_expression": 26,
+          "games": 44,
+          "stories": 52,
+          "repair": 24,
+          "clarification": 8
+        },
+        "rationale": "追问住处、展示搞怪画面，并要求数学游戏和恐怖故事。先问 Dino 在说什么，属于请求澄清；另指出 Dino 没有注意自己、反复纠正轮流出题规则，保留被准确理解的独立证据。",
+        "status": "coded",
+        "messageCount": 56,
+        "sourceHash": "425530630c8a6291a07c59d4fe5e1052876125b9071405a4d6b8890c44a4759a"
+      },
+      "2291": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单次问候后识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "de412ef1d663801fc15c2ca22df03a28217769f72bebef270b9ba59680949290"
+      },
+      "6033": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单词未识别，无上下文。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b03579add8d51a7b8939eaf76d7361e5bcdef684db79afc969e41ced5a2d31ea"
+      },
+      "10177": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "首句含混，只有 Dino 猜测是摆餐桌，无学生确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "9efdcfab1da6ed7736ba92b7eb2ae4c830e657b44aefdb17eade249e532c4eb8"
+      },
+      "4500": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": 8
+        },
+        "rationale": "反复要求给 Alia 打电话并说明是母亲；Dino 最终明确无法拨号。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "16b075d6935eadc66d5511f7f400b12e37df0454bba4a825b7bcbb1517b5c9f5"
+      },
+      "5809": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression"
+        ],
+        "anchors": {
+          "identity_curiosity": 18,
+          "self_expression": 14
+        },
+        "rationale": "先回答足球问题，后来主动转向喜欢蛋糕并追问 Dino 是否做饭；不是单凭关键词 friend 推断关系。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "937739ab3f1953029d48463165a5482581d1eb53da0c87db7fadca9cda7a2832"
+      },
+      "5434": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "故事话题由 Dino 发起；study time with me 与 Dino 的 stay with you 解释不一致，无法可靠区分学习或陪伴诉求。",
+        "status": "participation_only",
+        "messageCount": 14,
+        "sourceHash": "67b5fa814c2ec1eb3d6d921c9cb9fa28caec66b808e1d1f935d1e4f62f69cc41"
+      },
+      "3062": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句含混；Dino 提出的英语或阿拉伯语选项未获确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "d997039b3d4875c42bdf281a64b6c40f3eaed90a21d9ce9a27f648b72b09fdfb"
+      },
+      "7238": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "姓名和数字断续回应，未形成明确功能诉求。",
+        "status": "insufficient",
+        "messageCount": 16,
+        "sourceHash": "e49fe3bf4ebb73b5b0ae1928c073bb2b584c9b7226f112fe15c1aa9ce775228c"
+      },
+      "6671": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "持续转写含混及澄清失败，不能用 Dino 的游戏邀请替学生表达意图。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "bfd53f401e618aa4b17efe91cac93aca39f4a0aeb9c2cca7c101883a509d7bb6"
+      },
+      "11400": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有重复 Hello。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "0feb80b7ba7555fd95d5af0d4787f8fc67df684e5d7919f364799a8e1184779a"
+      },
+      "5229": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "零散词与识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "6083c5b8468261f211d60f5cc8244ba0965a3c0a633a311f4788aba6705e7b5b"
+      },
+      "4603": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有未完成短句。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "686933e75f585a016cf13b1b392bd6dfbda24a00ed606f41822b187443d302b9"
+      },
+      "5678": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Happy 后续内容不清；无法区分承接首句还是分享情绪。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "7c77f3778a1586b1a7a56b685b68b89062a3e621afd80b21bf28b37a956f4780"
+      },
+      "6213": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Sweat、Quit 未形成可解释的上下文，不能据 Quit 断言结束诉求。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "b4c311bece253d000903a6f7658786fa67e43b45edea052a41a6b5b55a57298f"
+      },
+      "4327": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 No，开场缺失。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "4885a3d233ed2f552905bd4a401dc03726100908746411feca290e742463c114"
+      },
+      "3871": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单次招呼，后续问题无学生回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "905478f17da339eb772f21adbc97f9f87590390a6c6b136c18c0ced12f26c321"
+      },
+      "5438": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 4
+        },
+        "rationale": "连续请求恐龙书、story time、公主故事，并要 Dino 读下去；不是请求英语教学。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "187c8f713c749f41533bc8ac51a60749ab854de8e98cf728fcb23c48fdc16586"
+      },
+      "9295": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 0
+        },
+        "rationale": "学生反问 What，Dino 明确解释上一问是在询问语言；只支持即时澄清需求，不属于纠正 Dino 的误解。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "89eaa6ebbc27ded9b58a2c3155904da8c6e8514d8571b13fea1a802deb8d82cb"
+      },
+      "4371": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "物品、颜色及写字在 Dino 提问下展开，未见请求帮助写作或学英语。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "106ed93a660b811be06ceb82b82fe873b05e6d44402f19ef1ce1aa0eefdecd35"
+      },
+      "5972": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "虽有猫叫与零散词，但整体多次识别失败，没有稳定活动或功能诉求。",
+        "status": "insufficient",
+        "messageCount": 30,
+        "sourceHash": "0fb681679c629da3726d4020a3bec6b7e97e2086878ba7432ef0b014ece5e9a4"
+      },
+      "2295": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 The mother，不能解释为主动谈家庭。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b40ff184fcf7ece5419868e49a852952ea0491c29f5e8fbb548d90400aa32dbf"
+      },
+      "9308": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "含混招呼后没有明确选择聊天或游戏。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "e8285f8677f4da7518750ba3f7e5d0cbb3cb7d55f39eba64c175aa6d5d20e14e"
+      },
+      "11369": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单次问候，无后续目的信号。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "dac0a9e3e63485b5a6be03806543394e4722d402cc4cf00b637b3ac22de460da"
+      },
+      "9343": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 0
+        },
+        "rationale": "连续明确 Let's play，Dino 据此开启颜色游戏；支持游戏互动需求。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "6c6b9dfcdd23bc40b838adb386d799ca7ec18590e1e4a24431c7abb5005ffbf2"
+      },
+      "7697": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "连续肯定回应 Dino 的英语话题，未提出学习或游戏要求。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "b60ddc1c1d690a242ce5edb3130b21bcf0ae3e6865369c6aa72e155574245f39"
+      },
+      "7625": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅一条含混转写。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "893fdebe02a2eb157c1887124bec970754b6351752d39eeb7649af6ce482111f"
+      },
+      "4875": {
+        "intents": [
+          "language"
+        ],
+        "anchors": {
+          "language": 2
+        },
+        "rationale": "在 Dino 询问英语或其他语言后选英语；这是交流语言选择，不等于英语学习。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "ecf45fb52bd0a591acc2e3322abb8d062bab727c2a84e00cadc976f4ec208c04"
+      },
+      "7095": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单条含混词组且识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "340fd37a1fa05c11b3f10289bc854887ed258f039cbdde5f5baea14c530c3d28"
+      },
+      "11032": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Dino 猜测是语言适配，但没有学生确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "7933c6ea1de0ee926d60aa02dc1bd7578a1c7822352cee614e8223edfcee75e4"
+      },
+      "2631": {
+        "intents": [
+          "games",
+          "clarification"
+        ],
+        "anchors": {
+          "games": 4,
+          "clarification": 6
+        },
+        "rationale": "先明确选游戏，再问 What do you mean 以理解玩法；后半大量模仿 Dino 的澄清句，不据此追加英语练习或被准确理解。",
+        "status": "coded",
+        "messageCount": 54,
+        "sourceHash": "2c077c6871bfe6286b67c50b2770b878c2cf50f35f8c20bbfa93619bd203d374"
+      },
+      "10544": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "重复词和助手名称混杂，无法确定 Turn off 是否真实操作请求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "101f117a06ea031174c769181345965416b970f2a7f5de6f25681826d17cf453"
+      },
+      "6467": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "两条不连贯转写，均未获有效承接。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "b284a5d867e4906dc7e8d56d9808feb156da903a5064bc7b4eee818c0e6adc7e"
+      },
+      "6972": {
+        "intents": [
+          "identity_curiosity",
+          "social",
+          "games",
+          "self_expression",
+          "repair"
+        ],
+        "anchors": {
+          "identity_curiosity": 2,
+          "social": 2,
+          "games": 4,
+          "self_expression": 8,
+          "repair": 22
+        },
+        "rationale": "多次询问 Dino 是谁并称它为朋友，邀请一起玩，主动分享学校和母亲；后面澄清希望使用的名字。",
+        "status": "coded",
+        "messageCount": 28,
+        "sourceHash": "98b72a095b2fc418cf379fbca0bb86e09736a0011d0966edb287672d73bb60f6"
+      },
+      "2410": {
+        "intents": [
+          "identity_curiosity",
+          "games"
+        ],
+        "anchors": {
+          "identity_curiosity": 0,
+          "games": 2
+        },
+        "rationale": "先问名字，再主动邀请 Dino 加入游戏，随后参与颜色问答。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "bc58824551898e53bdf3adde86945db87c6ba282e801174542f283d5a3fc9872"
+      },
+      "5060": {
+        "intents": [
+          "games",
+          "social",
+          "self_expression",
+          "tool_use",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "games": 0,
+          "social": 10,
+          "self_expression": 18,
+          "tool_use": 8,
+          "identity_curiosity": 52
+        },
+        "rationale": "邀请一起玩并表达亲近，主动解释身边人的情况；独立问 bicycle ledger 是什么及 Dino 能做什么，不能把所有问句合成知识需求。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "4faa6eb522672651f206225e4e14c63b9c8762d157444195c6f332c8c3ab6c06"
+      },
+      "5045": {
+        "intents": [
+          "games",
+          "self_expression",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "games": 8,
+          "self_expression": 42,
+          "identity_curiosity": 40
+        },
+        "rationale": "主动提议世界杯游戏，后来主动转向汽车偏好并问 Dino 喜不喜欢 Bugatti；粗口和 Stop 不单独推断能力测试。",
+        "status": "coded",
+        "messageCount": 66,
+        "sourceHash": "266ca6dff434552f036f1b4e6568a9527232ae0621b79f1068db04af549cec8c"
+      },
+      "2496": {
+        "intents": [
+          "social",
+          "games",
+          "repair",
+          "clarification"
+        ],
+        "anchors": {
+          "social": 0,
+          "games": 22,
+          "repair": 18,
+          "clarification": 10
+        },
+        "rationale": "表达喜欢 Dino、选择 Secret place；听不清 blue 问题时要求重说，另连续纠正自己的名字。澄清对方话语与纠正自己被误解分别有独立证据。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "a371eb6999cc65faafddcc7e151ef7050e6c6c08b7020b9344adb342f85d85d8"
+      },
+      "8464": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼和叫错助手名字，没有明确身份问题或功能请求。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "72b0fcfc08d1b661e5f97662b4ed661b7bf685ef5736f8a1f4f8b1be5afd41cc"
+      },
+      "7679": {
+        "intents": [
+          "self_expression",
+          "clarification",
+          "repair"
+        ],
+        "anchors": {
+          "self_expression": 2,
+          "clarification": 16,
+          "repair": 12
+        },
+        "rationale": "主动讲朋友与 Dino 同名；对草莓配牛奶的问题请求重述，归入澄清。另明确纠正 Origin 实为 cold，保留被准确理解，不算知识探索。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "787bcb50f43eba126a330ac106795d7e59cd157fffea9d487a31c25d96ccc616"
+      },
+      "10356": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Catch Cat 与复述，不能认定词汇练习。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "cfc74bc08bf288b0ee475c1d08c8a7fe566f1aaef482870273f50da1644d5f34"
+      },
+      "9129": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单条混杂姓名及糖果词，无稳定语义。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "4c55aaa0711f61cdd38349faeb9ba2b9d9fc7309b2f27f8e7aaa26e51ef7f4ed"
+      },
+      "7496": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 64
+        },
+        "rationale": "前段 Help me 缺乏清楚对象；后明确选择猜猫游戏并要求再来一次，支持游戏需求而非笼统求助。",
+        "status": "coded",
+        "messageCount": 84,
+        "sourceHash": "e7804d98d20cb81b47846df8f6f8c926108dfa394ea6b9eda8eb1e1ddd80ccf9"
+      },
+      "3130": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "重复数字承接数数活动，没有额外功能诉求。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "69e8615d1ca3fe08e456ef92ff99f3d9bc7a668df2eba69ef9f37b3654e73ec1"
+      },
+      "7814": {
+        "intents": [
+          "social"
+        ],
+        "anchors": {
+          "social": 2
+        },
+        "rationale": "明确向 Dino 表达喜欢，后因对话走向表达不满；记录社交关系信号，不推断持久依恋。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "ad334992e3d6a9ff208620d21154dd06fc94aaef54a87a2b53bbb1877d55d4d0"
+      },
+      "6114": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单个人名后识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "a60aee8b886e95ea46ddae0c0a2bcc20f5ed7df679bf385d8d5cf28b7f306c35"
+      },
+      "5088": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "c39d9015703ba2a64366cfe6ff2b9a0426d18a5cde8e9a52460f161d73d0ea65"
+      },
+      "6685": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "零散词和识别失败。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "58708436d637ed705fe96cacb25abce2c978f1d694b58fca196a0debbdf07c9f"
+      },
+      "8571": {
+        "intents": [
+          "stories",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "stories": 2,
+          "identity_curiosity": 4
+        },
+        "rationale": "在故事或游戏选项中明确选故事，随后主动问名字。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "3482a0e8cda07e98f56276345ec68c7f97284238d09808ff73edf5e4a2b03468"
+      },
+      "10514": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 No，不能还原否定对象。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "5f73f2609e80611cec4a44babf7d964e89c9f602e8a57edd71953b74930f1fdb"
+      },
+      "4260": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "围绕衣服颜色做短答，未见明确游戏或帮助诉求。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "f935d90d163b0e83dad10b006eaa8a8feb82fad0648934ac04a850004ea64d0a"
+      },
+      "6951": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "肯定回答英语和玩耍问题，未明确选择活动或请求服务。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "f9d9bb702da9322877d177ad81c8c8f916a7a66b08159abc9a30b71743b1fbc3"
+      },
+      "3322": {
+        "intents": [
+          "product_help",
+          "stories",
+          "identity_curiosity",
+          "clarification"
+        ],
+        "anchors": {
+          "product_help": 2,
+          "stories": 10,
+          "identity_curiosity": 18,
+          "clarification": 14
+        },
+        "rationale": "两次想见老师，另请求故事、重说，并问 Dino 喜欢什么颜色；重说请求归入澄清，不属于纠正 Dino 的误解。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "14bf442992dea42caa6dd627fbf922097587e2a2de682e78d084d2585a5faa77"
+      },
+      "3594": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单次招呼后识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "fd526a76ae5c6a4b42dd2ecf590290c21c4949eda6d309aebb5c9740fc6c1f15"
+      },
+      "11147": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "持续回答西瓜偏好，种子被误解为座位；问句仍围绕回答，不足以建立独立知识意图。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "6c01fa1c764aad9dd072b501c5538279ed95cf85dd44f4485637840ed5887513"
+      },
+      "7093": {
+        "intents": [
+          "identity_curiosity",
+          "clarification",
+          "games"
+        ],
+        "anchors": {
+          "identity_curiosity": 0,
+          "clarification": 8,
+          "games": 24
+        },
+        "rationale": "询问名字，多次问 Dino 刚才说什么，最后选择游戏；将重述问题的诉求从被准确理解移入澄清。",
+        "status": "coded",
+        "messageCount": 28,
+        "sourceHash": "53b941fcf5983638e2e4378c3b80a7fc603224feb8070bcf62622467ceba4551"
+      },
+      "5094": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回应颜色和学英语频率，未请求教学；I won 没有可解释的后续。",
+        "status": "participation_only",
+        "messageCount": 16,
+        "sourceHash": "f872bcdd308fc0c9655703a9669cd42e0737b71c9df685dd35f659aa895b915e"
+      },
+      "10004": {
+        "intents": [
+          "language"
+        ],
+        "anchors": {
+          "language": 0
+        },
+        "rationale": "明确说 Speak English；后把 Dino 叫老师但没有学习任务，不能据称呼标英语学习。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "10f205face9caa2c002029f65599c203a0a795436b2fdadb9b546b8bc22c5183"
+      },
+      "5458": {
+        "intents": [
+          "self_expression",
+          "social",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "self_expression": 2,
+          "social": 14,
+          "identity_curiosity": 16
+        },
+        "rationale": "主动讲做鸡肉，面对游戏或故事邀请改说想聊天，随后询问名字。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "bf5452dc0df26612d422b2aa3f6d989565bca0df6189b4da41d2c527abb1d6e2"
+      },
+      "3257": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "de87a73c25ec251e51ea290c5153725615de138aef6906015003a030b07b4a85"
+      },
+      "2758": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Dog 与 Play a dog 均未得到确认，不足以认定角色扮演。",
+        "status": "insufficient",
+        "messageCount": 8,
+        "sourceHash": "fb153e1addcd0a48840c8c79c5db15b50178af59124208b516b2ba92e75eb684"
+      },
+      "7040": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回答食物及喜好问题；喜欢玩游戏并不等于要求 Dino 开始游戏。",
+        "status": "participation_only",
+        "messageCount": 18,
+        "sourceHash": "351c1892fe840639f7295851edecb5ebe0867130d908c0889a9ff83b2a29440f"
+      },
+      "7810": {
+        "intents": [
+          "language",
+          "clarification"
+        ],
+        "anchors": {
+          "language": 4,
+          "clarification": 14
+        },
+        "rationale": "明确改用马来语，后对上学时间问题反问，Dino 随即重述选项；属于澄清当前问题，不能把 English 词本身当学习诉求。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "53978f2bfdbaa8a888b721ff3ffbdc9c76bc381884a0dc0cc4604e1f742e68a7"
+      },
+      "5844": {
+        "intents": [
+          "identity_curiosity",
+          "product_help"
+        ],
+        "anchors": {
+          "identity_curiosity": 0,
+          "product_help": 4
+        },
+        "rationale": "先问 Dino 名字，后询问 Teacher Leo 在哪里；没有请求 Dino 扮演老师。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "67cd962f7bd5a14fa6c6caf3c97f9c74c1c2466c3b7f4a0ee4a8f73d1bfa23f7"
+      },
+      "9347": {
+        "intents": [
+          "language"
+        ],
+        "anchors": {
+          "language": 4
+        },
+        "rationale": "明确要求 Speaking Malay；词汇教学由 Dino 发起，学生未提出学习目标。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "7dff9022229585fbd62d5b73abca1d2fbc7d2092545e0702aa916ac1b70dca0e"
+      },
+      "9430": {
+        "intents": [
+          "games",
+          "clarification"
+        ],
+        "anchors": {
+          "games": 0,
+          "clarification": 22
+        },
+        "rationale": "参与游戏时连续询问 daytime 含义并要例子；从英语练习移入澄清与解释，没有独立练习或表达求助。",
+        "status": "coded",
+        "messageCount": 26,
+        "sourceHash": "cb29e0c66deb041e8c7d17e05329510650825045da7d459bdca4b8f83b404041"
+      },
+      "6792": {
+        "intents": [
+          "games",
+          "clarification",
+          "repair"
+        ],
+        "anchors": {
+          "games": 4,
+          "clarification": 14,
+          "repair": 16
+        },
+        "rationale": "明确选游戏；多次问 What did you say 请求重述，归入澄清。另反复强调已经准备好并纠正 Dino 未接住的回应，保留被准确理解的独立证据。",
+        "status": "coded",
+        "messageCount": 56,
+        "sourceHash": "e123405a228e3c9a5054d65b8e7f53781a08ec258d8fdbcf7ea43a27acd3ff1d"
+      },
+      "9886": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "文本被星号遮蔽，没有可用目的证据。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "c8585a51e3afb85e0ada9a406509fd2d0e6a18baf3d4720db6b18b1df0d61319"
+      },
+      "3528": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": 4
+        },
+        "rationale": "问哪一天并在 Dino 追问后确认是今天，支持日期信息请求，虽未获得答案。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "71dfe1e4c2d2822600f0c1ff87cf8a5ba88d70193dcbb233277b0fc06c9fd52d"
+      },
+      "6447": {
+        "intents": [
+          "product_help"
+        ],
+        "anchors": {
+          "product_help": 4
+        },
+        "rationale": "明确想进入 Level 4；后来说喜欢 Roblox 不等于要求 Dino 玩游戏。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "a57a9e590e97bc78cd549a76303945f2f898badcf8716eb1b7a99ba80986675d"
+      },
+      "6911": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单条含混转写。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e61893b8b5427e2d2f1eea819a6a6b4e3f8f3626bb381873db9346cdfe71b71a"
+      },
+      "2548": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "问候后 Find 含义不明，未选择 Dino 提供的活动。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "bfdcea05a302b6597a95d1107753c3bd32badc1e03794241627d5b8059162efc"
+      },
+      "7531": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "明确拒绝颜色游戏，但没有给出替代目标；不从拒绝反推聊天陪伴。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "09609a1224f15cc986b5bb3c9e41292caf563245295d87c78110a2dac27bd7a6"
+      },
+      "6531": {
+        "intents": [
+          "self_expression",
+          "identity_curiosity",
+          "games"
+        ],
+        "anchors": {
+          "self_expression": 8,
+          "identity_curiosity": 34,
+          "games": 64
+        },
+        "rationale": "在开放邀请下详细讲妹妹摔倒和家庭照顾，后来问 Dino 喜好并提出玩游戏；分享伤情不自动等于寻求情绪安慰。",
+        "status": "coded",
+        "messageCount": 66,
+        "sourceHash": "c439874dd403492585e4cc045d3f2fbe7eb2cc91b44ea5f25d28eef1b6879f12"
+      },
+      "3002": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 Rocket 可能承接缺失的固定首句，不能认定主动探索太空。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "821ed347338d16cb2c7bd291786ea8bc6b3824a9f7ac038dc8b0c9bb12120445"
+      },
+      "5872": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "连续短音节和识别失败，首个 What 指向不明。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "3f9602508f01f43d26af9150659cbf905706b3ee3861be65b73efda5d0c85380"
+      },
+      "5702": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Blue 与识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "7899e0c29f823d379e6644d26455a4ebbbc1b2769129d0c242e612acaba9de7d"
+      },
+      "7464": {
+        "intents": [
+          "stories",
+          "social"
+        ],
+        "anchors": {
+          "stories": 10,
+          "social": 14
+        },
+        "rationale": "明确要赛车睡前故事，并主动夸 Dino 可爱；提到喜欢格斗游戏只是偏好，不计游戏请求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "71b3afee6d93d860351218efa5286045f08233f7328b94bca8620da8df34ffdf"
+      },
+      "6102": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句称呼和 What do you do 指向不清，且未得到确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "3c0094b9f0218a7c7c34ea50a0c36c20acda890d0e927b8b5b991ba3fa6473db"
+      },
+      "7508": {
+        "intents": [
+          "identity_curiosity",
+          "games",
+          "social"
+        ],
+        "anchors": {
+          "identity_curiosity": 8,
+          "games": 30,
+          "social": 34
+        },
+        "rationale": "询问名字、反复邀请一起玩并规定游戏方式，明确问能否做朋友。",
+        "status": "coded",
+        "messageCount": 38,
+        "sourceHash": "007dbbae3a84bc651f96e2ac4a466cba5dbdd64c2bd87cf76e900b8c9e2510d3"
+      },
+      "3690": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "招呼和想吃食物之间缺少连续语境，Dino 没有接住，不能判断具体请求。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "564f15618c382d3beb6ec31104d2a7f49c29efe910268a7b7c81611aa9bf4695"
+      },
+      "10828": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "首句食物偏好及后续回答可能承接固定开场，只见普通回应。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "b618140a9336cfe62256a86515a45cce9f0a1f57b15021b77d6e60004056aa38"
+      },
+      "3141": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单次问候后识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "69f02e1dbdd57c3888082591ad9175e0afecb634970591384434701c69c2320c"
+      },
+      "8051": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": [
+            2,
+            18
+          ]
+        },
+        "rationale": "反复询问世界杯结果，后明确要求 Dino 重复 Bubble 及从一数到一百；按人工反馈，HOME 的这段指定行动诉求并入把Dino当成工具使用，保留两处证据，同一 Session 只计一次，不更改其他入口的角色与行动分类。这些不是跟随数数练习。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "a15f8d9e83d09d5ecc82cd524c74ed39a5143c71ac2878bd05da3925a8afd71b"
+      },
+      "2284": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "7a43a8101983e4e8e88120e3a8de03e28f23d55dba7fe0f7f86919b525d143e6"
+      },
+      "9305": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句搜索应用词组含混，没有明确查询或执行目标。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f39e2f3ce828cd5349fdc39c0663cb5cee0ccd9d1380f1312173c2ae15be3620"
+      },
+      "4717": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 8
+        },
+        "rationale": "从含混 I wanna 修正为明确要 tiny game，Dino 随后启动活动。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "1836ba9663f5d3889a4309a77a827f3c68703684291f9e540b2e1a67bb09d183"
+      },
+      "7784": {
+        "intents": [
+          "language",
+          "games",
+          "self_expression",
+          "identity_curiosity",
+          "tool_use"
+        ],
+        "anchors": {
+          "language": 2,
+          "games": 4,
+          "self_expression": 6,
+          "identity_curiosity": 44,
+          "tool_use": 48
+        },
+        "rationale": "选择英语，提出工作游戏后主动转向学校与乐高生活，追问 Dino 来历并多次请求显示双子塔照片；展示照片是明确执行请求，不只是能力问答。",
+        "status": "coded",
+        "messageCount": 54,
+        "sourceHash": "a4deca643e0b3bafb2fe8168bd2854fe3ba94ae7228f337c6f01cfb21012b30a"
+      },
+      "9826": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "长对话持续回答 Dino 对兔子、颜色及学习时间的封闭问题；轮次长并不能证明额外陪伴或求知目的。",
+        "status": "participation_only",
+        "messageCount": 60,
+        "sourceHash": "6975e55efed9a07ba9def4072d5feee38c8d7e747253a7ec2587dd4147352046"
+      },
+      "7829": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回答学英语的时间与频率，没有请求 Dino 教学。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "4e366bd9d35416bce01bb4e958ce8acea0bb113f998ee06413d727fcc6ae8590"
+      },
+      "3983": {
+        "intents": [
+          "social"
+        ],
+        "anchors": {
+          "social": 2
+        },
+        "rationale": "围绕双方是否知道彼此姓名互动，学生明确回应 Dino 认出自己；不把已知名字复述计为身份提问。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "7fc8f4eed7dcf3dd0d885603974e7693a0d843e2c85832f62c2b440c38356a0b"
+      },
+      "4443": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "日期、地点和 Turn off 混杂，无法从单句可靠判断目的。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e510a5bfb63b0fbafb85fbd34405d74251a9fb49917801053a3078b517b790e4"
+      },
+      "10102": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有肯定词和含混转写，Dino 决定英语不足以代表学生选择。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "9c489e7215db5723378ede57436313c7b376b4a68af1cb4fa05ce795de999c09"
+      },
+      "6644": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 22
+        },
+        "rationale": "前段转写多不清；在游戏或食物选项中明确选游戏并回答颜色。",
+        "status": "coded",
+        "messageCount": 34,
+        "sourceHash": "f40cff5f38a21f66c50e166011abcdd47ece30131aebc81f49f9d2c2bf8fec19"
+      },
+      "6955": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Now sing Ciao 仅有单句且对象含混，无后续确认；保留不确定，不凭 sing 命中。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "90da3225958f172460fc5c6a14501a01ed9aa71d48222bd550a7aad38b0af6cc"
+      },
+      "5397": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有重复招呼。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "f4f3fc7a0c64c479004adca822981146eaaf9d75b591ceb2c7044f4cb56a1adc"
+      },
+      "8647": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "说有话题但主题转写不清，Money 单词没有展开。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "09c91ff8f0fb820a5aeb1733e47afb42c0f3c41b7b159473e00303750d7a6691"
+      },
+      "5749": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "长段像游戏背景音或含混转写，无法确认是向 Dino 发起的请求。",
+        "status": "insufficient",
+        "messageCount": 14,
+        "sourceHash": "aa1b8f1e0e464d3daa5d5e4bb355b9bb625ef416fa0f2af695a1926a805aad91"
+      },
+      "7940": {
+        "intents": [
+          "games",
+          "self_expression",
+          "social"
+        ],
+        "anchors": {
+          "games": 34,
+          "self_expression": 54,
+          "social": 66
+        },
+        "rationale": "明确选择颜色和跳舞游戏，主动分享节日家庭活动，并表达与 Dino 聊天的愉快；介绍学英语经历不是教学请求。",
+        "status": "coded",
+        "messageCount": 74,
+        "sourceHash": "c8efd9806a678796ec0e4a2ef3090ed444be48557a944b492a24d023aa27bb52"
+      },
+      "6641": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单词 Law 与识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e0c7f2da98e0d171200c4fd79b36ba6587b968243009359f9b295adc37c8b283"
+      },
+      "3517": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "询问人物的名字转写无法辨认，Dino 同样无法确认；不从 Who 机械推断知识类别。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "e21847d59b527e891d1d0e7b428f211bd8a550a108a009f333035eab234436a1"
+      },
+      "4619": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "招呼后没有展开。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "35dfe63ca8fee8418815dab0b87be9592be6a016c556deaa042b7723df3dc56c"
+      },
+      "10218": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "按 Dino 要求顺数，倒数时表示不知道；没有独立请求教学或翻译。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "2600b76c3758603cb91947002407c2c6f63a996042ca78187961286c14dec5c6"
+      },
+      "4610": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "数字与含混短句，Dino 自行提出语言解释，无学生确认。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "02eef3bd242e2c656ad340a73b64cd5dcf4373f74a2fe8beeca667f27a9f177f"
+      },
+      "5720": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅 lo，Dino 猜测问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "73718bff342818cbb97e039c6cbf13eff27078a4686e7887b863683ac31b6923"
+      },
+      "11098": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 6
+        },
+        "rationale": "从重复 English 转为明确邀请一起玩；English 回答的是喜好问题，不独立标语言切换。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "ba44e7f5ebf815072f44a629d31171ca277b09c9dcc9b44fa80bfde5d5a8c1e8"
+      },
+      "9281": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Barry 与心情的转写含混，Dino 的快乐解释不足以证实学生分享内容。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "c493ed6a298f17b009bf965e51879be7f381ec557934d9890563979886f56c3d"
+      },
+      "9298": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 12
+        },
+        "rationale": "故事由 Dino 自行开始，学生随后表示听不懂；归入澄清当前话语，不算主动要故事或纠正 Dino 的误解。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "d3ef318d9135f6a1215863ce6f07b2a10e96e545216b5ca6d99b5c265ba42389"
+      },
+      "9870": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "问候后语音转写难以还原，不采纳 Dino 对伤心或故事的猜测。",
+        "status": "insufficient",
+        "messageCount": 8,
+        "sourceHash": "cb10e3f2f272ef4e462fdd0e871878481db92d454966b210925c111c4cf36eb7"
+      },
+      "3800": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 2
+        },
+        "rationale": "明确提出想玩游戏，随后持续参与动物颜色游戏。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "8ca956b70a33056d5c8ac54246a50568e2020ba9c287a412a398a37b1fdfdb6d"
+      },
+      "4992": {
+        "intents": [
+          "language",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "language": 4,
+          "identity_curiosity": 16
+        },
+        "rationale": "请求马来语交流并追问 Dino 喜欢的电影；普通开场 How are you 不单独标陪伴。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "23d7d34adfaf55fbba18a33a93005ba7f7a160c8c3549701617e509c10f7fdda"
+      },
+      "3093": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Yeah，首句问题缺失。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "eaaab9ae9590d65f9dd9e0ea20309617ca6f9bc97fc7ab0aaf6f586002fbfc1e"
+      },
+      "3905": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 4
+        },
+        "rationale": "前段混乱，但最后主动清楚告诉 Dino 自己冷；支持表达身体感受，不推断求安慰或医疗建议。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "99b54bfbb99f0c1dc6f61f7345368cd5983b1359fc3e1c584411a64409cbeb42"
+      },
+      "3486": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "介绍身份后列举形状并回应 Dino 提问；fear 实为 sphere 的转写偏差，不是害怕求支持。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "cf5fd9d62447512dc4694985e9b8d6389c1dc9665e627021f881e0d8616f6102"
+      },
+      "5522": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 2
+        },
+        "rationale": "明确选择游戏并参与颜色问答。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "d577346a7c4c5245378dca28796ad8501aab5a19a9ea88f4173c41b01762376e"
+      },
+      "4993": {
+        "intents": [
+          "self_expression",
+          "repair"
+        ],
+        "anchors": {
+          "self_expression": 2,
+          "repair": 2
+        },
+        "rationale": "多次试图介绍自己和朋友，Dino 一直弄混人名；分享关系和修复理解有连续证据，具体姓名仍不确定。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "cd7522b53a6ff43ffbc1de6958d76a606aa3d01a249e3ac2c9104b30f6dcac46"
+      },
+      "2594": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回答动物偏好并在选项中选择狗，没有请求额外功能。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "18fad74ba5490998da4544e8f9868b912806cbc4131a6883d44e1b72379f0144"
+      },
+      "4994": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "人物、活动与 Call Atita 混杂且都未确认，不凭 call 强行标任务执行。",
+        "status": "insufficient",
+        "messageCount": 14,
+        "sourceHash": "d4973889d6e89da93060fb24d9339da3b7aae49dde08311e91c882399124b5c0"
+      },
+      "10862": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句含混，Dino 猜测是在问住处但没有后续确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "c263014ea6cb18df790e6f3c55a174bdba925b0f632c469a9ec363abb37c2d77"
+      },
+      "9462": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "表示很喜欢英语，不代表请求教学。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "a248ec8d9766f430cd28e0abf482acf966cb9fe77bd6c87df8e390c092b123d2"
+      },
+      "6515": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Hello。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e6713009b2cb6eaf697a0a8844c75eddeed39fc7f77d24b44e2f97debc69d94c"
+      },
+      "9732": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 0
+        },
+        "rationale": "人工反馈：HOME 中询问如何说 hello 的这段对话纳入请求澄清与解释；Dino 给出 hello/hi 并有跟随尝试。保留原文，从英语练习与表达求助移除，不据此更改其他入口的分类。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "dfad563f96feddd5843527bc36ad105cbb2a9de925cfc75a47a3abf1b4b4bc1b"
+      },
+      "9284": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "原因问题没有清晰指代，后续仍不明，不能据 Why 标求知。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "ce3d6b34c0a09947ad85e1556e340e3f2d2ba3a8aeee195847d1f728239926fe"
+      },
+      "10863": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "重复 Let me out，但无法确认是退出应用、虚构情境还是现实请求，不推断危险或扮演。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "29668ed728d35c2faf29674f7adcf1ae8c954fc4166df3db3f7b17dd0032930e"
+      },
+      "9285": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 4
+        },
+        "rationale": "在 Dino 询问是否要歌曲后明确要求 Change the song；周围含混文本不足以认定孤独求支持。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "07f1f8edc549c0880962360eb99111f62b363979aba6c08f198d3985d2d002d8"
+      },
+      "4007": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "反复模仿 Dino 的识别失败句及招呼，不等于主动要求英语教学。",
+        "status": "participation_only",
+        "messageCount": 8,
+        "sourceHash": "b366298663144f61b5843e0d5b8b126d317162a4590dc68f5ca3320ab4c6d6df"
+      },
+      "8811": {
+        "intents": [
+          "language"
+        ],
+        "anchors": {
+          "language": 2
+        },
+        "rationale": "在英语或其他语言选项中选英语；随后字母练习由 Dino 主导，不另标学习目的。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "0bff1409efdff525937803c0dc651c600eebb8f1d395587ed99f5023c1a0c821"
+      },
+      "10875": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 OK，先前问题不可见。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "d5e7cc2a5d85d711bcfd5b326112a6eff65a9a15375cb5fc1fb62c1633f1b134"
+      },
+      "7563": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单条含混词组。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "fd26f296e861c075eea17cf0ebf0d885b58efdfaecec298629ba4469cd513a33"
+      },
+      "10870": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Wow/Ow 无后续确认，不能断定身体求助。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "98097b1b270e15ee8663d4e76256167e6a8224d19eaba08e4edd9a99aa2cdd4b"
+      },
+      "3840": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 4
+        },
+        "rationale": "持续指给 Dino 看自己答案旁的图片并补充位置，希望分享眼前对象；不是泛泛回答颜色。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "65eddc29329b6e69e8559dcaeb7d0ebd4ad121e277e657df03f96dd88818cee7"
+      },
+      "10914": {
+        "intents": [
+          "language",
+          "games"
+        ],
+        "anchors": {
+          "language": 2,
+          "games": 14
+        },
+        "rationale": "明确选择英语及游戏；后续夜空描述主要承接问题，不将 Dino 的蓝天解释标为学生求知。",
+        "status": "coded",
+        "messageCount": 54,
+        "sourceHash": "b53a6cc5a07c2c05021446aef26342f0392c8fc461b4dd04f694e71eb5755374"
+      },
+      "9552": {
+        "intents": [
+          "repair"
+        ],
+        "anchors": {
+          "repair": 20
+        },
+        "rationale": "学生反复纠正 Bold/Bought/Bot 的识别并用例句尝试说明；实际目标词仍不确定，不把 Dino 主动释义等同学习诉求。",
+        "status": "coded",
+        "messageCount": 34,
+        "sourceHash": "fe2881682771070c028072e7d22d02a8c554ea6789f551a84ec699309400b34f"
+      },
+      "7566": {
+        "intents": [
+          "language",
+          "games"
+        ],
+        "anchors": {
+          "language": 4,
+          "games": 6
+        },
+        "rationale": "纠正 Dino 擅自使用英语，之后选择 tiny game；目的语言未能确认但调整语言的要求明确。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "35de492cb80166c7aa0db627b5649122036e87c6ff2520a48009f1f5d5c46be2"
+      },
+      "2800": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Loud/Louder 无前后语境，不能判断调音量还是跟读或词义问题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "2ed3ba266fcaef2f78ac18cafe0691470bb00c010399a48ca4cfd56a6bb8d90d"
+      },
+      "7605": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "多句转写含混，未形成稳定的请求或表达对象。",
+        "status": "insufficient",
+        "messageCount": 14,
+        "sourceHash": "62a9f15951e196c1f5a5bb9d740d66cbc8db2c6f7b9a5849c382ae819e59c9af"
+      },
+      "5492": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 0
+        },
+        "rationale": "明确 Let's play，Dino 随后提供披萨配料游戏。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "4d0255bee9ff5cd90bba6e13f8546cfaef042ebc340405a4c022819891c59510"
+      },
+      "8593": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 0
+        },
+        "rationale": "开头 Let's go play 明确；粗口不自动解释为测试能力边界。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "99a4ad0ecba76a706c72183a8c3101e30a27809128924219c0784b62a0134aea"
+      },
+      "9553": {
+        "intents": [
+          "repair"
+        ],
+        "anchors": {
+          "repair": 6
+        },
+        "rationale": "学生纠正 Dino 把自己的选项听成 bot，但目标词仍不明；持续修复识别而非求机器人知识。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "fc871793e1185817d30aaea664611b57efe7ea206e37b4c8c8166293395c4762"
+      },
+      "6617": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 2
+        },
+        "rationale": "主动指定 Play numbers，随后参与数数；不把数字词本身当英语学习。",
+        "status": "coded",
+        "messageCount": 42,
+        "sourceHash": "8370f8d75ba3f62ae6e83763ab1229af7e02dc06522de6872178ed3ffdccd056"
+      },
+      "8794": {
+        "intents": [
+          "stories",
+          "clarification"
+        ],
+        "anchors": {
+          "stories": 6,
+          "clarification": 14
+        },
+        "rationale": "选故事后表示听不懂，并具体询问 cave door 含义；两处合并为同一个澄清意图，只计一次，从原 repair 和 practice 同时移除。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "82e038b97c2e04ed4f483f1f188ccaf1783f8cf0a11b6a58e0a2e6dda9df2f03"
+      },
+      "5967": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 14
+        },
+        "rationale": "原本跟随橙子偏好问答，在 Dino 明确邀请游戏时答应并继续参与；属受邀接受。",
+        "status": "coded",
+        "messageCount": 36,
+        "sourceHash": "a5042ae290343e45f65063fb6627a73b850a40f3c680af6ca00cc6a6de6f542e"
+      },
+      "2785": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句含混且识别失败。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "a0f85eee0dcfcce5a1f457b992bbc2518947021fb3c8acd181895b589d6c520e"
+      },
+      "2601": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": 8
+        },
+        "rationale": "明确要求叫另一人起床上学，Dino 表示不能直接联系；不把前面的 wake up 自动当闹钟功能。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "9c304ee3e4be68187f8494557517369f9a095f6d5686dcd4ddebe5159ec717f3"
+      },
+      "10396": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 0
+        },
+        "rationale": "问 Dino 如何说话，回答围绕文字、口音或声音；支持对交互方式的探索，具体维度未定。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "e8984e5798146821a97b2143efbd34f83be0b9cd6ed1425c819c20e3dc431d73"
+      }
+    },
+    "EXPLORE": {
+      "1879": {
+        "intents": [
+          "self_expression",
+          "repair",
+          "practice",
+          "clarification"
+        ],
+        "anchors": {
+          "self_expression": 26,
+          "repair": 14,
+          "practice": 34,
+          "clarification": 18
+        },
+        "rationale": "分享猫与家人的经历。纠正猫名支持被准确理解；追问 dollars 后表示弄懂了，支持澄清词义；另核对 My mom bought one cat in China 的说法，仍属独立表达求助。",
+        "status": "coded",
+        "messageCount": 40,
+        "sourceHash": "b8e50d3b5b12ef27ff7d77de47258402932eb66c6a96220335ee58cea509ebed"
+      },
+      "1608": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "ce5c38f1d27e7d6e4fe21fc2ac979938b8e817fefc20e270fe9395591175f120"
+      },
+      "799": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 0
+        },
+        "rationale": "直接问 Dino 喜欢什么，Dino 回答自己的兴趣；这是了解对方而非获取外部知识。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "c46dd95f36f94d271e1ca51674fd2815486605767fb5b6e9984ee432a6d2802d"
+      },
+      "782": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "首句 So what do 不完整，Dino 给选项没有学生确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "6881829703500b8ac2e84edf795876759d641d2f4549c48a5b00f7fadaa89018"
+      },
+      "397": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 2
+        },
+        "rationale": "在话题选项后反问，Dino 重说后学生选狗；属于听懂当前提问，不是纠正自己的回答被误解。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "315fde58f49e95f70d5a5c69911c52c978f3ce5fb42265abcfcca409f9acef1c"
+      },
+      "529": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼，练习选项由 Dino 提供。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "1b4280af652fcf5e3e3955f641560f06f620ddc879bd841ba2635018aea8ab17"
+      },
+      "2057": {
+        "intents": [
+          "identity_curiosity",
+          "repair",
+          "clarification"
+        ],
+        "anchors": {
+          "identity_curiosity": 4,
+          "repair": 26,
+          "clarification": 24
+        },
+        "rationale": "问 Dino 性别及偏好；先问你说什么请求重述 bow/boy，随后纠正自己是女孩。澄清与被准确理解由不同消息支持；Dino 主动纠语法不等于学生求英语教学。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "eac9dd7cc3862f130d6e94621f2c03d7806140b73c236594ccd8417eaf365797"
+      },
+      "507": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅颜色偏好，可能承接缺失首句，不能确定主动分享诉求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "136eb79ef53bfe65b0cc4c4af0c3aca4092f4c886807e08fd058f909489d0f3d"
+      },
+      "896": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 8
+        },
+        "rationale": "在 Dino 邀请聊玩具后主动改为自己的食物偏好；不因固定问候推断陪伴。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "8a58369563d17b8c50e6fd4601e26ad766b93b6adedacfdf31f62944782209e8"
+      },
+      "973": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Hi。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "55acd8944f429e40ace4727863bb5c7e1461d6af12a02d01729a4db7f0d1afd0"
+      },
+      "850": {
+        "intents": [
+          "repair"
+        ],
+        "anchors": {
+          "repair": 2
+        },
+        "rationale": "持续纠正名字；粗口及数字未形成明确游戏或教学请求，Number bro 只支持换话题。",
+        "status": "coded",
+        "messageCount": 34,
+        "sourceHash": "9af57a4bf372336f2e7950a1849559b426e77e96728c07223ad01c7c533b7654"
+      },
+      "2249": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选长颈鹿并回答特征问题，未见额外用途。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "73f666eece3de381945442f51f68caf9d8340640acd8cd2e9fb5c4e7b7641167"
+      },
+      "869": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "I died 缺少上下文，不能判定现实求助、游戏或倾诉。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b0c6245338e19556e54da274ae82d393729dc0c5e1834ed85d8d8a238e97b07c"
+      },
+      "2026": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 0
+        },
+        "rationale": "向 Dino 报告自己 depressing；其余含混，未明确请求安慰或帮助。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "a3bfe156df0894cd00debd1e8d0a9ce1b087ecb0767a351b1fbaa1cf9c6cc572"
+      },
+      "256": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Rainy cup 等表达无清晰指向，招呼后没有稳定目的。",
+        "status": "insufficient",
+        "messageCount": 8,
+        "sourceHash": "1fa011a46703a394ab9806694e47ffcac98e0eae2799320629c09fe8571d72eb"
+      },
+      "377": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 4
+        },
+        "rationale": "明确问名字，后问候；单独 How are you 不扩充为陪伴诉求。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "fd44b6e7fa52780656e438a2acddb140ba513bc4e799ca0eac1a3f3d08eb325a"
+      },
+      "294": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 4
+        },
+        "rationale": "主动要求搜索歌曲，Dino 追问歌名；歌名未确认，但歌曲请求本身清楚。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "c5a2eee567d6cc743df81f11080af4ee4f57f91aef51261b61e387161f622f75"
+      },
+      "576": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "492b5b598d667afe2681e8e4cce76add0ca6dacd7be9b1304d338f9524fa25eb"
+      },
+      "2115": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "家庭、鞋子和难过的词串缺少可还原语义，不照搬 Dino 的情绪解释。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "f9fa9cca29db729eea646dcf4cdc24e445e77a7e2e0a2a392d988e2b29fb7c9a"
+      },
+      "1892": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "在选项后选择恐龙话题，没有具体功能请求。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "bef7480b886a17e5064c84206e3a9937057d470fd24d88cf1358dd567feba00b"
+      },
+      "1029": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Cats，开场语境缺失。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "59c6e716416ff28c4ee2129e3a4f0c0fbd2c3d52463310fb34400341f6821145"
+      },
+      "957": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句转写难以确定指代。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "a17bfb323ce80bae15c92a1edab8828ad635f5996357c7fabebcbd060f0dfbb4"
+      },
+      "955": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有数数，不能判定学习或游戏诉求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b1af44b83300b2bb43cd46fc0559016e65f87c5a3fdea2500666ab72c1f56457"
+      },
+      "72": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "未完成的自我介绍，Dino 自行补名字。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "243bc87acfe703aa6806a6af09e0f6c7308eb35cae6deb3411468fb4a08db7d1"
+      },
+      "1417": {
+        "intents": [
+          "repair"
+        ],
+        "anchors": {
+          "repair": 4
+        },
+        "rationale": "纠正 Dino 把颜色理解成绿色；未见请求英语教学，不能据 Dino 的跟读指令认定学习目的。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "5b9934ab3b02abe57a2e3e01edd0c340f745dec2b60fd94fe79b835a068ac757"
+      },
+      "1647": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "在选项中选择猫话题。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "2108f4be9b1b7b14490da654ef22202c95ffacab554e545edfb6132b9df4e84b"
+      },
+      "293": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "要求停下并说疲惫，未提出支持或陪伴请求；把结束互动记为行为，不额外推断角色。",
+        "status": "participation_only",
+        "messageCount": 8,
+        "sourceHash": "6df406eb0996ce420755e01b1c0353adde4260da1cfccd761ed492a9a78f6773"
+      },
+      "1250": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e6e531fadec9d3789aa074b60fb97c483af37f826c320811d5f5067c13744808"
+      },
+      "1236": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "越南语仅为你好，不代表请求翻译或切换语言。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "0adc4df988f99adb5866c31c5d0bc15a181cd005ed652eea7a94601a4f7329a4"
+      },
+      "855": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 0
+        },
+        "rationale": "问 Dino 正在做什么；只记录对 Dino 状态的询问，不推断心理依恋。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "5f9d556aa9767a076cc99234114f9c8e0653672412b492ac68c992ed4091f9a6"
+      },
+      "1666": {
+        "intents": [
+          "self_expression",
+          "social"
+        ],
+        "anchors": {
+          "self_expression": 20,
+          "social": 16
+        },
+        "rationale": "主动分享想看蜘蛛侠及兴趣并夸 Dino；Happy birthday 不能独立证明要求唱生日歌。",
+        "status": "coded",
+        "messageCount": 38,
+        "sourceHash": "2b61ae7ee943afb2ae71686bc107940a2c0d9e9e972dcc8a66f6fd416e9e5f9a"
+      },
+      "344": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f317a9dfca8cfc9bc01531c2cbcb75692c3b78165c1e110e99d1faa59f75ca56"
+      },
+      "2006": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "招呼后的请求语义不清。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "39252af493f4eefcc8cf70777dcfcce99ff43b67e34f1954d92d42bf2ac9ffbb"
+      },
+      "636": {
+        "intents": [
+          "social"
+        ],
+        "anchors": {
+          "social": 20
+        },
+        "rationale": "虽然前段转写混乱，末段清楚向 Dino 表达喜欢并告别；Mr Pian 的年龄指代不清，不标知识查询。",
+        "status": "coded",
+        "messageCount": 24,
+        "sourceHash": "c77101f49557af56b1e21a2f33d1b1c799fe0ab8bdfb0b5c6fd9fde224f6938c"
+      },
+      "1167": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "从玩具选项聊到霸王龙，主要顺着问题回答。",
+        "status": "participation_only",
+        "messageCount": 14,
+        "sourceHash": "6a4348de748f54edbae00bae1bed04f3cda26d63daf2cd6a76630648cefbd6a3"
+      },
+      "1333": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Me。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "59c90cb1690fc1e46385e7ee080296bb32309f5012b647d547ac3e8a7f5d311d"
+      },
+      "255": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选猫后跟随回答，后表示不知道说什么；没有清楚的替代功能目标。",
+        "status": "participation_only",
+        "messageCount": 38,
+        "sourceHash": "8eae0548465050f55dc16d360e55473f294229f857b596ee11753032d49742e4"
+      },
+      "679": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 2
+        },
+        "rationale": "主动展开自己为什么开心及能吃巧克力的经历；后续练句由 Dino 发起，不算学生主动要教学。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "4b2504bfade3ce2a8a6947ead9286c0f5c37bbe76894d152e6009dbed4fc776a"
+      },
+      "1185": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": 6
+        },
+        "rationale": "明确请 Dino 解释 ballroom，其他游戏和动作词转写含混；不依靠 hurtful 或 frustrated 猜测情绪需求。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "e98314fd06f56b05022c88d9b4a234f07c05a7d50b8755751c26b6f6f05ec8bf"
+      },
+      "66": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 2
+        },
+        "rationale": "明确接受并选择颜色游戏，后续回答与跟读均在游戏中发生。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "928b4028e0820114bcc00fabcf13a0f1d9f4b4522287322a8587db1116a9d75a"
+      },
+      "1201": {
+        "intents": [
+          "self_expression",
+          "practice",
+          "clarification"
+        ],
+        "anchors": {
+          "self_expression": 2,
+          "practice": 4,
+          "clarification": 0
+        },
+        "rationale": "开头表示跟不上，归入澄清；随后分享奶昔做法，并明确接受短句练习，独立英语练习意图继续保留。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "c314163a7e89ee7ca072ec47952cab707795915a9bf130b234561775dd471b86"
+      },
+      "1026": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "招呼及 I won 未进一步解释。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "2355e39b52243344247e46f36603d324d379d40524d8e40607bf99c4247deb07"
+      },
+      "133": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅礼貌问候，不据此认定陪伴诉求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f66448e5dc3195861b0b6b01c457f801fbf2c58309179a3cf1a2273f7cce7dd4"
+      },
+      "1700": {
+        "intents": [
+          "repair"
+        ],
+        "anchors": {
+          "repair": 16
+        },
+        "rationale": "不断用 No 修正 always/away/wait 的误听；实际想表达的内容不清，不把 Dino 的造句当学习请求。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "d7197e3584040604847f5980bfd52c9d2de2690131eb11bc46e672ce866ed150"
+      },
+      "1883": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 6
+        },
+        "rationale": "重复话题邀请后学生追问 What，Dino 重述选项；归入澄清。Read me sweet 对象不明，不判故事或朗读需求。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "be398ee12b5017d5809064824f6fadacb27090c974ceb6303ba0aedf4e10c34b"
+      },
+      "2078": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 48
+        },
+        "rationale": "前段一直答猫的问题，后主动转到 Ronaldo 和足球兴趣；长时间 Yes 不自动标陪伴。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "9293785490eddb7e922a8a06529d3b973e67e2b70110c6116f76d592e2070509"
+      },
+      "2074": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择聊游戏后回答个人游戏与运动偏好；谈论 COD 不代表想让 Dino 陪玩。",
+        "status": "participation_only",
+        "messageCount": 34,
+        "sourceHash": "1dd8c9605692849e4aeb94e4b496cbac6c6dd002fa453d9c9a744a14367e39c8"
+      },
+      "1202": {
+        "intents": [
+          "self_expression",
+          "tool_use"
+        ],
+        "anchors": {
+          "self_expression": 6,
+          "tool_use": 12
+        },
+        "rationale": "主动选巧克力话题并询问如何与牛奶混合；中途自称母亲，不能保证全部发言都是孩子，结论限于会话发言者。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "4a6e84719690aff7e2ddf527983ee333393e1ff79ec05d8a5764504b60fe1d1f"
+      },
+      "381": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression"
+        ],
+        "anchors": {
+          "identity_curiosity": 4,
+          "self_expression": 8
+        },
+        "rationale": "先问名字与来历，随后主动说越南；作为分享自己的背景，不将其并入 Dino 身份标签。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "4b7a2a700fb369cb0b1100a4b4adb18ee25d694588fd955a5d3bf50a20064ead"
+      },
+      "2102": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅 Never/Let's go，无明确对象。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "11d25cd23b957a7fce09f24b596efa9c089766043d475f41667711ae32702d2c"
+      },
+      "155": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Bing/South 指向不清，Dino 未确认。",
+        "status": "insufficient",
+        "messageCount": 8,
+        "sourceHash": "423f03fead0e6417ca1d86b5e81f080e2dfe6f7bd145ea567217e5e72883270a"
+      },
+      "1027": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择动物及狗，后面 Beatles 可能转写误差，不能推断要听歌。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "be57c7a97ac11784bde5cf7558f150d36ec7dddb47637d8046301efd13a559df"
+      },
+      "852": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "短句难以辨认，Dino 的改写没有学生确认。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "7060061731c02eb398039a3aa3db15399e877657f0c178b19f7a8365d74f5971"
+      },
+      "164": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 6
+        },
+        "rationale": "明确选择 counting song；先前拒绝聊天游戏不影响后面出现歌曲请求。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "8ec645b5e3c965a0bc4f06c3e2a856053dcbe1342df7e692e3f618c41ac83968"
+      },
+      "789": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "几乎全部短词含混，英语练句由 Dino 自行发起。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "4aa326379ed82086a8ce52d6cfcb40e886ea2987ddcef12ed50e703c873123c6"
+      },
+      "589": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 0
+        },
+        "rationale": "开头明确 Game，Dino 开启猜动物，学生实际回应，支持游戏需求。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "488b72964cf8b95944a8f351b2c483963eb0d065d73ffe3246be5d07377c801f"
+      },
+      "709": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "围绕蝴蝶与颜色回答问题，没有额外功能诉求。",
+        "status": "participation_only",
+        "messageCount": 16,
+        "sourceHash": "e4121633ca7d73906fce614890ae67c5d634e6c6cb2b18d8c8be45c758e04b20"
+      },
+      "1712": {
+        "intents": [
+          "games",
+          "clarification"
+        ],
+        "anchors": {
+          "games": 10,
+          "clarification": 30
+        },
+        "rationale": "让 Dino 猜动物，后请求重述画画问题，归入澄清；后续颜色转写与指代不稳，不凭 Dino 猜词另加词义学习或被准确理解。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "22601293b42b01511b81cc79670f3d88b5c7e2244c1025d6e6541b02e12a3dd3"
+      },
+      "740": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择聊名字但没问 Dino 身份，未明确功能目标。",
+        "status": "participation_only",
+        "messageCount": 8,
+        "sourceHash": "145db5107fe494e271234a94170dafce4b9f55780e3ee12f602d53ce0dce28a0"
+      },
+      "644": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "I love you Black 可能指颜色，Dino 也未确认；不标对 Dino 的亲近。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "8265b628cead667b3e475648d6c97e3207874add4bbe6afc08461270896713b2"
+      },
+      "1412": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有含混 Good be。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "4a384db7429068d4df381641bc3580e7e1ecda7dc631b6af5ff5f7a1c9bbf276"
+      },
+      "597": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 8
+        },
+        "rationale": "明确纠正为 Story only，并催促 Then，要求故事继续；不是仅提到故事。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "d307dd82a8e96198ec1f78631775672c7a29654b2119715e90a892bf6844a97b"
+      },
+      "382": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 2
+        },
+        "rationale": "Dino 提供越南或艺术选项后学生反问，Dino 重复原问题；仅支持澄清当前话语。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "7736c08d8050b159557307420af29914e6e0e6694a04785cff68754965643c0f"
+      },
+      "657": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "颜色鸟类问答与猜测为主，后段人物转写不清，不认定知识或自我倾诉。",
+        "status": "participation_only",
+        "messageCount": 38,
+        "sourceHash": "416d9c6eaeb02244e6e0f5f70080729940d37e18a63cae0efc9bad8cf87af52c"
+      },
+      "323": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选颜色并回答喜好，NYPD/Mom 没有可核实的展开。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "19c536ef67bc0e709830fdd4f96563a32bf39aa57ccd50993875923df76d8114"
+      },
+      "1023": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 2
+        },
+        "rationale": "明确要求说出名字，不能据 Call 单词标打电话。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "f8a66c9f9eb074d15e83e456d9f865cc057afcc43fca04804732d714d007b4d8"
+      },
+      "654": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "喜欢游戏是对话题选项的回答；没有请求一起玩或启动活动。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "6fae17945babdfd2e1c9f9c830c4e9903343ce57485686089f828dfd505452c4"
+      },
+      "128": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择太空并列举星球，没有具体问题或知识请求。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "66472e41d864c6f5544f71176c4703657f770b2cf595b6e3c2fcc986bb27059e"
+      },
+      "1641": {
+        "intents": [
+          "practice"
+        ],
+        "anchors": {
+          "practice": 16
+        },
+        "rationale": "在英语课堂话题中主动要求学习一周的天数并尝试说星期名；不是仅描述学校经历。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "6e059fe66394a02e383b008aab3ba9974b3829f8117b0d735dbbeb28267b21b8"
+      },
+      "756": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择动物与霸王龙话题，后段含混；无额外目的。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "64b93fb7d7428274041cd2168229326a917be3ac6a8335ab1759e0ea27abc9cf"
+      },
+      "762": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 0
+        },
+        "rationale": "主动问要玩什么，Dino 开启猜动物活动。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "a7e2276eb9ca08a34d1a3ea0f80622de5db81e142446eb35e4c976bb72ee8ccd"
+      },
+      "729": {
+        "intents": [
+          "stories",
+          "tool_use",
+          "identity_curiosity",
+          "social"
+        ],
+        "anchors": {
+          "stories": 2,
+          "tool_use": 10,
+          "identity_curiosity": 38,
+          "social": 44
+        },
+        "rationale": "选择 silly song，后明确问 Ronaldo 在哪里；纠正 Dino 是 AI 而非人，并主动表达爱与拥抱愿望。含混危险词不推断真实危险。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "62e81c427df6b8f6df638c6990cc55ab597086d1306f29416b425838828a1e9d"
+      },
+      "157": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "English Dino 无法区分选话题、语言或学习，未完成后续请求。",
+        "status": "insufficient",
+        "messageCount": 8,
+        "sourceHash": "ec77927255793ff67c1eb7c0d80e4840ffbcf9b5d6d2185f6a2c46a29264a902"
+      },
+      "1115": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "ed4530b2db6164ee12735bc1049144e8cf5ec169e94bad834603e152c2a2d153"
+      },
+      "1432": {
+        "intents": [
+          "social",
+          "repair"
+        ],
+        "anchors": {
+          "social": 0,
+          "repair": 6
+        },
+        "rationale": "明确说要一起聊天，后纠正自己说的是粉色不是 Bing；不推断歌曲需求。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "18d10520d1b5ee386ca24dc71c5616c2490a41d39d250a0e8372386ef23684ec"
+      },
+      "1570": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有不清楚的招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "14b2b98536ed3713fd87a0854377f1b15803c14eb2bac8605ff50a888fae3e98"
+      },
+      "1073": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 12
+        },
+        "rationale": "聊狗之后主动要求玩游戏；关于狗的信息主要回应提示，不额外推断表达欲。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "b0d37d6e08944fdcaa5c6fe31638c3ee82da307b70b9ca0640e7ad73b9dd238f"
+      },
+      "1580": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单句不清楚。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "dcfb1d462828e6ed11b7731aaa0913eb5a18dec3efb17d3126bcbaa102b77fcb"
+      },
+      "1179": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression",
+          "games"
+        ],
+        "anchors": {
+          "identity_curiosity": 30,
+          "self_expression": 42,
+          "games": 48
+        },
+        "rationale": "反复问名字及 Dino 的朋友，展开自己的同学和朋友关系，明确接受一起玩；实际想玩石头剪刀布却被切到猜动物。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "b8941cde228b0bc46d21d078430ed7ac540a0448d0d74b0e31e8a8b2bb0ef2a4"
+      },
+      "219": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Yes，没有具体选择，不能替学生选故事或宠物目标。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "42afe8810bf1bb6d1bd4a1356fc5ef81db13d4ce7fc243c8fdb3f4397970a39e"
+      },
+      "775": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有自我介绍，未展开需求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "a3c21ae02a8ae65c5bf4e086beba29622cf4d361964037ae9204d30affb1b218"
+      },
+      "1284": {
+        "intents": [
+          "games",
+          "clarification",
+          "language",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "games": 2,
+          "clarification": 8,
+          "language": 12,
+          "identity_curiosity": 18
+        },
+        "rationale": "选择词语游戏后反复表示没听懂，归入澄清；另询问中文交流和名字。姓名反复转写不稳，不另判纠正误解。",
+        "status": "coded",
+        "messageCount": 28,
+        "sourceHash": "8a504d47330a0c77c805f4f30ac51e2e2ea75ea6737a393d3f01af081b1ee50e"
+      },
+      "1063": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "d1d8c6834f58fdac8103b9c29b25d7ab7c132b2fdc1e552ab05d0afe01f5ab9f"
+      },
+      "1293": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "反复回答不知道并选音乐话题，未要求播放或唱歌。",
+        "status": "participation_only",
+        "messageCount": 24,
+        "sourceHash": "c218c624b324a6b872f3eb560e5513f676be72ed208c55bd5bf8bbdd4a8ba180"
+      },
+      "1946": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 YouTube，没有要求打开或查询的动作。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "62d3533bdabc99086b73f0a007c0a34bb55118c653fb953e911e32a788f6f56b"
+      },
+      "1496": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Korea/Dino/final 的转写指向未确认，Dino 一直猜测，不能据此判断语言或身份目的。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "73401a1bb8eaa9f37924e0ff7552835be70f17dadd41fcfc1ba5d186fe1421ab"
+      },
+      "2109": {
+        "intents": [
+          "language"
+        ],
+        "anchors": {
+          "language": 2
+        },
+        "rationale": "马来语明确问能否说马来语，Dino 回应能力；目的为交流语言调整，不是学英语。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "f37d4163503794767b633940e41873c1f7f05321b40ff0d1b7dd04176365ec08"
+      },
+      "610": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "In the song 未形成明确歌曲请求且无后续确认。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "9eaf397606134f80f9d6db575a58f6a9908d9244a904f75f7b968806577229be"
+      },
+      "173": {
+        "intents": [
+          "practice"
+        ],
+        "anchors": {
+          "practice": 0
+        },
+        "rationale": "明确请求一起数到五并询问 good day 怎么说；支持语言表达帮助而非单纯数字关键词。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "a671fce1f33491664ac2f3082ef1a3e0016f166bf6123cb01ec9e395562cf5c6"
+      },
+      "22": {
+        "intents": [
+          "tool_use"
+        ],
+        "anchors": {
+          "tool_use": [
+            0,
+            2
+          ]
+        },
+        "rationale": "明确要图片，并另问欧亚国家首都；两类证据保留，合并为工具使用，只计一个 Session。第二问题范围未明确，但查询地理知识的方向清楚。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "6af72663e765865621d0cc04be0c6bfd361b303e47ee8c0a089c1a3a2cdf1759"
+      },
+      "647": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "生日、超级英雄、星球和歌等混杂，未能形成可可靠解释的目标。",
+        "status": "insufficient",
+        "messageCount": 16,
+        "sourceHash": "880db67aa53363b95ab970e35a66e76e491a700cd49a1785c72f084df16fe7b3"
+      },
+      "1329": {
+        "intents": [
+          "language",
+          "self_expression",
+          "repair"
+        ],
+        "anchors": {
+          "language": 2,
+          "self_expression": 6,
+          "repair": 16
+        },
+        "rationale": "明确请求中文辅助，持续展开自己披萨经营游戏的经历并纠正误解；聊游戏不是要 Dino 启动游戏。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "2bfaf86144e22ef7de52c32d1e104d41c6f80a56fda19d12b931eab40938bc7d"
+      },
+      "1936": {
+        "intents": [
+          "language",
+          "identity_curiosity",
+          "self_expression"
+        ],
+        "anchors": {
+          "language": 2,
+          "identity_curiosity": 4,
+          "self_expression": 12
+        },
+        "rationale": "明确选择今天说英语，问 Dino 昨天在哪里，并主动转入喜欢学校的分享；不把后续跟读自动当主动学习。",
+        "status": "coded",
+        "messageCount": 26,
+        "sourceHash": "e99047e73c38641431aac30938df5bcba74ae6076e345dc01afb884fcf2058bc"
+      },
+      "1801": {
+        "intents": [
+          "practice"
+        ],
+        "anchors": {
+          "practice": 0
+        },
+        "rationale": "开头表达希望学一点并在练习选项后选电影主题，支持英语练习目标，具体技能尚不明确。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "e9a1a7b6c9433ca3a2b9bc101775314c4c756956d774ae17cf8d28d4f664a554"
+      },
+      "656": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "0509a36516d9e5bd08cf3643d20685da27113b7ee07fc086600d04d1e9417a65"
+      },
+      "285": {
+        "intents": [
+          "clarification",
+          "social",
+          "repair"
+        ],
+        "anchors": {
+          "clarification": 4,
+          "social": 26,
+          "repair": 24
+        },
+        "rationale": "要求重说海洋选项，归入澄清；结束时多次解释自己是在祝 Dino 好梦而非谈 dinner，保留被准确理解，另表达爱；不是求失眠支持。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "ef258f66fda9be72a1be84de4a5bdd9f3417d027068c93b9891e6ad5e6862f80"
+      },
+      "829": {
+        "intents": [
+          "tool_use",
+          "clarification"
+        ],
+        "anchors": {
+          "tool_use": 6,
+          "clarification": 14
+        },
+        "rationale": "选择了解火箭发射；后因未听见回应而请 Dino 说话，归入请求重述一侧的澄清诉求，不当作词义不懂、发音训练或被准确理解。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "9aaa6f33feff2044507a66342ef2ba42d98cbc1f88eacba66c79ed36681690d0"
+      },
+      "921": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择食物话题，尚未展开。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "3ee042c5e4b2720ea66d94f917ef3ab940fadb8562c9ee2dc6ddc762dba9cc76"
+      },
+      "2262": {
+        "intents": [
+          "clarification",
+          "repair"
+        ],
+        "anchors": {
+          "clarification": 10,
+          "repair": 16
+        },
+        "rationale": "明确表示听不懂 Dino 当前解释，归入澄清；另纠正自己说的是 Neptune 不是 TV，保留被准确理解的独立证据。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "5b6e2762d646b11f2c1b900200843da7695f7826961f5a89ecba4b87f316de02"
+      },
+      "186": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "跟随披萨及口味问答，没有独立功能诉求。",
+        "status": "participation_only",
+        "messageCount": 14,
+        "sourceHash": "6f82da7238711878f84961649716b36fe726bb587470ce799a47638cbac443cb"
+      },
+      "524": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择聊 FC Mobile，但没有要求陪玩；后续语义信息少。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "31bb93937ebdecd9f8819274d716469f0819f3b53b9e370e9ed395ba57effd26"
+      },
+      "990": {
+        "intents": [
+          "social",
+          "identity_curiosity",
+          "self_expression"
+        ],
+        "anchors": {
+          "social": 0,
+          "identity_curiosity": 4,
+          "self_expression": 6
+        },
+        "rationale": "表达喜欢 Dino，主动询问它最喜欢什么并长段分享自己的喜欢和生活，三个目的可共存。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "dd914439cb9363692a1390356dc243a0686c53d267e16f761c290f77df9c6b48"
+      },
+      "915": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "在 Dino 指定猫话题后说不知道，不能认为主动分享宠物经历。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "1af3844730b0659e2470b232ce9b7cea5623f6ce035dacb0dd94c2102271236d"
+      },
+      "1510": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "ba16907a9e3676e16b5418a01235ecaed83969810df7c4c1f2d6e71b96c3c65a"
+      },
+      "174": {
+        "intents": [
+          "social",
+          "self_expression"
+        ],
+        "anchors": {
+          "social": 0,
+          "self_expression": 2
+        },
+        "rationale": "主动邀请聊天并坚持转向自己学校的话题，随后试图讲上学方式。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "f1500047d87d2c80b591d2f4e0b82b3ae59b62ed0d5d2b7c874d72ccdea796f0"
+      },
+      "1776": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "询问茶偏好是承接 Dino 提供的句式复述，后续房间问答由 Dino 主导；不标身份好奇或主动教学请求。",
+        "status": "participation_only",
+        "messageCount": 20,
+        "sourceHash": "a40d035e0cf02e3c6dc4eb6afdcf7db5626a68e6c46c28fad4a44bc7f62ac01e"
+      },
+      "614": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "问候后立即告别，未形成可判角色需求。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "89e8ff4b074745689b6f6bba9262d4b1f6f44b88222b076bf513bcbae950fdcd"
+      },
+      "2002": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 Cats，首句缺失。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "1384a910dd700d366eda431ae8ed6be6bca5a8da89209a01f3c643d57a544843"
+      },
+      "1707": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "多次说明今天忙、明天再聊以结束互动；属于退出安排，不据此推断当前陪伴或情绪倾诉。",
+        "status": "participation_only",
+        "messageCount": 16,
+        "sourceHash": "b4db8db5548f4edc46c716c7299556e01b8c2794c59937044fa0c3ffc23316cc"
+      },
+      "1744": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 OK。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "ec69fbb5847b5fc3e9024170b36c290af1cae86410bf5850209a8a13a0485a75"
+      },
+      "2251": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "主动选音乐话题但歌曲名称转写不清，没有要求 Dino 唱或播放。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "40eb8fa2fc44b64e1b8551615f82fe6ed796605188b3bb504ef862ad2d579d35"
+      },
+      "2252": {
+        "intents": [
+          "language",
+          "identity_curiosity",
+          "repair"
+        ],
+        "anchors": {
+          "language": 4,
+          "identity_curiosity": 10,
+          "repair": 20
+        },
+        "rationale": "提出越南语交流，问 Dino 来历，并多次纠正游戏名 Free Fire；不是陪玩请求。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "5e03624278f9a3ed712eccf175fab0753552c0e728b1ca5cf1b32488a7d88809"
+      },
+      "18": {
+        "intents": [
+          "games",
+          "tool_use",
+          "repair"
+        ],
+        "anchors": {
+          "games": 0,
+          "tool_use": [
+            2,
+            34
+          ],
+          "repair": 28
+        },
+        "rationale": "学生主导地理问答并索要图片验证，求知和办事证据均保留，工具使用只计一个 Session；另纠正 Dino 没理解 Cyprus 与 North Cyprus 的提问。不是询问 border 词义，不因 Dino 主动提出语法解释而计澄清。",
+        "status": "coded",
+        "messageCount": 42,
+        "sourceHash": "2d28f8ed97cd82e779c33bb0e47f0bbff85b657d67642e672ade33c05ff6f106"
+      },
+      "150": {
+        "intents": [
+          "stories",
+          "social",
+          "practice",
+          "clarification"
+        ],
+        "anchors": {
+          "stories": 8,
+          "social": 10,
+          "practice": 50,
+          "clarification": 80
+        },
+        "rationale": "要笑话并表示聊什么都可以；主动询问如何说英语、参加句子练习，保留 practice。后来没理解当前颜色问题，单独归入澄清，不再计 repair。",
+        "status": "coded",
+        "messageCount": 96,
+        "sourceHash": "83f0596343fca8f9a715635ca44cdab1a2e4842e84c44b331d67e7acfa2334e6"
+      },
+      "1357": {
+        "intents": [
+          "self_expression",
+          "repair"
+        ],
+        "anchors": {
+          "self_expression": 34,
+          "repair": 8
+        },
+        "rationale": "主动讲想去重庆及小红书所见，澄清没去过、纠正 views；不是要求旅行推荐或查路线。",
+        "status": "coded",
+        "messageCount": 38,
+        "sourceHash": "e038ce3c7bca489e823678158d6134b8cef58eb27e7796ed6e97954ed8d24966"
+      },
+      "1095": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择影视人物话题并短答，无要求播放、讲故事或扮演。",
+        "status": "participation_only",
+        "messageCount": 10,
+        "sourceHash": "bafb85efbb619b58dc4eccd69114e7674aeb48bf8a4951123f8006246ba9a2b8"
+      },
+      "149": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅问候；Dino 主动说练英语不能当学生意图。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "2a0510cf242deb92b1f2807156396af72bfda897358222e744fff14863483cfe"
+      },
+      "10": {
+        "intents": [
+          "director"
+        ],
+        "anchors": {
+          "director": 0
+        },
+        "rationale": "明确设定自己是老师、指令 Dino 拿英语故事书翻页，支持主导角色场景，而不是请 Dino 当老师。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "2282d8ee17b2b220a344cdc7b0ce56d27405890b7d61cfb62af22978816d8918"
+      },
+      "2066": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "OK/Anymore 没有明确语境，Dino 改写不算学生确认。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "da8cf1986eb0fd6d441230535f983220f8ca1ada2bd1eb787b859d9a76fd1587"
+      },
+      "132": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "double jump 与时间混杂，无法确认问题对象，未据 How 自动标方法查询。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "aefa1792d97e8a46079d3159e3c2880baf200a018db420eaaa28e61c29e876c9"
+      },
+      "544": {
+        "intents": [
+          "games",
+          "social",
+          "repair"
+        ],
+        "anchors": {
+          "games": 8,
+          "social": 28,
+          "repair": 22
+        },
+        "rationale": "坚持要井字棋而非猜动物，多次澄清棋盘位置；随后明确不想玩、只想和 Dino 聊天，两种诉求在同一会话先后出现。",
+        "status": "coded",
+        "messageCount": 30,
+        "sourceHash": "06fe3862000d536ec2571143ff473066de6bf61731a15ddf23d793936fb8a269"
+      },
+      "286": {
+        "intents": [
+          "identity_curiosity",
+          "clarification"
+        ],
+        "anchors": {
+          "identity_curiosity": 26,
+          "clarification": 22
+        },
+        "rationale": "询问 Dino 最喜欢的运动；表示不懂当前词语游戏怎么玩，Dino 随后解释规则，归入澄清，不是纠正自己的意思被误解。",
+        "status": "coded",
+        "messageCount": 48,
+        "sourceHash": "e0074202808e07bc97a27c300b648e6df77bbc8c4d896e4dcd2e08062e60ef27"
+      },
+      "1147": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择数字话题并回答，后来想离开去 YouTube；未要求 Dino 打开 YouTube 或执行任务。",
+        "status": "participation_only",
+        "messageCount": 20,
+        "sourceHash": "c49076876b1453e6b842d8df3dd496e638eadb195ea069e14798f1c76f179df5"
+      },
+      "412": {
+        "intents": [
+          "practice"
+        ],
+        "anchors": {
+          "practice": 0
+        },
+        "rationale": "明确要像课程一样练习单词和句子，指定咸水淡水主题；学习目的来自学生完整请求。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "bf7d77e09978a210576ef0bb198b937c55a1758a13b1011f44af2dfdf032eb35"
+      },
+      "1591": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 6
+        },
+        "rationale": "学生持续反问 Dino 喜欢哪些食物，了解对方偏好；不只是回答自己的喜好。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "09483330970e0fffaa9345c238acf1ac32ebbc891c077310ac1bcc8216bc1ef1"
+      },
+      "2111": {
+        "intents": [
+          "self_expression",
+          "identity_curiosity",
+          "repair"
+        ],
+        "anchors": {
+          "self_expression": 42,
+          "identity_curiosity": 48,
+          "repair": 54
+        },
+        "rationale": "从食物问答展开家里老桌子的细节，并主动询问 Dino 的桌子，纠正 wrap 的误听；普通食物短答不作为证据。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "22a68ba1dd223b6a61aa6fab258ca4bfb514e711924dbae578c3b84aa357c27b"
+      },
+      "1951": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选颜色后语句不清，未出现额外功能诉求。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "82b8cc868cda80e23140af79e28878561751daf87fdd5b22e0cf88c35027fc31"
+      },
+      "878": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有不清楚的招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "71593f5b22743553321f5cfd17e4418020394b335ff87e61b3d29a93e021b739"
+      },
+      "430": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独喜欢鸭子，可能承接缺失的首句。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "1a957bfb566e2866ccc51b44418c7034c2683ec6e79813fc14b2858e6f249979"
+      },
+      "305": {
+        "intents": [
+          "stories",
+          "language",
+          "repair",
+          "clarification"
+        ],
+        "anchors": {
+          "stories": 38,
+          "language": 50,
+          "repair": 44,
+          "clarification": 52
+        },
+        "rationale": "明确要 Dino 说完整儿歌，另纠正是谁在唱及自己的名字；询问韩语后对 Annyeonghaseyo 反问，Dino 重说并释义，新增澄清。纠正误解仍有独立证据。",
+        "status": "coded",
+        "messageCount": 58,
+        "sourceHash": "9b65d399e9d8bb922b77726887b104c7c04618888e2fc769f7c54fd2ec629d14"
+      },
+      "1909": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "珠宝、雪等话题跳转，目的不明确；不据 Leon bad 推断情绪求助。",
+        "status": "participation_only",
+        "messageCount": 18,
+        "sourceHash": "28745fe952dfd239fb37d98b159e91d2a2323cef417743d806a2231c4fa2840d"
+      },
+      "1583": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 32
+        },
+        "rationale": "很多片段不清，但询问年龄有明确回答和年龄交换；其他国家问题不强行判知识查询。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "5f0a78387c785bb865902112c49499d8a7a17cf799f9113c63b937dd02db7bbe"
+      },
+      "1212": {
+        "intents": [
+          "identity_curiosity",
+          "practice"
+        ],
+        "anchors": {
+          "identity_curiosity": 0,
+          "practice": 4
+        },
+        "rationale": "先问 Dino 最喜欢的食物，之后具体请求帮助说出青酱意面名称和食物表达，教学需求有明确缺词语境。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "3a12b04e3bfe6ac0f6719418d94f1b366a1004c81088ef4c1e3f3f1d10aca434"
+      },
+      "301": {
+        "intents": [
+          "social"
+        ],
+        "anchors": {
+          "social": 0
+        },
+        "rationale": "主动说想念 Dino 并提到亲吻，支持亲近互动；不推断持续依赖。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "04f42be57d78c5c86481574e42344d85013827659de60d08d8a410efa8c08890"
+      },
+      "1901": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择水母并回答颜色和动作，未见额外用途。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "5ef432aa8386b6a9e26875738f8f680721f01835581a689ba6c9ae95af3a88dd"
+      },
+      "1953": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择颜色及回答灰色喜好，没有独立意图信号。",
+        "status": "participation_only",
+        "messageCount": 8,
+        "sourceHash": "011c3daf73f3e887df7d17a1b9316ea37211ce677907cf9fdf72c78833c00891"
+      },
+      "2017": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "大部分为跟随 Dino 的词句提示与 Yes；raw/real 的问题未确认，不能认定探测真实性。",
+        "status": "participation_only",
+        "messageCount": 56,
+        "sourceHash": "02d17ac499233300cd7764f208b1cf7c3b92f727f898675f4b570e4efa482e23"
+      },
+      "1261": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择动物并回答喜好。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "46c79da36238dcc9664023c04c602a474aba32fb2d32947f658574d51ac9bdcd"
+      },
+      "361": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只提 burning，Dino 追问不同含义，未获确认；不推断烧伤求助。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "e45bb4ed8c152191ce9e4f2a8e0e49e59d4c843509d0092ed421c960662155e9"
+      },
+      "1490": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b46aae2c816279c6750957c2813387da0b9b7401696690180376832aa8cc3718"
+      },
+      "1390": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回应熊猫偏好，未见其他需求。",
+        "status": "participation_only",
+        "messageCount": 6,
+        "sourceHash": "a42f66bff5cda25da04889f166cf3804b4807e528e90f0241601220a69225489"
+      },
+      "1466": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "回答开箱游戏偏好后请求休息离开；谈游戏不等于陪玩请求，告别安排不当陪伴意图。",
+        "status": "participation_only",
+        "messageCount": 22,
+        "sourceHash": "97878f1bc7f33a306d883181bacc81f423f3b7a5b061fbaf2a426c67acfe0902"
+      },
+      "1795": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有数数，首句缺失。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "8020824d7014dbcc949ce89121f7fb658e022c6019d1e05e34b2b78ba44bc007"
+      },
+      "280": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "选择漫画话题并说明喜欢的角色，未请求讲故事或扮演。",
+        "status": "participation_only",
+        "messageCount": 12,
+        "sourceHash": "eaecee9b0c0daa56ec91521a5ebbe79ddeeefe12edb8d4f37fa631cd486f6e08"
+      },
+      "1706": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": [
+            2,
+            4
+          ]
+        },
+        "rationale": "主动拒绝预设话题转向自己生活，描述家庭不顺及沉重感受并希望被倾听；分享与寻求支持合并为自我表达与倾诉，只计一个 Session，保留两处证据。不推断临床状态或家庭事实。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "427626c85ff45523486f49899a5633cbcda12af7b7d748b980a8c4cfa38877e8"
+      },
+      "521": {
+        "intents": [
+          "director"
+        ],
+        "anchors": {
+          "director": 16
+        },
+        "rationale": "从颜色问答转为明确要求 Dino 说去教室的告别句；没有明确表示需要英语教学。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "d192f5251226d94e0fbb8da5493891608a7b6b036389b5f510682109b27578cc"
+      },
+      "1118": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 10
+        },
+        "rationale": "对 Dino 的猫与 Buffy 解释反问，Dino 重述；归入澄清当前话语，其他短词不足以认定分享经历或纠正误解。",
+        "status": "coded",
+        "messageCount": 28,
+        "sourceHash": "7025ac4a020dc1c6d8611255866e5c1d21570ca0e30ca58d9310443ebeb0db8a"
+      },
+      "406": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 4
+        },
+        "rationale": "主动选自己的 Minecraft 建造经历并持续展开城堡、朋友和龙的设想；这是分享创作，不是要求 Dino 开游戏。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "a5d290f72932a1a4434844aff64dafc35c28b0e5ce39f27d1e08c79f94ae3509"
+      },
+      "247": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 14
+        },
+        "rationale": "海豚话题中明确接受 Dino 提出的海豚声音游戏并实际参与；来源为受邀接受，非自发请求。",
+        "status": "coded",
+        "messageCount": 24,
+        "sourceHash": "c5c241dea05ef537b560e0bb6527fef65e4d4a7d790dd2f4b71aa8325e947ae6"
+      },
+      "892": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "首句歌曲问题后学生否定 Dino 的理解，没有明确目标。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "7881dceb29555b75460b26caa78925f8557f1be1da571ce8494727ec622c1572"
+      },
+      "107": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Where，指代未知。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "154c09637d9399e839a0e86b1c9eea5f82fd67a1464d89ac2358e627cb8cefcf"
+      },
+      "849": {
+        "intents": [
+          "games",
+          "clarification",
+          "self_expression"
+        ],
+        "anchors": {
+          "games": 2,
+          "clarification": 26,
+          "self_expression": 42
+        },
+        "rationale": "明确选游戏；未听明白 shape 后追问，Dino 重述解释，移入澄清。另主动展开 Minecraft 房屋配置；Spare 转写含混，不单凭重复另加被准确理解。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "b0bef19ba5ff8f40a62a7b4258cb53765c70dfd1008513fd08f72de7152a1683"
+      },
+      "1363": {
+        "intents": [
+          "stories"
+        ],
+        "anchors": {
+          "stories": 0
+        },
+        "rationale": "完整明确地要求听故事，即使没有后续轮次也足以支持该目的。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "cd319088161bec61ecdf75d883df6aaaf36c0316c62d4ce51da9bb085ec5d090"
+      },
+      "1731": {
+        "intents": [
+          "tool_use",
+          "language"
+        ],
+        "anchors": {
+          "tool_use": [
+            4,
+            8
+          ],
+          "language": 20
+        },
+        "rationale": "询问幼儿园是什么并进一步要求图片，两类证据保留，工具使用只计一个 Session；另质疑为何不用阿拉伯语交流。",
+        "status": "coded",
+        "messageCount": 22,
+        "sourceHash": "48fbc6ca9de77d1fea594e20fd31f01d8f25cc80a3c68290cb3669995ed6b41f"
+      },
+      "1355": {
+        "intents": [
+          "games"
+        ],
+        "anchors": {
+          "games": 2
+        },
+        "rationale": "在选项中明确选 game，Dino 随后启动猜谜；后续 Disco 不够判断听歌需求。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "21eda4db6a3f4ac8ba038d17f6aae6bdef7742406630a2257563a733c7fda470"
+      },
+      "601": {
+        "intents": [
+          "games",
+          "identity_curiosity",
+          "self_expression",
+          "social"
+        ],
+        "anchors": {
+          "games": 28,
+          "identity_curiosity": 40,
+          "self_expression": 42,
+          "social": 44
+        },
+        "rationale": "明确改为测验、询问 Dino 肤色，再分享因家人不在而孤独并要求随时聊天；同一处分享与情绪支持证据合并为自我表达与倾诉，不重复计数，独立的陪伴诉求保留。",
+        "status": "coded",
+        "messageCount": 60,
+        "sourceHash": "9faad7a69a83b3336fdb82bb868a346caba35dcaa1ba2c081659168200525489"
+      },
+      "207": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "that 无指代，未获澄清。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "82a9e14a0a85dedb46afdaf538241ceee25865ca8302c7acd4049b2c828713cd"
+      },
+      "239": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "明确选动物话题，尚无具体角色或功能目标。",
+        "status": "participation_only",
+        "messageCount": 4,
+        "sourceHash": "9aa1986614f910b4d4ac1788c31906849b03ec4753a3fb3c15caf9be47a00132"
+      },
+      "1222": {
+        "intents": [
+          "identity_curiosity",
+          "clarification",
+          "repair"
+        ],
+        "anchors": {
+          "identity_curiosity": 2,
+          "clarification": 14,
+          "repair": 4
+        },
+        "rationale": "要求 Dino 选一名球员并纠正它没有按选一个的要求回答，保留被准确理解；后来问你在说什么，Dino 重述并解释措辞，另归澄清。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "14acf11980ad1e0d6d1231563e5fbfdefdd75ab93cf5f91ddbc222706e255f1a"
+      },
+      "1078": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 2
+        },
+        "rationale": "不接受月亮或太空选项而主动说自己喜欢炸鸡，支持转向个人偏好分享。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "fa5400168f5d224f7315b1419eab709a4507bdb2bb2780255390c9cb18ddc802"
+      }
+    },
+    "POST_CLASS": {
+      "12212": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "沿 Dino 给出的 bus/ax 课程选项回答，故事只是练习内容，不是独立故事点播。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "ba9ce2353c8490273bb1a713cf7bce38bbc2b14a88f3320a0a990f5c94d3d7ee"
+      },
+      "13077": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "在文具选项中选铅笔并回答用途，属于课程练习。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "237e68dc95c9e53138c51bf402bba853918dc3258f3641adaf61b205dd832672"
+      },
+      "12688": {
+        "intents": [
+          "lesson",
+          "social"
+        ],
+        "anchors": {
+          "lesson": 8,
+          "social": 0
+        },
+        "rationale": "guess the first 是食物选项内的回应，不是发起猜谜；开头另有对 Dino 的亲近式玩笑，二者分别记录。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "abfc74cdc8f22d1860273a056e31f73963cceca66628cfbbb29b5b1270ef1ce1"
+      },
+      "13107": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有开始时 OK，未回应课程提问，不以入口位置自动认定跟随练习。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "27ffcdf11b5515758477ac111f6cab418804df73f0e1e87ce491d91a5d7eeda5"
+      },
+      "12764": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 6
+        },
+        "rationale": "先回应家里玩具问题，后明确说 Dino 没听懂；Game 是回答想玩什么，未请求 Dino 开游戏。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "6e2c7d667fda65ab1c4003c77715e65714be77cbef8ec016c5ff03c7824fae85"
+      },
+      "13335": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "反复在 apple/juice/bread 选项中作答。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "8848afda58c3746599dbc790f8f45510964a4e72889b15f967afda4af8915fc5"
+      },
+      "11572": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "回答面包和果汁等课程偏好题。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "743a5cd55cee0067f9427ca20325d4ac5deb533b7a295ece1e98e2adf711fdfb"
+      },
+      "12726": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "准备后回答果汁和面包；反问 Do you like bread 仍围绕练习句式，不另标身份好奇。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "d84b5e7cdf331a0127c819e0bf6f849158088fe918ff04f2053bc762b02d74f0"
+      },
+      "13195": {
+        "intents": [
+          "social",
+          "clarification"
+        ],
+        "anchors": {
+          "social": 6,
+          "clarification": 8
+        },
+        "rationale": "未实际展开玩具练习；主动对 Dino 表达爱，另对 toy 问题反问，请求澄清而非纠正自己的意思被误解。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "efb6930e2177a6d2b5de3df1a63354c20441ce61bd919f349a1a25808c34c65c"
+      },
+      "12493": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "越南语招呼后无回答，尚未形成意图证据。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "0dc527009c2e0c8e63d6452f6f6fab58671559b06f75abb9332cc8b7faf41fc3"
+      },
+      "11865": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "转写含混后明确选择 cow，属于课程选择题。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "4782885b11d70e9d66a9d137f66747e93f9f4b4417459579ead86b208aadbc63"
+      },
+      "13324": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "持续食物练习；I like you 紧接 juice/apple，存在 you/juice 转写歧义，不据 Dino 的感谢自动标陪伴。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "0710f95d7cce55933f8cd3f05214d8f6739f5d7681eb27ca394fafda3666e213"
+      },
+      "13138": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "持续回答苹果、面包和果汁问题。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "c2ea6ea33d549c473f3f2851a45ebddfb59c2d5d4fe028aa111eb272c6b0876b"
+      },
+      "11870": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅开始的 Zoe OK，未回答练习题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "1564dfe559c3ab8c72a10a2674a3ec83ae1d2f2d1d6e8f8c2de5cec379ff3b0e"
+      },
+      "12118": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "纠正为 pen 后回答笔袋颜色，语境为文具复习。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "e419d2c0621afc212d4cad10839a0f519ea3d8d9a1ab9445ca2ceed5cc909ba8"
+      },
+      "12981": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "解释不喜欢面包并继续食物练习；末句 you 可能承接 juice，不足以单独判断亲近意图。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "ab8df6a83090f2a619c0509c59bbae2a538f8f66917fb90348397c3e4ae8ab8d"
+      },
+      "13056": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "连续完整句回应课程食物选项。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "e7a4d27d5be8a9db4d65e06b20fadd17b8b65defac63e6efb63ae51ff958efaf"
+      },
+      "12734": {
+        "intents": [
+          "lesson",
+          "social"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "social": 10
+        },
+        "rationale": "承接食物问题，另明确点名 Dino 并说 I love you；与课内短答分开记录。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "636e30259c38b76c910e0591fab7306b50185017faf97bfaf2adc6c46823d746"
+      },
+      "11625": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "尝试回应衣服和颜色练习，虽部分识别有误，不把 stress 当情绪倾诉。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "4bcb13919a0baf7e65198417e2b17146ce5df3377a783a77cbd60a6552ed9835"
+      },
+      "11626": {
+        "intents": [
+          "lesson",
+          "social"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "social": 4
+        },
+        "rationale": "完成食物选择，同时有独立完整 I love you；不从随后 red 自动推断换题或学习意图。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "3243b932501aa242e03ab4a4015be530ee5d959ce7227e821081600a6c3e1d2e"
+      },
+      "12797": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "在文具练习中尝试回答 pencil，即使大量 Yes 也有对应问题。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "4734d5a613583000b3af175cd73765b84647e961668ec8ec58ee58cbbf52ae2d"
+      },
+      "12891": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "围绕食物喜好作肯否回答，未出现额外诉求。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "783a3d11c8f05d2c8629445ef09d494723ad9f1e51f85a9158673f5dce0d44ea"
+      },
+      "12114": {
+        "intents": [
+          "lesson",
+          "self_expression"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "self_expression": 10
+        },
+        "rationale": "先承接食物问答，后两次提出想聊 COD，明确要从课程话题转向个人兴趣；没有请求一起玩 COD。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "f67ff0c53da00b0ae550ad83f20507eda07e84cfa37660731b84c78df02fda1c"
+      },
+      "11789": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有准备前的数字短语，未回答 bag/mad 题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "b7da8522482eccf365d29fd6e57a5229be72ebde6df4e121f0cc8e2120567b51"
+      },
+      "11717": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "选择蜡笔并回答颜色；开头 Lead game 不足以认定娱乐。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "b9c4fe8d23eaacbb8b18c9d97e9d707ae9bee9a2ba9290099fbe6e35d0dd3ff4"
+      },
+      "11877": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按食物练习回答和反问，I like you 位于 juice 后存在转写歧义；不把它作为陪伴证据。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "e29ab1efe73f0496cfd15a706f71526fd77fbc9e341d4960559ba87c047a9d83"
+      },
+      "13081": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "人工更正保留：I read a book 是回答 Dino 是否看书，不是请求 Dino 帮忙阅读。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "519edacee80aee7f070762ea7bfe806081fb800f3e8f36091758742371de494f"
+      },
+      "11801": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅开始自我介绍，没有回答课程问题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "49d05efe861af80fc0410d362b80d7f7d38ace76f20cb24d4116dec4ab45e33f"
+      },
+      "11552": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "按课程问题比较身体、房间和床的大小。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "5ae3c3d5284060c2724d5086b5980bd23c9609c0a51ea07cd738fe71998b34da"
+      },
+      "11492": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回答喜欢足球；称呼 teacher 不代表额外求学诉求。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "ff5ff535c81e10ff08762623e93f49fcbb7616082ef386cf7d63f99aa29f42c5"
+      },
+      "11974": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "回答苹果或蜜蜂喜好，属于练习。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "bf81165ded2679e12023c37991df9892054b122dcf8591123c196b98b08aea5a"
+      },
+      "12294": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回答文具和滑梯问题；Please clean 孤立且对象不明，Dino 的 tidy 解释没有后续确认，不增任务执行标签。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "06fc81aa7e9df3ee633f19e48111e98cf9fbbc8b27ec1b3019e6a961e4091bc5"
+      },
+      "12040": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅开始肯定词，没有回应观察练习。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "32dd93b941a9064b2a7eaf7e966b0ff22130e63927532253137fa6035a2fa390"
+      },
+      "12766": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "回答蜡笔颜色、绘画对象等课内提问。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "e01b75d32b2f6325774f580a0056f7ab051ad8640f1f0faca35e18814a79b730"
+      },
+      "12268": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "开头 MacBook 后回到铅笔和书的练习，不把设备名当功能请求。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "5f96b2ed491cfefb6dc153ab1f21f45afcccf8908b70abc523b31920a4a0875c"
+      },
+      "11541": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Bodyguard，未展开对话。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f18139553860dc4320959dab39af31dcb5f9b72a2e4ef13340ff8b7db3cf97bd"
+      },
+      "11792": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "能对应食物问题给出肯否选择；没有其他用途证据。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "9564d6b2226f9d577e6bb5956ddc02618b4441bfbb735616fbb84b465b8d9639"
+      },
+      "11967": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "Happy 都是在课程情绪问题下的回答，不作为主动倾诉或支持需求。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "31227fdd0df8ab95caac8906d1addd17c61639a6432c75f654029222377c5152"
+      },
+      "12603": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "回应足球和球队问题，首句 angry 无足够语境，不标情绪求助。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "fbff714f9f7c62ce6f1c454fe770c3ddcc4aa7667d2ef18014294faad1858e98"
+      },
+      "13178": {
+        "intents": [
+          "lesson",
+          "self_expression"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "self_expression": 12
+        },
+        "rationale": "保留用户反馈：食物练习中主动提到要写音乐并明确要求聊一会；不是获取答案与知识。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "98be1c4fec16d1baeddc094787fa7531ad0d0582f52e71348ca8c8d4c33c0f4c"
+      },
+      "13322": {
+        "intents": [
+          "lesson",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "identity_curiosity": 8
+        },
+        "rationale": "先答科目喜好，之后两次问 Dino 年龄，两个标签都成立。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "930b75ffdfc485904baeaa3108e5a50add429c50d4f141cb84d38dc3fa962f5d"
+      },
+      "12260": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "沿猫的课程问题持续回答吃什么，没有独立角色要求。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "f744574869dd5fa56e29fd7cac640673f7e2c16a7edc898d9ac0a70cdf316443"
+      },
+      "13001": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "持续回答最喜欢的学科及画画活动。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "ea7d7bf1e7d65d44ff26bcfded6d010b3431c7143800f94e6968a1117ce4a36a"
+      },
+      "13187": {
+        "intents": [
+          "lesson",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "clarification": 4
+        },
+        "rationale": "要求重说 bag/rag 问题后作答；重述归入澄清，不是发音教学或被准确理解。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "1a6c154b8faca0e4498de2c44603329944766f847b95239538b28b88185a53cc"
+      },
+      "11805": {
+        "intents": [
+          "lesson",
+          "practice",
+          "games"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "practice": 2,
+          "games": 0
+        },
+        "rationale": "前段反复请求一起玩但夹杂睡觉及转写含混，仍有完整 Please play with me；另明确求助 chair 拼写，后又承接课内选择题。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "54f10d2e7a0b65e6fed5783931bfe331e4a02b9b4dd35d8c624e7a1136a04e94"
+      },
+      "12187": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "保留人工更正：Play game 是回答用手机打电话还是玩游戏，不是让 Dino 陪玩。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "fed37f72c5727e3bb9898ed6e0750696386c6f991b5eaf63397a0fdfb126dc33"
+      },
+      "12316": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "repair": 12
+        },
+        "rationale": "先尝试回答课程安排，后反复强调已经说过不知道并希望 Dino 听懂；不是泛能力测试。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "bb4de9547bf94ef5d06a5aa7d3fbc39e01de93125c324d9d0753d57f60f1c124"
+      },
+      "11617": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按文具课程题回答书与颜色。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "adbae981a47fb033b9c81ab7f072ea51027b05bb95fe640b5a6d42167e277918"
+      },
+      "12327": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "玩具猫的描述始终承接课程追问；Why white 是当前话题里的不清反问，不标独立求知。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "128b601e8800e9455fe516db327e7333e7ff0df812aeea7efdd3cadef00ee672"
+      },
+      "11630": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回答足球喜好并尝试告别；未另提出功能诉求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "255b7ea235ecafcf7aeabac7a06128a71e7f34229ea42de887fd89cc3b4484a5"
+      },
+      "12629": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "对猫马等练习作肯否回答。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "cbdfa0ea580c027f57d49c72b05371ca70272f26b22fba9781c91037bb47b649"
+      },
+      "13070": {
+        "intents": [
+          "self_expression",
+          "tool_use",
+          "director"
+        ],
+        "anchors": {
+          "self_expression": [
+            2,
+            6
+          ],
+          "tool_use": 8,
+          "director": 14
+        },
+        "rationale": "表达生气、想睡觉并索要水；分享感受与寻求关心合并为自我表达与倾诉，只计一个 Session，保留两处证据。要求轻声慢说是因为想睡，不是没听懂或词义求助，作为指定说话方式的行动要求，不计澄清。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "08d4ae7107f81a4893ab893e54d67e9a702fec4adf1d9668aa9353afa005fc4c"
+      },
+      "12360": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "唱字母与混杂词句未承接动物题，也没有清楚要求 Dino 唱、教或听，目的证据不足。",
+        "status": "insufficient",
+        "messageCount": 12,
+        "sourceHash": "54aeab381188b6f56ceea791e45b9e55fe91fb27a7780316912ad5f2696da88e"
+      },
+      "12536": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "反复回答 bag 与颜色；I like you 嵌在 bag 自我修正中，没有独立关系请求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "94a29ccbdc3fb527daccd1baf9715eb25081cfd6714df4d988ddfc2c9e5556de"
+      },
+      "12645": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按动物题作选择，Pause 仅为暂停行为不等于额外角色。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "7406f17f01eec426eaa362b2ca50d8ec7a4f4b86da7d378ed9d19cec80b51ace"
+      },
+      "12075": {
+        "intents": [
+          "self_expression",
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "self_expression": 4,
+          "identity_curiosity": 12
+        },
+        "rationale": "主动表达上厕所的需要，并多次询问 Dino 是否也要去；没有动物练习回答，不强行标课后练习。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "f1a5f4e15155d7553e645f34f8c65a32aee38723705817e1759455e3feb60d3e"
+      },
+      "13169": {
+        "intents": [
+          "lesson",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 12,
+          "clarification": 2
+        },
+        "rationale": "对 flamingo 反问，后继续选火烈鸟；只支持核对刚听到的词，移入澄清，不判发音练习。其他长句含混，不追加陪伴。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "5a8f4b44e315ff16b8aed1c6dc70efe0c17a4d61e1cf97acff3ef66f504b8966"
+      },
+      "11760": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "故事和动物喜好都来自课程题，未独立点播故事。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "35b5435bf0b91dfb4399e924e0a295b1959da8e34e1dc83ff3b9b8ebdd0b0195"
+      },
+      "12456": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有越南语问候，没有回应星期练习。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "984237a53a5803ee01c2f85b927d024ea24436d6a26f501c14aa1024ba7d771d"
+      },
+      "11501": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "明确准备练习并回答宠物题，不把练习中的猫信息都当主动倾诉。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "589036325fe20ea538089a53be55ef3c72560680e747913f06529bf8f3052cf0"
+      },
+      "12720": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "保留人工更正：Guess 是动物选择题内让 Dino 猜答案，并非独立游戏请求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "6e5911da79710d4d22f64be30b05048b8e5cd4cb62a38f303a64f64da65b5aa1"
+      },
+      "12607": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有问候，课程问题没有回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e041960ea9279a19434de0dc09b2faa569a6dfcfc57d776dfc6c6abeca324e2b"
+      },
+      "12372": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "仅含混开头，没有后续。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "194ddf2a9c522a8d18fbb1ee46a8c227cfa58e7a2127631368e2d5b7a1d1fed0"
+      },
+      "13068": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression"
+        ],
+        "anchors": {
+          "identity_curiosity": 10,
+          "self_expression": 8
+        },
+        "rationale": "保留问名字的身份好奇；另主动谈自己与家人关系，但具体人物转写含混，不追加浪漫或扮演意图，也没有完成动物练习。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "eb05d42454f2b57d0989e4a1d96eaefdb59fb4ce76392ef06e286e590ffb46cb"
+      },
+      "11575": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "对动物选项表达不喜欢并回应狗的问题。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "69f4861915c9e5a02be48288aa5ac8b4054a613ac9c5ae301c9e1abb1ec39dc4"
+      },
+      "12701": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "解释喜欢猫后告别，没有额外目的。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "2e1a1ee905412de0cdd2bf35eeafece25f34696b26178f6906d313e8544bf505"
+      },
+      "11758": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "It's me ask 被 Dino 解释为学生要提问，但后续仍含混且无实际问题，不确认目的。",
+        "status": "insufficient",
+        "messageCount": 10,
+        "sourceHash": "21f6c896c2d4f149a328c72d3a5b00217c51aa9dd09e53547a219d4831a026a7"
+      },
+      "13185": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "准备后只说未完成 I like，未形成可解释回答。",
+        "status": "insufficient",
+        "messageCount": 4,
+        "sourceHash": "05561d2f0913d107d552be5dbf7e2f29ab19895d74fc18bb6b3f22159df9c337"
+      },
+      "11517": {
+        "intents": [
+          "games",
+          "director"
+        ],
+        "anchors": {
+          "games": 0,
+          "director": 6
+        },
+        "rationale": "明确邀请玩、拒绝课程话题，持续要求 Dino 摘眼镜及改名；按完整请求归纳，不复用旧游戏故事表演类。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "aa1c74d84408c649cdeb442768a2924f7a3d1f4208cd6c8d29fd7cf001a84671"
+      },
+      "12092": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 10
+        },
+        "rationale": "虽然开头识别不稳，后续明确回答家里是否有猫马。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "252d67e9686504d823c488d76fee446187eee9eda4481fd5b7cbff3161b6c195"
+      },
+      "12717": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回应父亲是否在旁及动物题，信息少但有对应作答。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "d94805cfb95a2f59d6b0c6a0227896bde19a5b10dedf686e7b6fb68a26073090"
+      },
+      "13206": {
+        "intents": [
+          "identity_curiosity",
+          "repair"
+        ],
+        "anchors": {
+          "identity_curiosity": 2,
+          "repair": 8
+        },
+        "rationale": "反复测试 Dino 是否知道名字与记住话语，并纠正称呼；没有回应动物练习。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "5423d86d890ad05557f5173f0ebbc5614cd2f4d857ca4011cded2494dcf5f1d4"
+      },
+      "12094": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "持续回答学科喜好，没有额外目的。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "80b6fa057ea4ab9aed03b382decac6f0ae7be6814ebbae1522c2346215a3553f"
+      },
+      "12465": {
+        "intents": [
+          "identity_curiosity"
+        ],
+        "anchors": {
+          "identity_curiosity": 0
+        },
+        "rationale": "完整明确问 Dino 名字；未有课程作答，不自动加 lesson。",
+        "status": "coded",
+        "messageCount": 2,
+        "sourceHash": "40161ae74610c14ebf995cffc6a8ff375f5a3d7b72047e8b782bc57440c56b95"
+      },
+      "12079": {
+        "intents": [
+          "calculation",
+          "social"
+        ],
+        "anchors": {
+          "calculation": 4,
+          "social": 6
+        },
+        "rationale": "连续明确问 5678+5678 的结果，得到答案后称 Dino 最好的朋友；不同于课内答题，归纳为具体计算求助，不恢复宽泛问号命中类。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "f56ed2d04204273b4b15057fd3f50c20a7b4ea779db13b3a0e20cfe237c0d2cf"
+      },
+      "11954": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "尝试以肯否回答苹果和蜜蜂题，Movie time 没有后续请求支持，不标娱乐。",
+        "status": "coded",
+        "messageCount": 14,
+        "sourceHash": "1e96bb4d0c79c9197915b8010a3e1c57593cfd4f74c7a0731ea3c53658bd8f71"
+      },
+      "12724": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "沿猫的课程问题描述宠物，未出现主动转题或功能请求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "b4968046f7d594b2ce83f9642a5460755295127274e722f6951fc58ce87f8d91"
+      },
+      "11943": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独 Do 后没有回答。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "1526c2f741203e04da7687281495414444559ec93794a47c8d2f24cbd964fc92"
+      },
+      "12222": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "含混开头没有后续确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "fd94b42569a56ee46d72809a4c793c27ca417c827aa1df14dc054a1701de5026"
+      },
+      "12149": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "持续回答课程安排及学科喜好；学校内容来自题目，不是主动表达诉求。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "c5755fd4b2ee29edb0648227661b396097108a90ca182a277a938baa7e66a302"
+      },
+      "11530": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Mother to read 和被遮蔽片段没有可解释的学习请求，也没有回应动作题；移除旧 read 关键词命中。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "15f57e509adbe570197bb1cc85695d2cdc4235ed9ebec419e60b995bdada495d"
+      },
+      "12799": {
+        "intents": [
+          "lesson",
+          "self_expression",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "self_expression": 0,
+          "clarification": 10
+        },
+        "rationale": "舞蹈和跳跃是课内回应，另介绍搬家与父亲修电池；核对 don't already 含义归入澄清并移出英语练习，没有其他独立练习请求。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "6b72794e1d96567abe1b8b9748cc763936d0d0c91aaf98c3819b34fb4e255212"
+      },
+      "13120": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回应 jump/climb/fly 练习，没有新目的。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "b103f6c0b610caa5ea99eab98a1fd329c7b0c318bb356b8d152a7d22c84dfc18"
+      },
+      "13152": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "保留人工更正：Sing 是回答唱歌还是演奏乐器，不能作为让 Dino 表演的证据。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "39c34113e305a14284aeeae0646256a4d5e8f3aa2d898c8baa61c78559da5fad"
+      },
+      "13222": {
+        "intents": [
+          "lesson",
+          "self_expression"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "self_expression": 14
+        },
+        "rationale": "先作动作句式练习，后主动扩展到自己五分钟跳绳一百次的具体表现；普通 can jump 回答不单独计分享。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "44f9a63e8a74e3368d9fd60bded5b41002ef5031cbca0a67e4bce3980fa5adc3"
+      },
+      "12907": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "持续回答能否跳、爬、飞的课程题。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "ff564201e9bb0c80161dca27d74afcdd293cccd20d32f402d0bf60758540a22f"
+      },
+      "13117": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有一句越南语片段且没有课程回应，无法确定具体诉求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "d982ee38fe392b636267b2192e8ce1681fa3e38e3a6304121a90c864a9bff6cd"
+      },
+      "12418": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回答星期几上哪些课，跳舞是课表内容，不是表演请求。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "05e636cc7c5d51cb83b386b7b4a0ac49f0ce884a166c5d6f57bad1c9f0770b4d"
+      },
+      "12984": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "动作能力描述始终承接课程提问，不额外解释为自我倾诉。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "81313c1cfb33e5fdc2191b103b414353b8b30ce568b586e429bd2fcc76d08f40"
+      },
+      "12424": {
+        "intents": [
+          "lesson",
+          "social"
+        ],
+        "anchors": {
+          "lesson": 10,
+          "social": 0
+        },
+        "rationale": "保留人工更正：I can sing 是回答会做什么；开头直接称 Dino 为朋友，支持社交，但不构成指令扮演。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "e78e867f829b353c78f52e79bc1c0cb87b1864c8fa325b7d7dc7a571c35d40af"
+      },
+      "11722": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "按服饰问题连续回答，未请求新用途。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "91f90aacbace8a1b8c862c49d49063408042443d9881ef73ded52cc90b922836"
+      },
+      "13073": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 16
+        },
+        "rationale": "最终明确修正 Jam 为 Jump；整体为动作练习，不按 Jam 加食物意图。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "45257fbc14f87c02a4d4ab2e62ff10ecfa81605ae638d99f7ad73df748c7d100"
+      },
+      "11640": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "依照服装课程说偏好和颜色。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "f6bb39c51d2679fdd8be8f13ab9d5195b28d868b1c0b6f910127b38c5df35ec8"
+      },
+      "12881": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "cry 多次出现在 climb 问题后，很可能误听；不作为难过求安慰证据。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "d6da045f33e74c4c6cf792270d9b4f27735ff71b7ce18f3083952f600ec98c8d"
+      },
+      "11637": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "完成 this/that 指示词练习；book so I can study 是课内说明，不是求教学帮助。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "7cf4916590aa108656514969a66a2182018b4cb20960d0f228d9676174bb7123"
+      },
+      "11965": {
+        "intents": [
+          "identity_curiosity",
+          "self_expression",
+          "lesson"
+        ],
+        "anchors": {
+          "identity_curiosity": 4,
+          "self_expression": 8,
+          "lesson": 10
+        },
+        "rationale": "保留人工追加：问 Dino 来历后主动说自己来自越南，并最后回答 October；同一 Session 三类可共存。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "8108b849093a58d30660fc3707dd9574f4f34f7c25479a1ff76bf2248a7d21df"
+      },
+      "12893": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "回应 jump 的能力题；Can you term 含混，不作为独立身份或能力探索。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "24b7da566200b6338652fffc49596d9c4247ec5fc9765095aa2ad42c964fc976"
+      },
+      "11592": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有准备好，课程问题未获回答。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "de0f76918fb74ebac5db4d07816132e8e4f610c9b7079f08ff2f017be889b8d7"
+      },
+      "11595": {
+        "intents": [
+          "lesson",
+          "practice"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "practice": 14
+        },
+        "rationale": "先做月份排序，多次答错后明确向 Dino 求助；学习帮助不是仅由 month 词触发。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "01cfa5d7d5385577459e6724bdebe83106810f58002c1ca2e60661c178a4bf77"
+      },
+      "13013": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "单独数字，没有课内回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "03b7db5962ce74804a1f65844dcf14b8e944a57a54764d5294cf46d9d77ce086"
+      },
+      "12953": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 8
+        },
+        "rationale": "持续完成星期题，也反复纠正 Dino 今天是星期五；不是主动谈个人经历。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "6deb035e89b78772c3b10eec08bd0a89b996bc70d149cbbb94379841e7fe0d03"
+      },
+      "12193": {
+        "intents": [
+          "identity_curiosity",
+          "lesson"
+        ],
+        "anchors": {
+          "identity_curiosity": 0,
+          "lesson": 2
+        },
+        "rationale": "先问名字，后回应动物题；两个目的均保留。",
+        "status": "coded",
+        "messageCount": 16,
+        "sourceHash": "876d0e6d39d724e78122f5f1c39953252fb51a82b4333f165f4659599d6bff2a"
+      },
+      "12138": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "47cc45e5e602cea6c8a71548ac57a3246b4ee4cf2365cdbd76cd732fc47d988c"
+      },
+      "11911": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "在 cake/tape/made 音词选择中回答，没有请求听故事或娱乐。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "db324144cfdc08907e18a318f97d19031c2d2c47586dd198cb58cf1cc6661176"
+      },
+      "11602": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 14
+        },
+        "rationale": "保留人工更正：My friend 是在大写字母练习中回答人物或地点，并不是把 Dino 当朋友。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "fffd6b7844a1b48e6edd4e7a4353476636d4c98dcb90e43c546092fd82ea35f4"
+      },
+      "12925": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 16
+        },
+        "rationale": "星期练习中持续作答并指出 Dino 重复问了很多次；原开头唱歌短句按既有人工纠正不另标点播。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "a54ba7ddbf1ca2487da5a779caf91daee17e6d06bf6250db39757e9a36426e1f"
+      },
+      "11740": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 10
+        },
+        "rationale": "尝试用英语说月份，部分越南语音写可辨为 October/February；没有请求切换语言。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "bda3de8368712d9589bce7e1c0c14a8e50a95bda8e1b3ee4deea37aee1ae98e5"
+      },
+      "12256": {
+        "intents": [
+          "lesson",
+          "self_expression"
+        ],
+        "anchors": {
+          "lesson": 12,
+          "self_expression": 2
+        },
+        "rationale": "主动说自己明天上学，后又回到动作练习；good morning 不作为陪伴意图。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "1a15c63417aab6becbe8ee3cd5cced45af3adb143724b7241689102400d750d8"
+      },
+      "13074": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "回应能否跳高的课程题。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "7b230e6afe92024192b15d45849c969def6f31e4c4db7eea3459da9b45593d2f"
+      },
+      "11963": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "电影开头含混，后明确选择 April；不据 movies/stories 词标娱乐。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "50da4b4bdcd68ee1036e527db9c309e893c92b33a72fb12065887bfa988b6b46"
+      },
+      "12484": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回应能否跳的题目。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "021fe81986d38fb348802217c0d871aae27d33c943306384ed416e067d6b65f5"
+      },
+      "13216": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按星期课程安排回答；细节多仍为题内回应。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "042056e03bb06cafda3d65e72219fcf1ab1b151c2c845a69d00daa427bd41961"
+      },
+      "12745": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 6
+        },
+        "rationale": "回答 Friday 并明确纠正 Dino 的相反解释，后继续星期练习。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "50a482505295d254baac53a5cf53af9a092fc931d004db23dd414459b3b1731a"
+      },
+      "11912": {
+        "intents": [
+          "lesson",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "clarification": 2
+        },
+        "rationale": "在练习中具体询问 soccer 含义，弄懂后回答自己喜欢羽毛球；词义解释移入澄清，课内作答保留 lesson，不再凭此计 practice。",
+        "status": "coded",
+        "messageCount": 18,
+        "sourceHash": "af507a7ae36b0143f3ff05ee187f7bc63c2eb6ef882b2e1d7b81d076f22d1bac"
+      },
+      "12979": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 about 的含混回应，没有可确认目的。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "e4e18b68b84165f9119f4f67f482caac54a15f537e0b5c55ec8137d4419d32bc"
+      },
+      "11518": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有招呼，不能据 dear 推断亲近意图。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "a478add6e63dfba1f2b5613dab794133c71bfd7e69685fc59bb741184fd38eb0"
+      },
+      "12025": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 2
+        },
+        "rationale": "在动作提问后主动改为今天星期五；没有动作练习回答，不自动加 lesson。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "b4e8157874d237a4f0d3a9a22ad0ce6ac9a04ef2ca50bff37be4674e60e8e450"
+      },
+      "13303": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "完整回应动作题；额外动作词仍在课程框架内。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "0166ebb4b9882c4da8ec751f20e2e8fb540cb685b38ff3b66a697d09abd2c0fc"
+      },
+      "13344": {
+        "intents": [
+          "self_expression",
+          "lesson"
+        ],
+        "anchors": {
+          "self_expression": 0,
+          "lesson": 2
+        },
+        "rationale": "明确主动提出想聊 Minecraft，之后回应嵌入该主题的动作题；聊游戏不等于要 Dino 开游戏。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "05d587182732979e1a383c0d000947582054de96839519da33ec58d6c4abada6"
+      },
+      "12756": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有姓名开头，课程提问未获回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "990c9dabbf74e4bc7010cbd68911f5d06adb5825ffbd1a3abcf146a245b9150a"
+      },
+      "12510": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "Take us 没有目的地或后续说明，不确定是任务请求。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "444fff2ea05225adb859db5adecd42ac2fb435f1d63949c82392a7e311170409"
+      },
+      "13035": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 2
+        },
+        "rationale": "对购物题反问 What，Dino 随后重说；移入澄清，尚未实际答题，也没有纠正 Dino 对自己的误解。",
+        "status": "coded",
+        "messageCount": 4,
+        "sourceHash": "5c97c98074f8df0767848018bf7d5732c51153a61089c869ad809110d0b01d23"
+      },
+      "13038": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有开始 Yes，没有购物题回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "538c98e524e07f856b5a8760e1bfaf63154041e704f3f54444b4b51b9d23e88d"
+      },
+      "11838": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "岛屿和电影场景始终回应课程提问，故事情节不等于要求 Dino 讲故事。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "343daa7f876b89a2a8c62400acce46f077ec3d36bb71b7bb362f7f6e900d5df3"
+      },
+      "11621": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "明确要求回到课程，随后回答地貌题；比默认入口推断更强的跟随练习证据。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "fffe29352f1e35f444f10df5ec466a739caa2452d5639100ce0bcc8c10d51bc3"
+      },
+      "12513": {
+        "intents": [
+          "clarification"
+        ],
+        "anchors": {
+          "clarification": 4
+        },
+        "rationale": "多次表示听不见并请 Dino 再说，属于请求重述，不等于词义不懂；移出被准确理解，也不把 Can you talk 当自由聊天陪伴。",
+        "status": "coded",
+        "messageCount": 12,
+        "sourceHash": "2d15d725289a77e81f4c693bf3b9fa4b8c9db59b8ba1da328b5887467d9b443a"
+      },
+      "12442": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "跟随购物问价和 bargain/rip-off 练习；房屋价格句为课内例子，不做实际财务推断。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "a10afffe135ce8d1a2fed9e903bc1dfcb02e1d9adca0f124a03b2a0f1a81fe90"
+      },
+      "12995": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 Samsung，没有回应购物问题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "55e33ea849a6c93ed75cb3ecf238886bf9b6bd643b93cc64fd7e1c37301b14e8"
+      },
+      "12567": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "选择动物故事后回答动物栖息地，属于课内内容而非独立点播故事。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "d851e55749bc10faf4082cb75a980df424a16e77cdfe6c7295b163bb318f6629"
+      },
+      "12986": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 16
+        },
+        "rationale": "持续尝试回应购物题，最终说明冰淇淋偏好；无额外用途。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "3eb1a60e60e0e545b22f6e1b48eafb7559e367f249e9893e1fbe0a6462f6b152"
+      },
+      "12554": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 12
+        },
+        "rationale": "How much is it 是被课程提示的购物句式练习，并非真实查询价格。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "97622feda2fc759b68c2b1926a740fc5ec9794a62e21278781764558853f8dac"
+      },
+      "12651": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按 bargain 等题目作肯否回答。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "1cb5db06430b098d613a9c4bfe81e46e51f2af4e772dedc6aa11f788ccd566c3"
+      },
+      "12680": {
+        "intents": [
+          "lesson",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 4,
+          "clarification": 18
+        },
+        "rationale": "购物练习中先表示不理解，再问 bargain/rip-off 意思；合并为一个澄清意图，从 repair 和 practice 同时移除，保留独立课内作答。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "16251cc06749fb1f7d50d6bfff0e5a99490c4973ab734dd5e47bbd9854aded16"
+      },
+      "11702": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "未真正回应地貌题，后续自我介绍含混，不能自动算练习完成。",
+        "status": "insufficient",
+        "messageCount": 6,
+        "sourceHash": "4c84155a18def6ef15f31250328b7a64c13e94b5330a003f0a24f896a3f8089e"
+      },
+      "12566": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "玩具车问价与后续 I'll take it 连续构成课程购物情境，没有独立真实购买或报价需求证据。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "278b2511c46e22efe7ef284e7c5626f1a8bdbfdec151c2e554fab4404ca30dde"
+      },
+      "12564": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "反复回答山与谷的偏好，未主动请求新功能。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "bc35558b84bcebc20bd03294f5150a9408d586f17d2b8157cbc0dd64f90f10d8"
+      },
+      "12563": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 6
+        },
+        "rationale": "先礼貌问天气，后进入 bargain 课程；天气短问不足以确认工具型信息查询或持续陪伴目的。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "962a456f2e151a4dba181bf155707e28c40bdd85ce2aa9628a84538b2b170a4d"
+      },
+      "12647": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "选择 bargain/rip-off 并回应购物题；数字金额不是额外计算求助。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "35b7fb572706edf42cb0904f4adec96180b0dd9cab742be1cf978e61c1e0973a"
+      },
+      "12509": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "在购物选项中选零食并回答偏好。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "1e82a8af4f7a2b24c61d685b54cf70675ae967139d4f41d5663ee6552de147ea"
+      },
+      "12334": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "完整解释便宜好吃为何是 bargain，后续仍为课程追问。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "415cc2d8d9c4137797eae24f992de24a1e9f64780eac40c0ca6548dc893a8df8"
+      },
+      "11633": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有 No more，未开展课程；记录停止行为但不猜替代意图。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "e809d917bada66a73f227ef411761d5f4634d6164fd37f58fd46d3b642ec9c7f"
+      },
+      "13160": {
+        "intents": [
+          "lesson",
+          "practice",
+          "clarification"
+        ],
+        "anchors": {
+          "lesson": 6,
+          "practice": 4,
+          "clarification": 18
+        },
+        "rationale": "先说不知道怎么表达，保留独立表达求助；后来追问前面说什么，移入澄清，不再计 repair。Board game 的误听链条不作为陪玩请求。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "99bac7790e8f84aa3a4ff8e677ac674487d372d4c833a4d54c41e2521365793c"
+      },
+      "12292": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "回应地貌喜好并多次否定，没有提出明确替代用途。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "2af3dc7f58200cedce110a7f95ceaa1b57935555b647c89bee94fd596aefbab0"
+      },
+      "13041": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有准备好，未回应课程。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "77708b341c57c681751f28ccd88189d3fcd289ef05edce21a75e572bde07bd53"
+      },
+      "12705": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "在教师/购物游戏语境中接受购物句式练习；不是把课内角色练习另计自由娱乐。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "8dd04da9b70ade279d6d1951422cb49cdf713b591650c59aeb5321166a4467ed"
+      },
+      "11839": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "围绕课程提示描述山谷景象，未见超出当前题目的使用诉求。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "f2e3c4ce08447b26cbd7e197abede8bc93c392f5b8079cef6d606d25cf292a10"
+      },
+      "12305": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 8
+        },
+        "rationale": "持续作动作能力练习。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "3a33854c66ab5271bc691c9ab8cd2f824104ff6b41f828b9ca001f34e5a2eb39"
+      },
+      "11857": {
+        "intents": [
+          "product_help"
+        ],
+        "anchors": {
+          "product_help": 4
+        },
+        "rationale": "面对动物题表达要回到 Leo 那里，随后拒绝当前内容；支持切回老师入口，非 Dino 身份好奇。",
+        "status": "coded",
+        "messageCount": 10,
+        "sourceHash": "ce79ef80b1e79bd4b75191ff3dcd1c31c3b85c46605eec7a191183b27e793823"
+      },
+      "11493": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 12
+        },
+        "rationale": "回答地貌题，随后纠正 bats/pets 的误听；Dino 自行解释情绪不能证明情绪求助。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "026bdd50b68d225490d32faefab6cada9f8f54341ba93ee07af03fcd9bffd4f4"
+      },
+      "12972": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有准备好，购物题未获回应。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "252f5063556e2da27a400d2d89719bd58a03fef5bfcf7ee5a7602632fc2eff4f"
+      },
+      "11631": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "开头短语含混，后续没有确认。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "3aa1a52c40ecc7c5107f290e64dce9ba94f753d401bcfc65be7576ea3ef7fa1e"
+      },
+      "12290": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 4
+        },
+        "rationale": "回答山谷、冰川和平原的课程选择题。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "e51d1656c1286ff9f8e1307c5e1dbaff03cb717471f54b348836f420dac86bfa"
+      },
+      "13044": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只说准备好，未回答课程题。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f1acfee7bbb7417baec4de50098838b2b60b204f0c59862710b7b3d4545953d4"
+      },
+      "11507": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只称呼老师，不据此认定求学或已参与练习。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "f6f43355b5d02a5ef051b0d317c0d9f74bd19665d71918b6b19a24e72eb4a6f1"
+      },
+      "12943": {
+        "intents": [
+          "social"
+        ],
+        "anchors": {
+          "social": 16
+        },
+        "rationale": "前面大部分转写不清，但末段独立重复 I love you 并获回应；没有可确认的购物练习回答或情绪求助。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "a54728f5cb22505089b38fc2568212018acf2d19451c617d5e55851454ea754f"
+      },
+      "13159": {
+        "intents": [],
+        "anchors": {},
+        "rationale": "只有开始 Yes。",
+        "status": "insufficient",
+        "messageCount": 2,
+        "sourceHash": "10fa7812e178c4e8aaf0f84f4a0e5e39942cfd282ab114cd4edce6ab4cce1574"
+      },
+      "11833": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "明确准备并持续回答地貌练习；开头兴奋聊天不足以推出自由陪伴目的。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "ed336332b01321675ec24cf2dfeb7a4969e74011b17f7de69c8960c0132dd98e"
+      },
+      "12702": {
+        "intents": [
+          "lesson"
+        ],
+        "anchors": {
+          "lesson": 2
+        },
+        "rationale": "按购物题回答零食及巧克力。",
+        "status": "coded",
+        "messageCount": 6,
+        "sourceHash": "eb9abd67953db69e7359f908eb7521b99d7a4cbc196c37fb14f58769f91d8669"
+      },
+      "13050": {
+        "intents": [
+          "lesson",
+          "repair"
+        ],
+        "anchors": {
+          "lesson": 2,
+          "repair": 10
+        },
+        "rationale": "回答岛屿与地貌题，反复澄清自己说的是下龙湾而非 music；不能记为歌曲点播。",
+        "status": "coded",
+        "messageCount": 20,
+        "sourceHash": "0b50b59bad46ab1bca825ed9465ae8d9437887c1f1fa75f622b505895e0c4a77"
+      },
+      "12430": {
+        "intents": [
+          "self_expression"
+        ],
+        "anchors": {
+          "self_expression": 2
+        },
+        "rationale": "主动把购物问题转到自己喜欢看足球并讲与家人一起看；Alarm 单词不构成设闹钟请求。",
+        "status": "coded",
+        "messageCount": 8,
+        "sourceHash": "d7ed06429b2469a9733db6f723a01ac345cc646a4e2b6e6bc2e84e427af2560a"
+      }
+    }
+  }
+}

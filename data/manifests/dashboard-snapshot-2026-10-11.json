@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "dashboard-2026-10-11",
+  "classification": "internal-restricted-derived",
+  "timezone": "Asia/Shanghai",
+  "dateRange": {
+    "start": "2026-09-14",
+    "end": "2026-10-11"
+  },
+  "counts": {
+    "messages": 211928,
+    "userMessages": 105964,
+    "users": 3790,
+    "sessions": 13347,
+    "transcriptShards": 105
+  },
+  "privacy": {
+    "directIdentifiersCommitted": false,
+    "rawExportsCommitted": false,
+    "identifierStrategy": "snapshot-scoped integer indexes",
+    "notes": "Raw exports containing phone, email, nickname, avatar URL, exact birthday, original user_id, or original session_id remain local-only."
+  },
+  "assets": [
+    {
+      "path": "dino-chat-dashboard/data.js",
+      "sha256": "96799005fedca3509b3abf9b5726f083d3152dc227efd543cdbceb4754787b03"
+    },
+    {
+      "path": "dino-chat-dashboard/analysis/entry-analysis.js",
+      "sha256": "f0997436c28fb9fc0051086924ba06a007910fea663e1de074ef19393b8c5d72"
+    },
+    {
+      "path": "dino-chat-dashboard/dialogue-translations-data.js",
+      "sha256": "4d1b7d139bcb0559df07f007e20fc3410ed0f55df9faf3b193de868158237bf1"
+    },
+    {
+      "path": "dino-chat-dashboard/post-class-completion-data.js",
+      "sha256": "38395abdb471ae1b010c9caac589ec5aabb9a24c84fab66b925e08758ba42ae6"
+    },
+    {
+      "path": "dino-chat-dashboard/post-class-lesson-alignment-data.js",
+      "sha256": "3d9d5caccca0920d342e6b8ca673a0c668a377d27bdb39d009bd464286579a72"
+    },
+    {
+      "path": "dino-chat-dashboard/post-class-student-behavior-data.js",
+      "sha256": "934474cd4f76601394afa2a979f753fbb17dad1aa59507d44bf4c27f31f16818"
+    },
+    {
+      "path": "dino-chat-dashboard/sampled-conversation-analysis-data.js",
+      "sha256": "75e30048ee66dbdea60e7046733bdf0b14f9e3c361dbbff49796e840f9f756c0"
+    }
+  ]
+}

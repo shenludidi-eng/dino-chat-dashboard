@@ -1,0 +1,481 @@
+# Complete-session contextual review, 2026-10-13. Columns: entry, sid, findings (key@1-based message), contextual observation. '-' = insufficient; '~' = observable participation only, no additional purpose established. Labels are grouped inductively after reading, not regex matches.
+HOME	8211	-	问候后连续识别失败；无法从含混回复判断具体诉求。
+HOME	9324	identity_curiosity@7	两次直接问名字，Dino 回答自己身份；后面的 Guess Kenny 和含混爱你不足以证明游戏或陪伴需求。
+HOME	6011	-	不知道、Apple 均未被接住，且首句缺失，不能反推目的。
+HOME	2982	identity_curiosity@5,clarification@19	先询问名字，后在颜色问答中请求澄清 Dino 当前问题；此处是学生要听懂 Dino，不是纠正 Dino 对自己的理解。
+HOME	5436	games@7	Dino 提供游戏或故事选项，学生明确选 Tiny game 并持续回答颜色；这是受邀选择而非自发发起。
+HOME	6888	self_expression@1+3,tool_use@67,identity_curiosity@47	主动讲摔倒和头疼并求助，后请求给水、询问 Dino 家人；分享经历和寻求关心合并为自我表达与倾诉，只计一个 Session，保留两处证据。真假或想象情境无法核实，不作实际伤情推断。
+HOME	8062	clarification@7	回答大象偏好后明确说听不懂，Dino 将问题改成具体选项；归入澄清当前问题，不作为英语练习或被准确理解。
+HOME	7483	-	生日词后含混语句，未形成可判断的诉求。
+HOME	5812	~	只是问候并附和 Dino 喜欢蛋糕，不能推出陪伴或主动分享目的。
+HOME	4454	-	只有含混声音与识别失败。
+HOME	5126	~	问候后回答开心，没有展开经历或请求支持。
+HOME	2290	-	零散词均识别失败；开场引导缺失。
+HOME	10280	-	只有 Ten，后续数数问题无学生回应。
+HOME	4977	-	短句含混，Dino 复述不能证明学生目的。
+HOME	5129	-	只有两次招呼，没有回应实际问题。
+HOME	8770	identity_curiosity@11,self_expression@27,games@45,stories@53,repair@25,clarification@9	追问住处、展示搞怪画面，并要求数学游戏和恐怖故事。先问 Dino 在说什么，属于请求澄清；另指出 Dino 没有注意自己、反复纠正轮流出题规则，保留被准确理解的独立证据。
+HOME	2291	-	单次问候后识别失败。
+HOME	6033	-	单词未识别，无上下文。
+HOME	10177	-	首句含混，只有 Dino 猜测是摆餐桌，无学生确认。
+HOME	4500	tool_use@9	反复要求给 Alia 打电话并说明是母亲；Dino 最终明确无法拨号。
+HOME	5809	identity_curiosity@19,self_expression@15	先回答足球问题，后来主动转向喜欢蛋糕并追问 Dino 是否做饭；不是单凭关键词 friend 推断关系。
+HOME	5434	~	故事话题由 Dino 发起；study time with me 与 Dino 的 stay with you 解释不一致，无法可靠区分学习或陪伴诉求。
+HOME	3062	-	单句含混；Dino 提出的英语或阿拉伯语选项未获确认。
+HOME	7238	-	姓名和数字断续回应，未形成明确功能诉求。
+HOME	6671	-	持续转写含混及澄清失败，不能用 Dino 的游戏邀请替学生表达意图。
+HOME	11400	-	只有重复 Hello。
+HOME	5229	-	零散词与识别失败。
+HOME	4603	-	只有未完成短句。
+HOME	5678	-	Happy 后续内容不清；无法区分承接首句还是分享情绪。
+HOME	6213	-	Sweat、Quit 未形成可解释的上下文，不能据 Quit 断言结束诉求。
+HOME	4327	-	单独 No，开场缺失。
+HOME	3871	-	单次招呼，后续问题无学生回应。
+HOME	5438	stories@5	连续请求恐龙书、story time、公主故事，并要 Dino 读下去；不是请求英语教学。
+HOME	9295	clarification@1	学生反问 What，Dino 明确解释上一问是在询问语言；只支持即时澄清需求，不属于纠正 Dino 的误解。
+HOME	4371	~	物品、颜色及写字在 Dino 提问下展开，未见请求帮助写作或学英语。
+HOME	5972	-	虽有猫叫与零散词，但整体多次识别失败，没有稳定活动或功能诉求。
+HOME	2295	-	单独 The mother，不能解释为主动谈家庭。
+HOME	9308	-	含混招呼后没有明确选择聊天或游戏。
+HOME	11369	-	单次问候，无后续目的信号。
+HOME	9343	games@1	连续明确 Let's play，Dino 据此开启颜色游戏；支持游戏互动需求。
+HOME	7697	~	连续肯定回应 Dino 的英语话题，未提出学习或游戏要求。
+HOME	7625	-	仅一条含混转写。
+HOME	4875	language@3	在 Dino 询问英语或其他语言后选英语；这是交流语言选择，不等于英语学习。
+HOME	7095	-	单条含混词组且识别失败。
+HOME	11032	-	Dino 猜测是语言适配，但没有学生确认。
+HOME	2631	games@5,clarification@7	先明确选游戏，再问 What do you mean 以理解玩法；后半大量模仿 Dino 的澄清句，不据此追加英语练习或被准确理解。
+HOME	10544	-	重复词和助手名称混杂，无法确定 Turn off 是否真实操作请求。
+HOME	6467	-	两条不连贯转写，均未获有效承接。
+HOME	6972	identity_curiosity@3,social@3,games@5,self_expression@9,repair@23	多次询问 Dino 是谁并称它为朋友，邀请一起玩，主动分享学校和母亲；后面澄清希望使用的名字。
+HOME	2410	identity_curiosity@1,games@3	先问名字，再主动邀请 Dino 加入游戏，随后参与颜色问答。
+HOME	5060	games@1,social@11,self_expression@19,tool_use@9,identity_curiosity@53	邀请一起玩并表达亲近，主动解释身边人的情况；独立问 bicycle ledger 是什么及 Dino 能做什么，不能把所有问句合成知识需求。
+HOME	5045	games@9,self_expression@43,identity_curiosity@41	主动提议世界杯游戏，后来主动转向汽车偏好并问 Dino 喜不喜欢 Bugatti；粗口和 Stop 不单独推断能力测试。
+HOME	2496	social@1,games@23,repair@19,clarification@11	表达喜欢 Dino、选择 Secret place；听不清 blue 问题时要求重说，另连续纠正自己的名字。澄清对方话语与纠正自己被误解分别有独立证据。
+HOME	8464	-	只有招呼和叫错助手名字，没有明确身份问题或功能请求。
+HOME	7679	self_expression@3,clarification@17,repair@13	主动讲朋友与 Dino 同名；对草莓配牛奶的问题请求重述，归入澄清。另明确纠正 Origin 实为 cold，保留被准确理解，不算知识探索。
+HOME	10356	-	只有 Catch Cat 与复述，不能认定词汇练习。
+HOME	9129	-	单条混杂姓名及糖果词，无稳定语义。
+HOME	7496	games@65	前段 Help me 缺乏清楚对象；后明确选择猜猫游戏并要求再来一次，支持游戏需求而非笼统求助。
+HOME	3130	~	重复数字承接数数活动，没有额外功能诉求。
+HOME	7814	social@3	明确向 Dino 表达喜欢，后因对话走向表达不满；记录社交关系信号，不推断持久依恋。
+HOME	6114	-	单个人名后识别失败。
+HOME	5088	-	只有招呼。
+HOME	6685	-	零散词和识别失败。
+HOME	8571	stories@3,identity_curiosity@5	在故事或游戏选项中明确选故事，随后主动问名字。
+HOME	10514	-	单独 No，不能还原否定对象。
+HOME	4260	~	围绕衣服颜色做短答，未见明确游戏或帮助诉求。
+HOME	6951	~	肯定回答英语和玩耍问题，未明确选择活动或请求服务。
+HOME	3322	product_help@3,stories@11,identity_curiosity@19,clarification@15	两次想见老师，另请求故事、重说，并问 Dino 喜欢什么颜色；重说请求归入澄清，不属于纠正 Dino 的误解。
+HOME	3594	-	单次招呼后识别失败。
+HOME	11147	~	持续回答西瓜偏好，种子被误解为座位；问句仍围绕回答，不足以建立独立知识意图。
+HOME	7093	identity_curiosity@1,clarification@9,games@25	询问名字，多次问 Dino 刚才说什么，最后选择游戏；将重述问题的诉求从被准确理解移入澄清。
+HOME	5094	~	回应颜色和学英语频率，未请求教学；I won 没有可解释的后续。
+HOME	10004	language@1	明确说 Speak English；后把 Dino 叫老师但没有学习任务，不能据称呼标英语学习。
+HOME	5458	self_expression@3,social@15,identity_curiosity@17	主动讲做鸡肉，面对游戏或故事邀请改说想聊天，随后询问名字。
+HOME	3257	-	只有招呼。
+HOME	2758	-	Dog 与 Play a dog 均未得到确认，不足以认定角色扮演。
+HOME	7040	~	回答食物及喜好问题；喜欢玩游戏并不等于要求 Dino 开始游戏。
+HOME	7810	language@5,clarification@15	明确改用马来语，后对上学时间问题反问，Dino 随即重述选项；属于澄清当前问题，不能把 English 词本身当学习诉求。
+HOME	5844	identity_curiosity@1,product_help@5	先问 Dino 名字，后询问 Teacher Leo 在哪里；没有请求 Dino 扮演老师。
+HOME	9347	language@5	明确要求 Speaking Malay；词汇教学由 Dino 发起，学生未提出学习目标。
+HOME	9430	games@1,clarification@23	参与游戏时连续询问 daytime 含义并要例子；从英语练习移入澄清与解释，没有独立练习或表达求助。
+HOME	6792	games@5,clarification@15,repair@17	明确选游戏；多次问 What did you say 请求重述，归入澄清。另反复强调已经准备好并纠正 Dino 未接住的回应，保留被准确理解的独立证据。
+HOME	9886	-	文本被星号遮蔽，没有可用目的证据。
+HOME	3528	tool_use@5	问哪一天并在 Dino 追问后确认是今天，支持日期信息请求，虽未获得答案。
+HOME	6447	product_help@5	明确想进入 Level 4；后来说喜欢 Roblox 不等于要求 Dino 玩游戏。
+HOME	6911	-	单条含混转写。
+HOME	2548	-	问候后 Find 含义不明，未选择 Dino 提供的活动。
+HOME	7531	~	明确拒绝颜色游戏，但没有给出替代目标；不从拒绝反推聊天陪伴。
+HOME	6531	self_expression@9,identity_curiosity@35,games@65	在开放邀请下详细讲妹妹摔倒和家庭照顾，后来问 Dino 喜好并提出玩游戏；分享伤情不自动等于寻求情绪安慰。
+HOME	3002	-	单独 Rocket 可能承接缺失的固定首句，不能认定主动探索太空。
+HOME	5872	-	连续短音节和识别失败，首个 What 指向不明。
+HOME	5702	-	只有 Blue 与识别失败。
+HOME	7464	stories@11,social@15	明确要赛车睡前故事，并主动夸 Dino 可爱；提到喜欢格斗游戏只是偏好，不计游戏请求。
+HOME	6102	-	单句称呼和 What do you do 指向不清，且未得到确认。
+HOME	7508	identity_curiosity@9,games@31,social@35	询问名字、反复邀请一起玩并规定游戏方式，明确问能否做朋友。
+HOME	3690	-	招呼和想吃食物之间缺少连续语境，Dino 没有接住，不能判断具体请求。
+HOME	10828	~	首句食物偏好及后续回答可能承接固定开场，只见普通回应。
+HOME	3141	-	单次问候后识别失败。
+HOME	8051	tool_use@3+19	反复询问世界杯结果，后明确要求 Dino 重复 Bubble 及从一数到一百；按人工反馈，HOME 的这段指定行动诉求并入把Dino当成工具使用，保留两处证据，同一 Session 只计一次，不更改其他入口的角色与行动分类。这些不是跟随数数练习。
+HOME	2284	-	只有问候。
+HOME	9305	-	单句搜索应用词组含混，没有明确查询或执行目标。
+HOME	4717	games@9	从含混 I wanna 修正为明确要 tiny game，Dino 随后启动活动。
+HOME	7784	language@3,games@5,self_expression@7,identity_curiosity@45,tool_use@49	选择英语，提出工作游戏后主动转向学校与乐高生活，追问 Dino 来历并多次请求显示双子塔照片；展示照片是明确执行请求，不只是能力问答。
+HOME	9826	~	长对话持续回答 Dino 对兔子、颜色及学习时间的封闭问题；轮次长并不能证明额外陪伴或求知目的。
+HOME	7829	~	回答学英语的时间与频率，没有请求 Dino 教学。
+HOME	3983	social@3	围绕双方是否知道彼此姓名互动，学生明确回应 Dino 认出自己；不把已知名字复述计为身份提问。
+HOME	4443	-	日期、地点和 Turn off 混杂，无法从单句可靠判断目的。
+HOME	10102	-	只有肯定词和含混转写，Dino 决定英语不足以代表学生选择。
+HOME	6644	games@23	前段转写多不清；在游戏或食物选项中明确选游戏并回答颜色。
+HOME	6955	-	Now sing Ciao 仅有单句且对象含混，无后续确认；保留不确定，不凭 sing 命中。
+HOME	5397	-	只有重复招呼。
+HOME	8647	-	说有话题但主题转写不清，Money 单词没有展开。
+HOME	5749	-	长段像游戏背景音或含混转写，无法确认是向 Dino 发起的请求。
+HOME	7940	games@35,self_expression@55,social@67	明确选择颜色和跳舞游戏，主动分享节日家庭活动，并表达与 Dino 聊天的愉快；介绍学英语经历不是教学请求。
+HOME	6641	-	单词 Law 与识别失败。
+HOME	3517	-	询问人物的名字转写无法辨认，Dino 同样无法确认；不从 Who 机械推断知识类别。
+HOME	4619	-	招呼后没有展开。
+HOME	10218	~	按 Dino 要求顺数，倒数时表示不知道；没有独立请求教学或翻译。
+HOME	4610	-	数字与含混短句，Dino 自行提出语言解释，无学生确认。
+HOME	5720	-	仅 lo，Dino 猜测问候。
+HOME	11098	games@7	从重复 English 转为明确邀请一起玩；English 回答的是喜好问题，不独立标语言切换。
+HOME	9281	-	Barry 与心情的转写含混，Dino 的快乐解释不足以证实学生分享内容。
+HOME	9298	clarification@13	故事由 Dino 自行开始，学生随后表示听不懂；归入澄清当前话语，不算主动要故事或纠正 Dino 的误解。
+HOME	9870	-	问候后语音转写难以还原，不采纳 Dino 对伤心或故事的猜测。
+HOME	3800	games@3	明确提出想玩游戏，随后持续参与动物颜色游戏。
+HOME	4992	language@5,identity_curiosity@17	请求马来语交流并追问 Dino 喜欢的电影；普通开场 How are you 不单独标陪伴。
+HOME	3093	-	只有 Yeah，首句问题缺失。
+HOME	3905	self_expression@5	前段混乱，但最后主动清楚告诉 Dino 自己冷；支持表达身体感受，不推断求安慰或医疗建议。
+HOME	3486	~	介绍身份后列举形状并回应 Dino 提问；fear 实为 sphere 的转写偏差，不是害怕求支持。
+HOME	5522	games@3	明确选择游戏并参与颜色问答。
+HOME	4993	self_expression@3,repair@3	多次试图介绍自己和朋友，Dino 一直弄混人名；分享关系和修复理解有连续证据，具体姓名仍不确定。
+HOME	2594	~	回答动物偏好并在选项中选择狗，没有请求额外功能。
+HOME	4994	-	人物、活动与 Call Atita 混杂且都未确认，不凭 call 强行标任务执行。
+HOME	10862	-	单句含混，Dino 猜测是在问住处但没有后续确认。
+HOME	9462	~	表示很喜欢英语，不代表请求教学。
+HOME	6515	-	只有 Hello。
+HOME	9732	clarification@1	人工反馈：HOME 中询问如何说 hello 的这段对话纳入请求澄清与解释；Dino 给出 hello/hi 并有跟随尝试。保留原文，从英语练习与表达求助移除，不据此更改其他入口的分类。
+HOME	9284	-	原因问题没有清晰指代，后续仍不明，不能据 Why 标求知。
+HOME	10863	-	重复 Let me out，但无法确认是退出应用、虚构情境还是现实请求，不推断危险或扮演。
+HOME	9285	stories@5	在 Dino 询问是否要歌曲后明确要求 Change the song；周围含混文本不足以认定孤独求支持。
+HOME	4007	~	反复模仿 Dino 的识别失败句及招呼，不等于主动要求英语教学。
+HOME	8811	language@3	在英语或其他语言选项中选英语；随后字母练习由 Dino 主导，不另标学习目的。
+HOME	10875	-	只有 OK，先前问题不可见。
+HOME	7563	-	单条含混词组。
+HOME	10870	-	Wow/Ow 无后续确认，不能断定身体求助。
+HOME	3840	self_expression@5	持续指给 Dino 看自己答案旁的图片并补充位置，希望分享眼前对象；不是泛泛回答颜色。
+HOME	10914	language@3,games@15	明确选择英语及游戏；后续夜空描述主要承接问题，不将 Dino 的蓝天解释标为学生求知。
+HOME	9552	repair@21	学生反复纠正 Bold/Bought/Bot 的识别并用例句尝试说明；实际目标词仍不确定，不把 Dino 主动释义等同学习诉求。
+HOME	7566	language@5,games@7	纠正 Dino 擅自使用英语，之后选择 tiny game；目的语言未能确认但调整语言的要求明确。
+HOME	2800	-	Loud/Louder 无前后语境，不能判断调音量还是跟读或词义问题。
+HOME	7605	-	多句转写含混，未形成稳定的请求或表达对象。
+HOME	5492	games@1	明确 Let's play，Dino 随后提供披萨配料游戏。
+HOME	8593	games@1	开头 Let's go play 明确；粗口不自动解释为测试能力边界。
+HOME	9553	repair@7	学生纠正 Dino 把自己的选项听成 bot，但目标词仍不明；持续修复识别而非求机器人知识。
+HOME	6617	games@3	主动指定 Play numbers，随后参与数数；不把数字词本身当英语学习。
+HOME	8794	stories@7,clarification@15	选故事后表示听不懂，并具体询问 cave door 含义；两处合并为同一个澄清意图，只计一次，从原 repair 和 practice 同时移除。
+HOME	5967	games@15	原本跟随橙子偏好问答，在 Dino 明确邀请游戏时答应并继续参与；属受邀接受。
+HOME	2785	-	单句含混且识别失败。
+HOME	2601	tool_use@9	明确要求叫另一人起床上学，Dino 表示不能直接联系；不把前面的 wake up 自动当闹钟功能。
+HOME	10396	identity_curiosity@1	问 Dino 如何说话，回答围绕文字、口音或声音；支持对交互方式的探索，具体维度未定。
+EXPLORE	1879	self_expression@27,repair@15,practice@35,clarification@19	分享猫与家人的经历。纠正猫名支持被准确理解；追问 dollars 后表示弄懂了，支持澄清词义；另核对 My mom bought one cat in China 的说法，仍属独立表达求助。
+EXPLORE	1608	-	只有问候。
+EXPLORE	799	identity_curiosity@1	直接问 Dino 喜欢什么，Dino 回答自己的兴趣；这是了解对方而非获取外部知识。
+EXPLORE	782	-	首句 So what do 不完整，Dino 给选项没有学生确认。
+EXPLORE	397	clarification@3	在话题选项后反问，Dino 重说后学生选狗；属于听懂当前提问，不是纠正自己的回答被误解。
+EXPLORE	529	-	只有招呼，练习选项由 Dino 提供。
+EXPLORE	2057	identity_curiosity@5,repair@27,clarification@25	问 Dino 性别及偏好；先问你说什么请求重述 bow/boy，随后纠正自己是女孩。澄清与被准确理解由不同消息支持；Dino 主动纠语法不等于学生求英语教学。
+EXPLORE	507	-	仅颜色偏好，可能承接缺失首句，不能确定主动分享诉求。
+EXPLORE	896	self_expression@9	在 Dino 邀请聊玩具后主动改为自己的食物偏好；不因固定问候推断陪伴。
+EXPLORE	973	-	只有 Hi。
+EXPLORE	850	repair@3	持续纠正名字；粗口及数字未形成明确游戏或教学请求，Number bro 只支持换话题。
+EXPLORE	2249	~	选长颈鹿并回答特征问题，未见额外用途。
+EXPLORE	869	-	I died 缺少上下文，不能判定现实求助、游戏或倾诉。
+EXPLORE	2026	self_expression@1	向 Dino 报告自己 depressing；其余含混，未明确请求安慰或帮助。
+EXPLORE	256	-	Rainy cup 等表达无清晰指向，招呼后没有稳定目的。
+EXPLORE	377	identity_curiosity@5	明确问名字，后问候；单独 How are you 不扩充为陪伴诉求。
+EXPLORE	294	stories@5	主动要求搜索歌曲，Dino 追问歌名；歌名未确认，但歌曲请求本身清楚。
+EXPLORE	576	-	只有招呼。
+EXPLORE	2115	-	家庭、鞋子和难过的词串缺少可还原语义，不照搬 Dino 的情绪解释。
+EXPLORE	1892	~	在选项后选择恐龙话题，没有具体功能请求。
+EXPLORE	1029	-	只有 Cats，开场语境缺失。
+EXPLORE	957	-	单句转写难以确定指代。
+EXPLORE	955	-	只有数数，不能判定学习或游戏诉求。
+EXPLORE	72	-	未完成的自我介绍，Dino 自行补名字。
+EXPLORE	1417	repair@5	纠正 Dino 把颜色理解成绿色；未见请求英语教学，不能据 Dino 的跟读指令认定学习目的。
+EXPLORE	1647	~	在选项中选择猫话题。
+EXPLORE	293	~	要求停下并说疲惫，未提出支持或陪伴请求；把结束互动记为行为，不额外推断角色。
+EXPLORE	1250	-	只有问候。
+EXPLORE	1236	-	越南语仅为你好，不代表请求翻译或切换语言。
+EXPLORE	855	identity_curiosity@1	问 Dino 正在做什么；只记录对 Dino 状态的询问，不推断心理依恋。
+EXPLORE	1666	self_expression@21,social@17	主动分享想看蜘蛛侠及兴趣并夸 Dino；Happy birthday 不能独立证明要求唱生日歌。
+EXPLORE	344	-	只有问候。
+EXPLORE	2006	-	招呼后的请求语义不清。
+EXPLORE	636	social@21	虽然前段转写混乱，末段清楚向 Dino 表达喜欢并告别；Mr Pian 的年龄指代不清，不标知识查询。
+EXPLORE	1167	~	从玩具选项聊到霸王龙，主要顺着问题回答。
+EXPLORE	1333	-	只有 Me。
+EXPLORE	255	~	选猫后跟随回答，后表示不知道说什么；没有清楚的替代功能目标。
+EXPLORE	679	self_expression@3	主动展开自己为什么开心及能吃巧克力的经历；后续练句由 Dino 发起，不算学生主动要教学。
+EXPLORE	1185	tool_use@7	明确请 Dino 解释 ballroom，其他游戏和动作词转写含混；不依靠 hurtful 或 frustrated 猜测情绪需求。
+EXPLORE	66	games@3	明确接受并选择颜色游戏，后续回答与跟读均在游戏中发生。
+EXPLORE	1201	self_expression@3,practice@5,clarification@1	开头表示跟不上，归入澄清；随后分享奶昔做法，并明确接受短句练习，独立英语练习意图继续保留。
+EXPLORE	1026	-	招呼及 I won 未进一步解释。
+EXPLORE	133	-	仅礼貌问候，不据此认定陪伴诉求。
+EXPLORE	1700	repair@17	不断用 No 修正 always/away/wait 的误听；实际想表达的内容不清，不把 Dino 的造句当学习请求。
+EXPLORE	1883	clarification@7	重复话题邀请后学生追问 What，Dino 重述选项；归入澄清。Read me sweet 对象不明，不判故事或朗读需求。
+EXPLORE	2078	self_expression@49	前段一直答猫的问题，后主动转到 Ronaldo 和足球兴趣；长时间 Yes 不自动标陪伴。
+EXPLORE	2074	~	选择聊游戏后回答个人游戏与运动偏好；谈论 COD 不代表想让 Dino 陪玩。
+EXPLORE	1202	self_expression@7,tool_use@13	主动选巧克力话题并询问如何与牛奶混合；中途自称母亲，不能保证全部发言都是孩子，结论限于会话发言者。
+EXPLORE	381	identity_curiosity@5,self_expression@9	先问名字与来历，随后主动说越南；作为分享自己的背景，不将其并入 Dino 身份标签。
+EXPLORE	2102	-	仅 Never/Let's go，无明确对象。
+EXPLORE	155	-	Bing/South 指向不清，Dino 未确认。
+EXPLORE	1027	~	选择动物及狗，后面 Beatles 可能转写误差，不能推断要听歌。
+EXPLORE	852	-	短句难以辨认，Dino 的改写没有学生确认。
+EXPLORE	164	stories@7	明确选择 counting song；先前拒绝聊天游戏不影响后面出现歌曲请求。
+EXPLORE	789	-	几乎全部短词含混，英语练句由 Dino 自行发起。
+EXPLORE	589	games@1	开头明确 Game，Dino 开启猜动物，学生实际回应，支持游戏需求。
+EXPLORE	709	~	围绕蝴蝶与颜色回答问题，没有额外功能诉求。
+EXPLORE	1712	games@11,clarification@31	让 Dino 猜动物，后请求重述画画问题，归入澄清；后续颜色转写与指代不稳，不凭 Dino 猜词另加词义学习或被准确理解。
+EXPLORE	740	~	选择聊名字但没问 Dino 身份，未明确功能目标。
+EXPLORE	644	-	I love you Black 可能指颜色，Dino 也未确认；不标对 Dino 的亲近。
+EXPLORE	1412	-	只有含混 Good be。
+EXPLORE	597	stories@9	明确纠正为 Story only，并催促 Then，要求故事继续；不是仅提到故事。
+EXPLORE	382	clarification@3	Dino 提供越南或艺术选项后学生反问，Dino 重复原问题；仅支持澄清当前话语。
+EXPLORE	657	~	颜色鸟类问答与猜测为主，后段人物转写不清，不认定知识或自我倾诉。
+EXPLORE	323	~	选颜色并回答喜好，NYPD/Mom 没有可核实的展开。
+EXPLORE	1023	identity_curiosity@3	明确要求说出名字，不能据 Call 单词标打电话。
+EXPLORE	654	~	喜欢游戏是对话题选项的回答；没有请求一起玩或启动活动。
+EXPLORE	128	~	选择太空并列举星球，没有具体问题或知识请求。
+EXPLORE	1641	practice@17	在英语课堂话题中主动要求学习一周的天数并尝试说星期名；不是仅描述学校经历。
+EXPLORE	756	~	选择动物与霸王龙话题，后段含混；无额外目的。
+EXPLORE	762	games@1	主动问要玩什么，Dino 开启猜动物活动。
+EXPLORE	729	stories@3,tool_use@11,identity_curiosity@39,social@45	选择 silly song，后明确问 Ronaldo 在哪里；纠正 Dino 是 AI 而非人，并主动表达爱与拥抱愿望。含混危险词不推断真实危险。
+EXPLORE	157	-	English Dino 无法区分选话题、语言或学习，未完成后续请求。
+EXPLORE	1115	-	只有招呼。
+EXPLORE	1432	social@1,repair@7	明确说要一起聊天，后纠正自己说的是粉色不是 Bing；不推断歌曲需求。
+EXPLORE	1570	-	只有不清楚的招呼。
+EXPLORE	1073	games@13	聊狗之后主动要求玩游戏；关于狗的信息主要回应提示，不额外推断表达欲。
+EXPLORE	1580	-	单句不清楚。
+EXPLORE	1179	identity_curiosity@31,self_expression@43,games@49	反复问名字及 Dino 的朋友，展开自己的同学和朋友关系，明确接受一起玩；实际想玩石头剪刀布却被切到猜动物。
+EXPLORE	219	-	只有 Yes，没有具体选择，不能替学生选故事或宠物目标。
+EXPLORE	775	-	只有自我介绍，未展开需求。
+EXPLORE	1284	games@3,clarification@9,language@13,identity_curiosity@19	选择词语游戏后反复表示没听懂，归入澄清；另询问中文交流和名字。姓名反复转写不稳，不另判纠正误解。
+EXPLORE	1063	-	只有问候。
+EXPLORE	1293	~	反复回答不知道并选音乐话题，未要求播放或唱歌。
+EXPLORE	1946	-	单独 YouTube，没有要求打开或查询的动作。
+EXPLORE	1496	-	Korea/Dino/final 的转写指向未确认，Dino 一直猜测，不能据此判断语言或身份目的。
+EXPLORE	2109	language@3	马来语明确问能否说马来语，Dino 回应能力；目的为交流语言调整，不是学英语。
+EXPLORE	610	-	In the song 未形成明确歌曲请求且无后续确认。
+EXPLORE	173	practice@1	明确请求一起数到五并询问 good day 怎么说；支持语言表达帮助而非单纯数字关键词。
+EXPLORE	22	tool_use@1+3	明确要图片，并另问欧亚国家首都；两类证据保留，合并为工具使用，只计一个 Session。第二问题范围未明确，但查询地理知识的方向清楚。
+EXPLORE	647	-	生日、超级英雄、星球和歌等混杂，未能形成可可靠解释的目标。
+EXPLORE	1329	language@3,self_expression@7,repair@17	明确请求中文辅助，持续展开自己披萨经营游戏的经历并纠正误解；聊游戏不是要 Dino 启动游戏。
+EXPLORE	1936	language@3,identity_curiosity@5,self_expression@13	明确选择今天说英语，问 Dino 昨天在哪里，并主动转入喜欢学校的分享；不把后续跟读自动当主动学习。
+EXPLORE	1801	practice@1	开头表达希望学一点并在练习选项后选电影主题，支持英语练习目标，具体技能尚不明确。
+EXPLORE	656	-	只有招呼。
+EXPLORE	285	clarification@5,social@27,repair@25	要求重说海洋选项，归入澄清；结束时多次解释自己是在祝 Dino 好梦而非谈 dinner，保留被准确理解，另表达爱；不是求失眠支持。
+EXPLORE	829	tool_use@7,clarification@15	选择了解火箭发射；后因未听见回应而请 Dino 说话，归入请求重述一侧的澄清诉求，不当作词义不懂、发音训练或被准确理解。
+EXPLORE	921	~	选择食物话题，尚未展开。
+EXPLORE	2262	clarification@11,repair@17	明确表示听不懂 Dino 当前解释，归入澄清；另纠正自己说的是 Neptune 不是 TV，保留被准确理解的独立证据。
+EXPLORE	186	~	跟随披萨及口味问答，没有独立功能诉求。
+EXPLORE	524	~	选择聊 FC Mobile，但没有要求陪玩；后续语义信息少。
+EXPLORE	990	social@1,identity_curiosity@5,self_expression@7	表达喜欢 Dino，主动询问它最喜欢什么并长段分享自己的喜欢和生活，三个目的可共存。
+EXPLORE	915	~	在 Dino 指定猫话题后说不知道，不能认为主动分享宠物经历。
+EXPLORE	1510	-	只有问候。
+EXPLORE	174	social@1,self_expression@3	主动邀请聊天并坚持转向自己学校的话题，随后试图讲上学方式。
+EXPLORE	1776	~	询问茶偏好是承接 Dino 提供的句式复述，后续房间问答由 Dino 主导；不标身份好奇或主动教学请求。
+EXPLORE	614	-	问候后立即告别，未形成可判角色需求。
+EXPLORE	2002	-	单独 Cats，首句缺失。
+EXPLORE	1707	~	多次说明今天忙、明天再聊以结束互动；属于退出安排，不据此推断当前陪伴或情绪倾诉。
+EXPLORE	1744	-	只有 OK。
+EXPLORE	2251	~	主动选音乐话题但歌曲名称转写不清，没有要求 Dino 唱或播放。
+EXPLORE	2252	language@5,identity_curiosity@11,repair@21	提出越南语交流，问 Dino 来历，并多次纠正游戏名 Free Fire；不是陪玩请求。
+EXPLORE	18	games@1,tool_use@3+35,repair@29	学生主导地理问答并索要图片验证，求知和办事证据均保留，工具使用只计一个 Session；另纠正 Dino 没理解 Cyprus 与 North Cyprus 的提问。不是询问 border 词义，不因 Dino 主动提出语法解释而计澄清。
+EXPLORE	150	stories@9,social@11,practice@51,clarification@81	要笑话并表示聊什么都可以；主动询问如何说英语、参加句子练习，保留 practice。后来没理解当前颜色问题，单独归入澄清，不再计 repair。
+EXPLORE	1357	self_expression@35,repair@9	主动讲想去重庆及小红书所见，澄清没去过、纠正 views；不是要求旅行推荐或查路线。
+EXPLORE	1095	~	选择影视人物话题并短答，无要求播放、讲故事或扮演。
+EXPLORE	149	-	仅问候；Dino 主动说练英语不能当学生意图。
+EXPLORE	10	director@1	明确设定自己是老师、指令 Dino 拿英语故事书翻页，支持主导角色场景，而不是请 Dino 当老师。
+EXPLORE	2066	-	OK/Anymore 没有明确语境，Dino 改写不算学生确认。
+EXPLORE	132	-	double jump 与时间混杂，无法确认问题对象，未据 How 自动标方法查询。
+EXPLORE	544	games@9,social@29,repair@23	坚持要井字棋而非猜动物，多次澄清棋盘位置；随后明确不想玩、只想和 Dino 聊天，两种诉求在同一会话先后出现。
+EXPLORE	286	identity_curiosity@27,clarification@23	询问 Dino 最喜欢的运动；表示不懂当前词语游戏怎么玩，Dino 随后解释规则，归入澄清，不是纠正自己的意思被误解。
+EXPLORE	1147	~	选择数字话题并回答，后来想离开去 YouTube；未要求 Dino 打开 YouTube 或执行任务。
+EXPLORE	412	practice@1	明确要像课程一样练习单词和句子，指定咸水淡水主题；学习目的来自学生完整请求。
+EXPLORE	1591	identity_curiosity@7	学生持续反问 Dino 喜欢哪些食物，了解对方偏好；不只是回答自己的喜好。
+EXPLORE	2111	self_expression@43,identity_curiosity@49,repair@55	从食物问答展开家里老桌子的细节，并主动询问 Dino 的桌子，纠正 wrap 的误听；普通食物短答不作为证据。
+EXPLORE	1951	~	选颜色后语句不清，未出现额外功能诉求。
+EXPLORE	878	-	只有不清楚的招呼。
+EXPLORE	430	-	单独喜欢鸭子，可能承接缺失的首句。
+EXPLORE	305	stories@39,language@51,repair@45,clarification@53	明确要 Dino 说完整儿歌，另纠正是谁在唱及自己的名字；询问韩语后对 Annyeonghaseyo 反问，Dino 重说并释义，新增澄清。纠正误解仍有独立证据。
+EXPLORE	1909	~	珠宝、雪等话题跳转，目的不明确；不据 Leon bad 推断情绪求助。
+EXPLORE	1583	identity_curiosity@33	很多片段不清，但询问年龄有明确回答和年龄交换；其他国家问题不强行判知识查询。
+EXPLORE	1212	identity_curiosity@1,practice@5	先问 Dino 最喜欢的食物，之后具体请求帮助说出青酱意面名称和食物表达，教学需求有明确缺词语境。
+EXPLORE	301	social@1	主动说想念 Dino 并提到亲吻，支持亲近互动；不推断持续依赖。
+EXPLORE	1901	~	选择水母并回答颜色和动作，未见额外用途。
+EXPLORE	1953	~	选择颜色及回答灰色喜好，没有独立意图信号。
+EXPLORE	2017	~	大部分为跟随 Dino 的词句提示与 Yes；raw/real 的问题未确认，不能认定探测真实性。
+EXPLORE	1261	~	选择动物并回答喜好。
+EXPLORE	361	-	只提 burning，Dino 追问不同含义，未获确认；不推断烧伤求助。
+EXPLORE	1490	-	只有招呼。
+EXPLORE	1390	~	回应熊猫偏好，未见其他需求。
+EXPLORE	1466	~	回答开箱游戏偏好后请求休息离开；谈游戏不等于陪玩请求，告别安排不当陪伴意图。
+EXPLORE	1795	-	只有数数，首句缺失。
+EXPLORE	280	~	选择漫画话题并说明喜欢的角色，未请求讲故事或扮演。
+EXPLORE	1706	self_expression@3+5	主动拒绝预设话题转向自己生活，描述家庭不顺及沉重感受并希望被倾听；分享与寻求支持合并为自我表达与倾诉，只计一个 Session，保留两处证据。不推断临床状态或家庭事实。
+EXPLORE	521	director@17	从颜色问答转为明确要求 Dino 说去教室的告别句；没有明确表示需要英语教学。
+EXPLORE	1118	clarification@11	对 Dino 的猫与 Buffy 解释反问，Dino 重述；归入澄清当前话语，其他短词不足以认定分享经历或纠正误解。
+EXPLORE	406	self_expression@5	主动选自己的 Minecraft 建造经历并持续展开城堡、朋友和龙的设想；这是分享创作，不是要求 Dino 开游戏。
+EXPLORE	247	games@15	海豚话题中明确接受 Dino 提出的海豚声音游戏并实际参与；来源为受邀接受，非自发请求。
+EXPLORE	892	-	首句歌曲问题后学生否定 Dino 的理解，没有明确目标。
+EXPLORE	107	-	只有 Where，指代未知。
+EXPLORE	849	games@3,clarification@27,self_expression@43	明确选游戏；未听明白 shape 后追问，Dino 重述解释，移入澄清。另主动展开 Minecraft 房屋配置；Spare 转写含混，不单凭重复另加被准确理解。
+EXPLORE	1363	stories@1	完整明确地要求听故事，即使没有后续轮次也足以支持该目的。
+EXPLORE	1731	tool_use@5+9,language@21	询问幼儿园是什么并进一步要求图片，两类证据保留，工具使用只计一个 Session；另质疑为何不用阿拉伯语交流。
+EXPLORE	1355	games@3	在选项中明确选 game，Dino 随后启动猜谜；后续 Disco 不够判断听歌需求。
+EXPLORE	601	games@29,identity_curiosity@41,self_expression@43,social@45	明确改为测验、询问 Dino 肤色，再分享因家人不在而孤独并要求随时聊天；同一处分享与情绪支持证据合并为自我表达与倾诉，不重复计数，独立的陪伴诉求保留。
+EXPLORE	207	-	that 无指代，未获澄清。
+EXPLORE	239	~	明确选动物话题，尚无具体角色或功能目标。
+EXPLORE	1222	identity_curiosity@3,clarification@15,repair@5	要求 Dino 选一名球员并纠正它没有按选一个的要求回答，保留被准确理解；后来问你在说什么，Dino 重述并解释措辞，另归澄清。
+EXPLORE	1078	self_expression@3	不接受月亮或太空选项而主动说自己喜欢炸鸡，支持转向个人偏好分享。
+POST_CLASS	12212	lesson@3	沿 Dino 给出的 bus/ax 课程选项回答，故事只是练习内容，不是独立故事点播。
+POST_CLASS	13077	lesson@5	在文具选项中选铅笔并回答用途，属于课程练习。
+POST_CLASS	12688	lesson@9,social@1	guess the first 是食物选项内的回应，不是发起猜谜；开头另有对 Dino 的亲近式玩笑，二者分别记录。
+POST_CLASS	13107	-	只有开始时 OK，未回应课程提问，不以入口位置自动认定跟随练习。
+POST_CLASS	12764	lesson@3,repair@7	先回应家里玩具问题，后明确说 Dino 没听懂；Game 是回答想玩什么，未请求 Dino 开游戏。
+POST_CLASS	13335	lesson@5	反复在 apple/juice/bread 选项中作答。
+POST_CLASS	11572	lesson@5	回答面包和果汁等课程偏好题。
+POST_CLASS	12726	lesson@3	准备后回答果汁和面包；反问 Do you like bread 仍围绕练习句式，不另标身份好奇。
+POST_CLASS	13195	social@7,clarification@9	未实际展开玩具练习；主动对 Dino 表达爱，另对 toy 问题反问，请求澄清而非纠正自己的意思被误解。
+POST_CLASS	12493	-	越南语招呼后无回答，尚未形成意图证据。
+POST_CLASS	11865	lesson@5	转写含混后明确选择 cow，属于课程选择题。
+POST_CLASS	13324	lesson@3	持续食物练习；I like you 紧接 juice/apple，存在 you/juice 转写歧义，不据 Dino 的感谢自动标陪伴。
+POST_CLASS	13138	lesson@3	持续回答苹果、面包和果汁问题。
+POST_CLASS	11870	-	仅开始的 Zoe OK，未回答练习题。
+POST_CLASS	12118	lesson@7	纠正为 pen 后回答笔袋颜色，语境为文具复习。
+POST_CLASS	12981	lesson@7	解释不喜欢面包并继续食物练习；末句 you 可能承接 juice，不足以单独判断亲近意图。
+POST_CLASS	13056	lesson@9	连续完整句回应课程食物选项。
+POST_CLASS	12734	lesson@3,social@11	承接食物问题，另明确点名 Dino 并说 I love you；与课内短答分开记录。
+POST_CLASS	11625	lesson@7	尝试回应衣服和颜色练习，虽部分识别有误，不把 stress 当情绪倾诉。
+POST_CLASS	11626	lesson@7,social@5	完成食物选择，同时有独立完整 I love you；不从随后 red 自动推断换题或学习意图。
+POST_CLASS	12797	lesson@7	在文具练习中尝试回答 pencil，即使大量 Yes 也有对应问题。
+POST_CLASS	12891	lesson@3	围绕食物喜好作肯否回答，未出现额外诉求。
+POST_CLASS	12114	lesson@7,self_expression@11	先承接食物问答，后两次提出想聊 COD，明确要从课程话题转向个人兴趣；没有请求一起玩 COD。
+POST_CLASS	11789	-	只有准备前的数字短语，未回答 bag/mad 题。
+POST_CLASS	11717	lesson@7	选择蜡笔并回答颜色；开头 Lead game 不足以认定娱乐。
+POST_CLASS	11877	lesson@3	按食物练习回答和反问，I like you 位于 juice 后存在转写歧义；不把它作为陪伴证据。
+POST_CLASS	13081	lesson@7	人工更正保留：I read a book 是回答 Dino 是否看书，不是请求 Dino 帮忙阅读。
+POST_CLASS	11801	-	仅开始自我介绍，没有回答课程问题。
+POST_CLASS	11552	lesson@9	按课程问题比较身体、房间和床的大小。
+POST_CLASS	11492	lesson@3	回答喜欢足球；称呼 teacher 不代表额外求学诉求。
+POST_CLASS	11974	lesson@7	回答苹果或蜜蜂喜好，属于练习。
+POST_CLASS	12294	lesson@3	回答文具和滑梯问题；Please clean 孤立且对象不明，Dino 的 tidy 解释没有后续确认，不增任务执行标签。
+POST_CLASS	12040	-	仅开始肯定词，没有回应观察练习。
+POST_CLASS	12766	lesson@5	回答蜡笔颜色、绘画对象等课内提问。
+POST_CLASS	12268	lesson@5	开头 MacBook 后回到铅笔和书的练习，不把设备名当功能请求。
+POST_CLASS	11541	-	只有 Bodyguard，未展开对话。
+POST_CLASS	11792	lesson@9	能对应食物问题给出肯否选择；没有其他用途证据。
+POST_CLASS	11967	lesson@5	Happy 都是在课程情绪问题下的回答，不作为主动倾诉或支持需求。
+POST_CLASS	12603	lesson@5	回应足球和球队问题，首句 angry 无足够语境，不标情绪求助。
+POST_CLASS	13178	lesson@5,self_expression@13	保留用户反馈：食物练习中主动提到要写音乐并明确要求聊一会；不是获取答案与知识。
+POST_CLASS	13322	lesson@3,identity_curiosity@9	先答科目喜好，之后两次问 Dino 年龄，两个标签都成立。
+POST_CLASS	12260	lesson@3	沿猫的课程问题持续回答吃什么，没有独立角色要求。
+POST_CLASS	13001	lesson@5	持续回答最喜欢的学科及画画活动。
+POST_CLASS	13187	lesson@7,clarification@5	要求重说 bag/rag 问题后作答；重述归入澄清，不是发音教学或被准确理解。
+POST_CLASS	11805	lesson@7,practice@3,games@1	前段反复请求一起玩但夹杂睡觉及转写含混，仍有完整 Please play with me；另明确求助 chair 拼写，后又承接课内选择题。
+POST_CLASS	12187	lesson@7	保留人工更正：Play game 是回答用手机打电话还是玩游戏，不是让 Dino 陪玩。
+POST_CLASS	12316	lesson@7,repair@13	先尝试回答课程安排，后反复强调已经说过不知道并希望 Dino 听懂；不是泛能力测试。
+POST_CLASS	11617	lesson@3	按文具课程题回答书与颜色。
+POST_CLASS	12327	lesson@5	玩具猫的描述始终承接课程追问；Why white 是当前话题里的不清反问，不标独立求知。
+POST_CLASS	11630	lesson@3	回答足球喜好并尝试告别；未另提出功能诉求。
+POST_CLASS	12629	lesson@5	对猫马等练习作肯否回答。
+POST_CLASS	13070	self_expression@3+7,tool_use@9,director@15	表达生气、想睡觉并索要水；分享感受与寻求关心合并为自我表达与倾诉，只计一个 Session，保留两处证据。要求轻声慢说是因为想睡，不是没听懂或词义求助，作为指定说话方式的行动要求，不计澄清。
+POST_CLASS	12360	-	唱字母与混杂词句未承接动物题，也没有清楚要求 Dino 唱、教或听，目的证据不足。
+POST_CLASS	12536	lesson@3	反复回答 bag 与颜色；I like you 嵌在 bag 自我修正中，没有独立关系请求。
+POST_CLASS	12645	lesson@3	按动物题作选择，Pause 仅为暂停行为不等于额外角色。
+POST_CLASS	12075	self_expression@5,identity_curiosity@13	主动表达上厕所的需要，并多次询问 Dino 是否也要去；没有动物练习回答，不强行标课后练习。
+POST_CLASS	13169	lesson@13,clarification@3	对 flamingo 反问，后继续选火烈鸟；只支持核对刚听到的词，移入澄清，不判发音练习。其他长句含混，不追加陪伴。
+POST_CLASS	11760	lesson@3	故事和动物喜好都来自课程题，未独立点播故事。
+POST_CLASS	12456	-	只有越南语问候，没有回应星期练习。
+POST_CLASS	11501	lesson@3	明确准备练习并回答宠物题，不把练习中的猫信息都当主动倾诉。
+POST_CLASS	12720	lesson@7	保留人工更正：Guess 是动物选择题内让 Dino 猜答案，并非独立游戏请求。
+POST_CLASS	12607	-	只有问候，课程问题没有回应。
+POST_CLASS	12372	-	仅含混开头，没有后续。
+POST_CLASS	13068	identity_curiosity@11,self_expression@9	保留问名字的身份好奇；另主动谈自己与家人关系，但具体人物转写含混，不追加浪漫或扮演意图，也没有完成动物练习。
+POST_CLASS	11575	lesson@3	对动物选项表达不喜欢并回应狗的问题。
+POST_CLASS	12701	lesson@3	解释喜欢猫后告别，没有额外目的。
+POST_CLASS	11758	-	It's me ask 被 Dino 解释为学生要提问，但后续仍含混且无实际问题，不确认目的。
+POST_CLASS	13185	-	准备后只说未完成 I like，未形成可解释回答。
+POST_CLASS	11517	games@1,director@7	明确邀请玩、拒绝课程话题，持续要求 Dino 摘眼镜及改名；按完整请求归纳，不复用旧游戏故事表演类。
+POST_CLASS	12092	lesson@11	虽然开头识别不稳，后续明确回答家里是否有猫马。
+POST_CLASS	12717	lesson@3	回应父亲是否在旁及动物题，信息少但有对应作答。
+POST_CLASS	13206	identity_curiosity@3,repair@9	反复测试 Dino 是否知道名字与记住话语，并纠正称呼；没有回应动物练习。
+POST_CLASS	12094	lesson@3	持续回答学科喜好，没有额外目的。
+POST_CLASS	12465	identity_curiosity@1	完整明确问 Dino 名字；未有课程作答，不自动加 lesson。
+POST_CLASS	12079	calculation@5,social@7	连续明确问 5678+5678 的结果，得到答案后称 Dino 最好的朋友；不同于课内答题，归纳为具体计算求助，不恢复宽泛问号命中类。
+POST_CLASS	11954	lesson@3	尝试以肯否回答苹果和蜜蜂题，Movie time 没有后续请求支持，不标娱乐。
+POST_CLASS	12724	lesson@3	沿猫的课程问题描述宠物，未出现主动转题或功能请求。
+POST_CLASS	11943	-	单独 Do 后没有回答。
+POST_CLASS	12222	-	含混开头没有后续确认。
+POST_CLASS	12149	lesson@3	持续回答课程安排及学科喜好；学校内容来自题目，不是主动表达诉求。
+POST_CLASS	11530	-	Mother to read 和被遮蔽片段没有可解释的学习请求，也没有回应动作题；移除旧 read 关键词命中。
+POST_CLASS	12799	lesson@5,self_expression@1,clarification@11	舞蹈和跳跃是课内回应，另介绍搬家与父亲修电池；核对 don't already 含义归入澄清并移出英语练习，没有其他独立练习请求。
+POST_CLASS	13120	lesson@3	回应 jump/climb/fly 练习，没有新目的。
+POST_CLASS	13152	lesson@7	保留人工更正：Sing 是回答唱歌还是演奏乐器，不能作为让 Dino 表演的证据。
+POST_CLASS	13222	lesson@5,self_expression@15	先作动作句式练习，后主动扩展到自己五分钟跳绳一百次的具体表现；普通 can jump 回答不单独计分享。
+POST_CLASS	12907	lesson@3	持续回答能否跳、爬、飞的课程题。
+POST_CLASS	13117	-	只有一句越南语片段且没有课程回应，无法确定具体诉求。
+POST_CLASS	12418	lesson@3	回答星期几上哪些课，跳舞是课表内容，不是表演请求。
+POST_CLASS	12984	lesson@3	动作能力描述始终承接课程提问，不额外解释为自我倾诉。
+POST_CLASS	12424	lesson@11,social@1	保留人工更正：I can sing 是回答会做什么；开头直接称 Dino 为朋友，支持社交，但不构成指令扮演。
+POST_CLASS	11722	lesson@5	按服饰问题连续回答，未请求新用途。
+POST_CLASS	13073	lesson@17	最终明确修正 Jam 为 Jump；整体为动作练习，不按 Jam 加食物意图。
+POST_CLASS	11640	lesson@9	依照服装课程说偏好和颜色。
+POST_CLASS	12881	lesson@3	cry 多次出现在 climb 问题后，很可能误听；不作为难过求安慰证据。
+POST_CLASS	11637	lesson@7	完成 this/that 指示词练习；book so I can study 是课内说明，不是求教学帮助。
+POST_CLASS	11965	identity_curiosity@5,self_expression@9,lesson@11	保留人工追加：问 Dino 来历后主动说自己来自越南，并最后回答 October；同一 Session 三类可共存。
+POST_CLASS	12893	lesson@7	回应 jump 的能力题；Can you term 含混，不作为独立身份或能力探索。
+POST_CLASS	11592	-	只有准备好，课程问题未获回答。
+POST_CLASS	11595	lesson@5,practice@15	先做月份排序，多次答错后明确向 Dino 求助；学习帮助不是仅由 month 词触发。
+POST_CLASS	13013	-	单独数字，没有课内回应。
+POST_CLASS	12953	lesson@3,repair@9	持续完成星期题，也反复纠正 Dino 今天是星期五；不是主动谈个人经历。
+POST_CLASS	12193	identity_curiosity@1,lesson@3	先问名字，后回应动物题；两个目的均保留。
+POST_CLASS	12138	-	只有招呼。
+POST_CLASS	11911	lesson@7	在 cake/tape/made 音词选择中回答，没有请求听故事或娱乐。
+POST_CLASS	11602	lesson@15	保留人工更正：My friend 是在大写字母练习中回答人物或地点，并不是把 Dino 当朋友。
+POST_CLASS	12925	lesson@3,repair@17	星期练习中持续作答并指出 Dino 重复问了很多次；原开头唱歌短句按既有人工纠正不另标点播。
+POST_CLASS	11740	lesson@11	尝试用英语说月份，部分越南语音写可辨为 October/February；没有请求切换语言。
+POST_CLASS	12256	lesson@13,self_expression@3	主动说自己明天上学，后又回到动作练习；good morning 不作为陪伴意图。
+POST_CLASS	13074	lesson@5	回应能否跳高的课程题。
+POST_CLASS	11963	lesson@5	电影开头含混，后明确选择 April；不据 movies/stories 词标娱乐。
+POST_CLASS	12484	lesson@3	回应能否跳的题目。
+POST_CLASS	13216	lesson@3	按星期课程安排回答；细节多仍为题内回应。
+POST_CLASS	12745	lesson@3,repair@7	回答 Friday 并明确纠正 Dino 的相反解释，后继续星期练习。
+POST_CLASS	11912	lesson@5,clarification@3	在练习中具体询问 soccer 含义，弄懂后回答自己喜欢羽毛球；词义解释移入澄清，课内作答保留 lesson，不再凭此计 practice。
+POST_CLASS	12979	-	只有 about 的含混回应，没有可确认目的。
+POST_CLASS	11518	-	只有招呼，不能据 dear 推断亲近意图。
+POST_CLASS	12025	self_expression@3	在动作提问后主动改为今天星期五；没有动作练习回答，不自动加 lesson。
+POST_CLASS	13303	lesson@5	完整回应动作题；额外动作词仍在课程框架内。
+POST_CLASS	13344	self_expression@1,lesson@3	明确主动提出想聊 Minecraft，之后回应嵌入该主题的动作题；聊游戏不等于要 Dino 开游戏。
+POST_CLASS	12756	-	只有姓名开头，课程提问未获回应。
+POST_CLASS	12510	-	Take us 没有目的地或后续说明，不确定是任务请求。
+POST_CLASS	13035	clarification@3	对购物题反问 What，Dino 随后重说；移入澄清，尚未实际答题，也没有纠正 Dino 对自己的误解。
+POST_CLASS	13038	-	只有开始 Yes，没有购物题回应。
+POST_CLASS	11838	lesson@3	岛屿和电影场景始终回应课程提问，故事情节不等于要求 Dino 讲故事。
+POST_CLASS	11621	lesson@7	明确要求回到课程，随后回答地貌题；比默认入口推断更强的跟随练习证据。
+POST_CLASS	12513	clarification@5	多次表示听不见并请 Dino 再说，属于请求重述，不等于词义不懂；移出被准确理解，也不把 Can you talk 当自由聊天陪伴。
+POST_CLASS	12442	lesson@7	跟随购物问价和 bargain/rip-off 练习；房屋价格句为课内例子，不做实际财务推断。
+POST_CLASS	12995	-	只有 Samsung，没有回应购物问题。
+POST_CLASS	12567	lesson@3	选择动物故事后回答动物栖息地，属于课内内容而非独立点播故事。
+POST_CLASS	12986	lesson@17	持续尝试回应购物题，最终说明冰淇淋偏好；无额外用途。
+POST_CLASS	12554	lesson@13	How much is it 是被课程提示的购物句式练习，并非真实查询价格。
+POST_CLASS	12651	lesson@3	按 bargain 等题目作肯否回答。
+POST_CLASS	12680	lesson@5,clarification@19	购物练习中先表示不理解，再问 bargain/rip-off 意思；合并为一个澄清意图，从 repair 和 practice 同时移除，保留独立课内作答。
+POST_CLASS	11702	-	未真正回应地貌题，后续自我介绍含混，不能自动算练习完成。
+POST_CLASS	12566	lesson@7	玩具车问价与后续 I'll take it 连续构成课程购物情境，没有独立真实购买或报价需求证据。
+POST_CLASS	12564	lesson@3	反复回答山与谷的偏好，未主动请求新功能。
+POST_CLASS	12563	lesson@7	先礼貌问天气，后进入 bargain 课程；天气短问不足以确认工具型信息查询或持续陪伴目的。
+POST_CLASS	12647	lesson@9	选择 bargain/rip-off 并回应购物题；数字金额不是额外计算求助。
+POST_CLASS	12509	lesson@3	在购物选项中选零食并回答偏好。
+POST_CLASS	12334	lesson@9	完整解释便宜好吃为何是 bargain，后续仍为课程追问。
+POST_CLASS	11633	-	只有 No more，未开展课程；记录停止行为但不猜替代意图。
+POST_CLASS	13160	lesson@7,practice@5,clarification@19	先说不知道怎么表达，保留独立表达求助；后来追问前面说什么，移入澄清，不再计 repair。Board game 的误听链条不作为陪玩请求。
+POST_CLASS	12292	lesson@3	回应地貌喜好并多次否定，没有提出明确替代用途。
+POST_CLASS	13041	-	只有准备好，未回应课程。
+POST_CLASS	12705	lesson@9	在教师/购物游戏语境中接受购物句式练习；不是把课内角色练习另计自由娱乐。
+POST_CLASS	11839	lesson@3	围绕课程提示描述山谷景象，未见超出当前题目的使用诉求。
+POST_CLASS	12305	lesson@9	持续作动作能力练习。
+POST_CLASS	11857	product_help@5	面对动物题表达要回到 Leo 那里，随后拒绝当前内容；支持切回老师入口，非 Dino 身份好奇。
+POST_CLASS	11493	lesson@3,repair@13	回答地貌题，随后纠正 bats/pets 的误听；Dino 自行解释情绪不能证明情绪求助。
+POST_CLASS	12972	-	只有准备好，购物题未获回应。
+POST_CLASS	11631	-	开头短语含混，后续没有确认。
+POST_CLASS	12290	lesson@5	回答山谷、冰川和平原的课程选择题。
+POST_CLASS	13044	-	只说准备好，未回答课程题。
+POST_CLASS	11507	-	只称呼老师，不据此认定求学或已参与练习。
+POST_CLASS	12943	social@17	前面大部分转写不清，但末段独立重复 I love you 并获回应；没有可确认的购物练习回答或情绪求助。
+POST_CLASS	13159	-	只有开始 Yes。
+POST_CLASS	11833	lesson@3	明确准备并持续回答地貌练习；开头兴奋聊天不足以推出自由陪伴目的。
+POST_CLASS	12702	lesson@3	按购物题回答零食及巧克力。
+POST_CLASS	13050	lesson@3,repair@11	回答岛屿与地貌题，反复澄清自己说的是下龙湾而非 music；不能记为歌曲点播。
+POST_CLASS	12430	self_expression@3	主动把购物问题转到自己喜欢看足球并讲与家人一起看；Alarm 单词不构成设闹钟请求。

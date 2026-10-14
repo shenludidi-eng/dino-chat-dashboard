@@ -1,0 +1,776 @@
+{
+  "sourceFingerprint": "5e3c5eb2180a1e8e",
+  "sourceMessages": 211928,
+  "entries": [
+    {
+      "entry": "HOME",
+      "messages": 152492,
+      "sessions": 9227,
+      "groups": [
+        {
+          "key": "home_directions",
+          "total": 76246,
+          "matched": 27496,
+          "unclassified": 48750,
+          "counts": [
+            {
+              "label": "请求重说或澄清",
+              "messages": 11825,
+              "sessions": 4039
+            },
+            {
+              "label": "邀请游戏或故事",
+              "messages": 2588,
+              "sessions": 1650
+            },
+            {
+              "label": "询问学习频率或时长",
+              "messages": 1543,
+              "sessions": 890
+            },
+            {
+              "label": "介绍 Dino 或询问称呼",
+              "messages": 3301,
+              "sessions": 2242
+            },
+            {
+              "label": "询问喜好或日常经历",
+              "messages": 7146,
+              "sessions": 3098
+            },
+            {
+              "label": "解释含义或给表达示例",
+              "messages": 1213,
+              "sessions": 795
+            },
+            {
+              "label": "回应情绪并陪伴",
+              "messages": 834,
+              "sessions": 682
+            },
+            {
+              "label": "明确谈及切换语言",
+              "messages": 1257,
+              "sessions": 788
+            }
+          ]
+        },
+        {
+          "key": "home_dino_topics",
+          "total": 76246,
+          "matched": 20012,
+          "unclassified": 56234,
+          "counts": [
+            {
+              "label": "颜色与物品",
+              "messages": 6369,
+              "sessions": 1752
+            },
+            {
+              "label": "游戏与猜谜",
+              "messages": 3713,
+              "sessions": 1984
+            },
+            {
+              "label": "学校与学习生活",
+              "messages": 3840,
+              "sessions": 1646
+            },
+            {
+              "label": "食物与吃喝",
+              "messages": 3244,
+              "sessions": 1400
+            },
+            {
+              "label": "家人和朋友",
+              "messages": 2471,
+              "sessions": 1357
+            },
+            {
+              "label": "动物与恐龙",
+              "messages": 2608,
+              "sessions": 1178
+            },
+            {
+              "label": "故事与歌曲",
+              "messages": 1953,
+              "sessions": 1190
+            },
+            {
+              "label": "运动和户外活动",
+              "messages": 657,
+              "sessions": 290
+            }
+          ]
+        },
+        {
+          "key": "home_child_topics",
+          "total": 76246,
+          "matched": 10515,
+          "unclassified": 65731,
+          "counts": [
+            {
+              "label": "颜色与物品",
+              "messages": 3119,
+              "sessions": 1086
+            },
+            {
+              "label": "游戏与猜谜",
+              "messages": 1164,
+              "sessions": 730
+            },
+            {
+              "label": "学校与学习生活",
+              "messages": 1226,
+              "sessions": 706
+            },
+            {
+              "label": "食物与吃喝",
+              "messages": 1979,
+              "sessions": 1038
+            },
+            {
+              "label": "家人和朋友",
+              "messages": 1433,
+              "sessions": 751
+            },
+            {
+              "label": "动物与恐龙",
+              "messages": 1250,
+              "sessions": 672
+            },
+            {
+              "label": "故事与歌曲",
+              "messages": 862,
+              "sessions": 549
+            },
+            {
+              "label": "运动和户外活动",
+              "messages": 444,
+              "sessions": 265
+            }
+          ]
+        },
+        {
+          "key": "home_child_actions",
+          "total": 76246,
+          "matched": 14849,
+          "unclassified": 61397,
+          "counts": [
+            {
+              "label": "讲自己的生活或家人",
+              "messages": 1014,
+              "sessions": 604
+            },
+            {
+              "label": "询问 Dino 的身份或能力",
+              "messages": 773,
+              "sessions": 601
+            },
+            {
+              "label": "提出 why / how / what 问题",
+              "messages": 4132,
+              "sessions": 2296
+            },
+            {
+              "label": "表达心情",
+              "messages": 180,
+              "sessions": 147
+            },
+            {
+              "label": "问候或告别",
+              "messages": 5799,
+              "sessions": 3970
+            },
+            {
+              "label": "简短肯定或否定",
+              "messages": 3950,
+              "sessions": 2038
+            }
+          ]
+        },
+        {
+          "key": "home_preferences",
+          "total": 76246,
+          "matched": 4821,
+          "unclassified": 71425,
+          "counts": [
+            {
+              "label": "明确说喜欢或不喜欢",
+              "messages": 3232,
+              "sessions": 1495
+            },
+            {
+              "label": "主动要求游戏",
+              "messages": 691,
+              "sessions": 461
+            },
+            {
+              "label": "主动要求故事或歌曲",
+              "messages": 146,
+              "sessions": 120
+            },
+            {
+              "label": "主动指定聊天语言",
+              "messages": 769,
+              "sessions": 472
+            },
+            {
+              "label": "明确拒绝或要求停止",
+              "messages": 146,
+              "sessions": 120
+            }
+          ]
+        },
+        {
+          "key": "home_support",
+          "total": 76246,
+          "matched": 1268,
+          "unclassified": 74978,
+          "counts": [
+            {
+              "label": "明确表示不理解",
+              "messages": 181,
+              "sessions": 134
+            },
+            {
+              "label": "询问如何用英语说",
+              "messages": 27,
+              "sessions": 26
+            },
+            {
+              "label": "不知道答案或说什么",
+              "messages": 1011,
+              "sessions": 704
+            },
+            {
+              "label": "明确请求重复",
+              "messages": 63,
+              "sessions": 51
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry": "EXPLORE",
+      "messages": 37080,
+      "sessions": 2264,
+      "groups": [
+        {
+          "key": "explore_directions",
+          "total": 18540,
+          "matched": 8770,
+          "unclassified": 9770,
+          "counts": [
+            {
+              "label": "提供或确认聊天话题",
+              "messages": 3829,
+              "sessions": 1828
+            },
+            {
+              "label": "给出可以说的英文表达",
+              "messages": 1649,
+              "sessions": 640
+            },
+            {
+              "label": "猜测并重述孩子表达",
+              "messages": 2232,
+              "sessions": 977
+            },
+            {
+              "label": "启动猜谜或说明规则",
+              "messages": 337,
+              "sessions": 203
+            },
+            {
+              "label": "询问颜色或动物特征",
+              "messages": 705,
+              "sessions": 371
+            },
+            {
+              "label": "让孩子补充经历或细节",
+              "messages": 406,
+              "sessions": 287
+            },
+            {
+              "label": "询问下一话题或另一选项",
+              "messages": 268,
+              "sessions": 201
+            },
+            {
+              "label": "告别或邀请下次再聊",
+              "messages": 356,
+              "sessions": 225
+            }
+          ]
+        },
+        {
+          "key": "explore_dino_topics",
+          "total": 18540,
+          "matched": 8744,
+          "unclassified": 9796,
+          "counts": [
+            {
+              "label": "猫狗与动物特征",
+              "messages": 3934,
+              "sessions": 1439
+            },
+            {
+              "label": "颜色与颜色物品",
+              "messages": 3351,
+              "sessions": 1098
+            },
+            {
+              "label": "动物猜谜与线索游戏",
+              "messages": 423,
+              "sessions": 171
+            },
+            {
+              "label": "水果与喜欢的食物",
+              "messages": 1331,
+              "sessions": 559
+            },
+            {
+              "label": "恐龙与太空",
+              "messages": 1374,
+              "sessions": 655
+            },
+            {
+              "label": "玩具与电子游戏",
+              "messages": 690,
+              "sessions": 305
+            },
+            {
+              "label": "足球与体育",
+              "messages": 352,
+              "sessions": 114
+            },
+            {
+              "label": "唱歌与编故事",
+              "messages": 590,
+              "sessions": 257
+            }
+          ]
+        },
+        {
+          "key": "explore_child_topics",
+          "total": 18540,
+          "matched": 3053,
+          "unclassified": 15487,
+          "counts": [
+            {
+              "label": "猫狗与动物特征",
+              "messages": 792,
+              "sessions": 379
+            },
+            {
+              "label": "颜色与颜色物品",
+              "messages": 1096,
+              "sessions": 391
+            },
+            {
+              "label": "动物猜谜与线索游戏",
+              "messages": 37,
+              "sessions": 28
+            },
+            {
+              "label": "水果与喜欢的食物",
+              "messages": 562,
+              "sessions": 267
+            },
+            {
+              "label": "恐龙与太空",
+              "messages": 277,
+              "sessions": 144
+            },
+            {
+              "label": "玩具与电子游戏",
+              "messages": 187,
+              "sessions": 99
+            },
+            {
+              "label": "足球与体育",
+              "messages": 97,
+              "sessions": 44
+            },
+            {
+              "label": "唱歌与编故事",
+              "messages": 208,
+              "sessions": 121
+            }
+          ]
+        },
+        {
+          "key": "explore_child_actions",
+          "total": 18540,
+          "matched": 2698,
+          "unclassified": 15842,
+          "counts": [
+            {
+              "label": "主动提出想聊什么",
+              "messages": 112,
+              "sessions": 93
+            },
+            {
+              "label": "直接说出动物或颜色词",
+              "messages": 317,
+              "sessions": 224
+            },
+            {
+              "label": "描述动物、物品或颜色",
+              "messages": 275,
+              "sessions": 186
+            },
+            {
+              "label": "分享个人活动或经历",
+              "messages": 334,
+              "sessions": 185
+            },
+            {
+              "label": "向 Dino 提问",
+              "messages": 1399,
+              "sessions": 656
+            },
+            {
+              "label": "回应中含上一条示例原文",
+              "messages": 114,
+              "sessions": 64
+            },
+            {
+              "label": "告别或说要离开",
+              "messages": 257,
+              "sessions": 166
+            }
+          ]
+        },
+        {
+          "key": "explore_choices",
+          "total": 18540,
+          "matched": 1937,
+          "unclassified": 16603,
+          "counts": [
+            {
+              "label": "明确表达话题喜好",
+              "messages": 1541,
+              "sessions": 571
+            },
+            {
+              "label": "主动请求游戏或猜谜",
+              "messages": 123,
+              "sessions": 96
+            },
+            {
+              "label": "主动请求换题或表达无聊",
+              "messages": 21,
+              "sessions": 19
+            },
+            {
+              "label": "请求唱歌或故事",
+              "messages": 106,
+              "sessions": 72
+            },
+            {
+              "label": "明确请求特定语言",
+              "messages": 173,
+              "sessions": 90
+            }
+          ]
+        },
+        {
+          "key": "explore_support",
+          "total": 18540,
+          "matched": 535,
+          "unclassified": 18005,
+          "counts": [
+            {
+              "label": "追问含义或表示听不懂",
+              "messages": 77,
+              "sessions": 60
+            },
+            {
+              "label": "请求英语表达帮助",
+              "messages": 57,
+              "sessions": 39
+            },
+            {
+              "label": "不知道答案或无法选择",
+              "messages": 303,
+              "sessions": 210
+            },
+            {
+              "label": "请求重复刚才的话",
+              "messages": 7,
+              "sessions": 7
+            },
+            {
+              "label": "纠正 Dino 的理解",
+              "messages": 98,
+              "sessions": 63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry": "POST_CLASS",
+      "messages": 22356,
+      "sessions": 1856,
+      "groups": [
+        {
+          "key": "post_directions",
+          "total": 11178,
+          "matched": 7957,
+          "unclassified": 3221,
+          "counts": [
+            {
+              "label": "问食物或动物喜好",
+              "messages": 2727,
+              "sessions": 745
+            },
+            {
+              "label": "问能否跳、爬或飞",
+              "messages": 1226,
+              "sessions": 249
+            },
+            {
+              "label": "问星期或月份顺序",
+              "messages": 776,
+              "sessions": 188
+            },
+            {
+              "label": "问科目、用品或使用场景",
+              "messages": 1282,
+              "sessions": 342
+            },
+            {
+              "label": "问购买、价值或价格",
+              "messages": 392,
+              "sessions": 112
+            },
+            {
+              "label": "给出多个具体选项",
+              "messages": 1649,
+              "sessions": 838
+            },
+            {
+              "label": "安抚后接新问题",
+              "messages": 1073,
+              "sessions": 592
+            },
+            {
+              "label": "提醒尚未结束并继续问",
+              "messages": 58,
+              "sessions": 47
+            },
+            {
+              "label": "简短回应后告别",
+              "messages": 1052,
+              "sessions": 1045
+            }
+          ]
+        },
+        {
+          "key": "post_dino_topics",
+          "total": 11178,
+          "matched": 7809,
+          "unclassified": 3369,
+          "counts": [
+            {
+              "label": "面包、果汁与苹果",
+              "messages": 1487,
+              "sessions": 339
+            },
+            {
+              "label": "猫、牛与马",
+              "messages": 1952,
+              "sessions": 438
+            },
+            {
+              "label": "跳跃、攀爬与飞行",
+              "messages": 1392,
+              "sessions": 262
+            },
+            {
+              "label": "星期与先后顺序",
+              "messages": 894,
+              "sessions": 164
+            },
+            {
+              "label": "月份与日历",
+              "messages": 236,
+              "sessions": 38
+            },
+            {
+              "label": "课程与科目",
+              "messages": 971,
+              "sessions": 263
+            },
+            {
+              "label": "文具与物品使用",
+              "messages": 530,
+              "sessions": 150
+            },
+            {
+              "label": "购买、价格与价值",
+              "messages": 571,
+              "sessions": 130
+            }
+          ]
+        },
+        {
+          "key": "post_child_topics",
+          "total": 11178,
+          "matched": 2182,
+          "unclassified": 8996,
+          "counts": [
+            {
+              "label": "面包、果汁与苹果",
+              "messages": 398,
+              "sessions": 204
+            },
+            {
+              "label": "猫、牛与马",
+              "messages": 539,
+              "sessions": 260
+            },
+            {
+              "label": "跳跃、攀爬与飞行",
+              "messages": 323,
+              "sessions": 132
+            },
+            {
+              "label": "星期与先后顺序",
+              "messages": 405,
+              "sessions": 131
+            },
+            {
+              "label": "月份与日历",
+              "messages": 133,
+              "sessions": 42
+            },
+            {
+              "label": "课程与科目",
+              "messages": 224,
+              "sessions": 118
+            },
+            {
+              "label": "文具与物品使用",
+              "messages": 114,
+              "sessions": 68
+            },
+            {
+              "label": "购买、价格与价值",
+              "messages": 98,
+              "sessions": 53
+            }
+          ]
+        },
+        {
+          "key": "post_child_actions",
+          "total": 11178,
+          "matched": 4020,
+          "unclassified": 7158,
+          "counts": [
+            {
+              "label": "仅肯定或否定",
+              "messages": 1571,
+              "sessions": 738
+            },
+            {
+              "label": "说出食物或动物名称",
+              "messages": 917,
+              "sessions": 451
+            },
+            {
+              "label": "表达自己能做什么",
+              "messages": 419,
+              "sessions": 147
+            },
+            {
+              "label": "回答星期或先后关系",
+              "messages": 412,
+              "sessions": 114
+            },
+            {
+              "label": "表示已准备好",
+              "messages": 238,
+              "sessions": 237
+            },
+            {
+              "label": "回答中提出问题",
+              "messages": 557,
+              "sessions": 385
+            }
+          ]
+        },
+        {
+          "key": "post_preferences",
+          "total": 11178,
+          "matched": 1659,
+          "unclassified": 9519,
+          "counts": [
+            {
+              "label": "明确说喜欢什么",
+              "messages": 1299,
+              "sessions": 625
+            },
+            {
+              "label": "明确说不喜欢或不想",
+              "messages": 116,
+              "sessions": 96
+            },
+            {
+              "label": "补充自己的物品或经历",
+              "messages": 177,
+              "sessions": 123
+            },
+            {
+              "label": "说再见或请求停止",
+              "messages": 91,
+              "sessions": 76
+            },
+            {
+              "label": "请求游戏或其他活动",
+              "messages": 22,
+              "sessions": 19
+            }
+          ]
+        },
+        {
+          "key": "post_support",
+          "total": 11178,
+          "matched": 231,
+          "unclassified": 10947,
+          "counts": [
+            {
+              "label": "表示不理解当前内容",
+              "messages": 48,
+              "sessions": 35
+            },
+            {
+              "label": "明确说不知道",
+              "messages": 122,
+              "sessions": 94
+            },
+            {
+              "label": "明确说做不到某动作",
+              "messages": 38,
+              "sessions": 27
+            },
+            {
+              "label": "请求翻译或指定语言",
+              "messages": 21,
+              "sessions": 15
+            },
+            {
+              "label": "请求重复",
+              "messages": 2,
+              "sessions": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

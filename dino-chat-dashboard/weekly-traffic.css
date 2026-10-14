@@ -1,0 +1,29 @@
+.weekly-traffic .panel-head{flex-wrap:wrap;gap:18px;margin-bottom:12px}
+.weekly-intro{margin:0 0 22px;font-size:14px;line-height:1.8}
+.weekly-intro span{display:block;color:var(--muted);font-size:12px}
+.weekly-legend{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px;font-size:12px}
+.weekly-legend span{display:inline-flex;align-items:center;gap:8px}
+.weekly-legend i{display:inline-block;width:12px;height:12px}
+.weekly-partial-key{color:var(--muted);margin-left:auto}
+.weekly-partial-key i{background:repeating-linear-gradient(135deg,transparent,transparent 3px,var(--muted) 3px,var(--muted) 4px);border:1px solid var(--line)}
+.weekly-scope{font-size:11px;color:var(--muted);margin:18px 0 6px}
+.weekly-chart-scroll,.weekly-table-scroll{overflow-x:auto;max-width:100%}
+.weekly-chart-scroll svg{display:block;width:100%;min-width:840px;height:auto}
+.weekly-grid{stroke:var(--line);stroke-width:1;opacity:.65}
+.weekly-axis{fill:var(--muted);font-size:11px}
+.weekly-week{fill:var(--ink);font-size:13px}
+.weekly-value{fill:var(--ink);font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+.weekly-table{border-collapse:collapse;width:100%;min-width:650px;font-size:13px;font-variant-numeric:tabular-nums}
+.weekly-table th,.weekly-table td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+.weekly-table th:first-child{text-align:left;padding-left:0}
+.weekly-table th:last-child,.weekly-table td:last-child{padding-right:0}
+.weekly-table thead th{color:var(--muted);font-weight:500;font-size:11px;border-top:1px solid var(--line)}
+.weekly-table tbody th{font-weight:500}
+.weekly-table small{display:block;color:var(--muted);font-size:10px;line-height:1.6;margin-top:4px}
+.weekly-table strong{font-size:20px;font-family:var(--serif)}
+.weekly-notes{margin-top:20px;max-width:1100px;color:var(--muted);font-size:12px;line-height:1.8}
+.weekly-notes p{margin:7px 0}
+.weekly-empty{padding:14px;border-left:3px solid var(--coral);font-size:13px}
+.weekly-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.weekly-traffic :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+@media(max-width:640px){.weekly-partial-key{margin-left:0}.weekly-traffic .panel-head h3{font-size:24px}.weekly-table th,.weekly-table td{padding:12px}.weekly-intro{font-size:13px}}

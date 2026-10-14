@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dino Chat 当前用户行为分析看板"><title>Dino Chat · Current State Observatory</title>
+  <script>
+    // The dashboard must run through its local server. Opening index.html as a
+    // file makes root-relative navigation fall back to a browser folder view.
+    if (window.location.protocol === "file:") {
+      window.location.replace(
+        `http://127.0.0.1:8765/index.html${window.location.search}${window.location.hash}`
+      );
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20261012-remove-legacy-analysis-1">
+  <link rel="stylesheet" href="entry-analysis.css?v=20261010-metric-label-1">
+  <link rel="stylesheet" href="round-distribution.css?v=20261012-median-1">
+  <link rel="stylesheet" href="round-transcript-sampler.css?v=20261013-english-overlay-2">
+  <link rel="stylesheet" href="weekly-traffic.css?v=20261012-1">
+  <link rel="stylesheet" href="sampled-conversation-analysis.css?v=20261013-context-review-1">
+  <link rel="stylesheet" href="bad-case-library.css?v=20261012-bad-case-library-2">
+  <link rel="stylesheet" href="sidebar-layout.css?v=20261013-entry-subnav-1">
+</head>
+<body>
+  <button type="button" id="sidebarToggle" class="sidebar-toggle" aria-controls="dashboardSidebar" aria-expanded="false" aria-label="打开导航">☰ <span>Dino Chat</span></button>
+  <button type="button" id="sidebarBackdrop" class="sidebar-backdrop" aria-label="关闭导航" tabindex="-1"></button>
+  <header class="topbar sidebar" id="dashboardSidebar">
+    <a class="brand nav-page" data-page="overview" href="index.html"><span class="brand-mark">D</span><span><b>Dino Chat</b><small>Current State Observatory</small></span></a>
+    <p class="sidebar-label">对话数据看板</p>
+    <nav id="pageNav" aria-label="页面导航">
+      <a class="nav-page active" data-page="overview" href="index.html"><span class="nav-number" aria-hidden="true">01</span>总览</a>
+      <div class="entry-nav-group">
+        <a class="nav-page" data-page="entry" data-entry="0" href="?page=entry&amp;entry=0&amp;tab=dino"><span class="nav-number" aria-hidden="true">02</span>HOME</a>
+        <nav class="section-subnav entry-static-subnav" data-entry-subnav="0" aria-label="HOME 下级目录">
+          <a href="?page=entry&amp;entry=0&amp;tab=dino#entryVolumeSection" data-entry-section="entryVolumeSection"><span>01</span>用户量概览</a>
+          <a href="?page=entry&amp;entry=0&amp;tab=dino#entryProfileSection" data-entry-section="entryProfileSection"><span>02</span>用户构成</a>
+          <a href="?page=entry&amp;entry=0&amp;tab=dino#entryRoundsSection" data-entry-section="entryRoundsSection"><span>03</span>对话轮次</a>
+          <a href="?page=entry&amp;entry=0&amp;tab=dino#sampledConversationAnalysisSection" data-entry-section="sampledConversationAnalysisSection"><span>04</span>对话分析</a>
+        </nav>
+      </div>
+      <div class="entry-nav-group">
+        <a class="nav-page" data-page="entry" data-entry="1" href="?page=entry&amp;entry=1&amp;tab=dino"><span class="nav-number" aria-hidden="true">03</span>EXPLORE</a>
+        <nav class="section-subnav entry-static-subnav" data-entry-subnav="1" aria-label="EXPLORE 下级目录">
+          <a href="?page=entry&amp;entry=1&amp;tab=dino#entryVolumeSection" data-entry-section="entryVolumeSection"><span>01</span>用户量概览</a>
+          <a href="?page=entry&amp;entry=1&amp;tab=dino#entryProfileSection" data-entry-section="entryProfileSection"><span>02</span>用户构成</a>
+          <a href="?page=entry&amp;entry=1&amp;tab=dino#entryRoundsSection" data-entry-section="entryRoundsSection"><span>03</span>对话轮次</a>
+          <a href="?page=entry&amp;entry=1&amp;tab=dino#sampledConversationAnalysisSection" data-entry-section="sampledConversationAnalysisSection"><span>04</span>对话分析</a>
+        </nav>
+      </div>
+      <div class="entry-nav-group">
+        <a class="nav-page" data-page="entry" data-entry="2" href="?page=entry&amp;entry=2&amp;tab=dino"><span class="nav-number" aria-hidden="true">04</span>POST_CLASS</a>
+        <nav class="section-subnav entry-static-subnav" data-entry-subnav="2" aria-label="POST_CLASS 下级目录">
+          <a href="?page=entry&amp;entry=2&amp;tab=dino#entryVolumeSection" data-entry-section="entryVolumeSection"><span>01</span>用户量概览</a>
+          <a href="?page=entry&amp;entry=2&amp;tab=dino#entryProfileSection" data-entry-section="entryProfileSection"><span>02</span>用户构成</a>
+          <a href="?page=entry&amp;entry=2&amp;tab=dino#entryRoundsSection" data-entry-section="entryRoundsSection"><span>03</span>对话轮次</a>
+          <a href="?page=entry&amp;entry=2&amp;tab=dino#postClassCompletionSection" data-entry-section="postClassCompletionSection"><span>04</span>环节完成率</a>
+        </nav>
+      </div>
+      <a class="nav-page" data-page="badcases" href="?page=badcases"><span class="nav-number" aria-hidden="true">05</span>BAD CASE 库</a>
+    </nav>
+    <nav id="sectionSubnav" class="section-subnav" aria-label="当前页面章节导航" hidden></nav>
+    <div class="sidebar-footer"><span>INTERNAL ANALYSIS</span><button class="icon-button" id="themeToggle" aria-label="切换显示模式">◐</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">DINO CHAT / CURRENT STATE</p><h1 id="heroTitle">真实对话，<em>正在发生什么？</em></h1><p id="heroDeck">只基于当前 chat history，观察用户行为、对话过程与 Dino 的实际回应。</p></div>
+      <div class="hero-stamp"><span>DATA WINDOW</span><strong id="dateWindow">—</strong><i>INTERNAL · RESTRICTED</i></div>
+    </section>
+
+    <section class="filter-rail" aria-label="全局筛选">
+      <div class="date-filter"><span class="filter-label">日期</span><label><input type="date" id="dateStart"></label><span>→</span><label><input type="date" id="dateEnd"></label></div>
+      <div class="filter-pills" aria-label="用户画像筛选">
+        <label><span>Level</span><select id="levelFilter"></select></label>
+        <label><span>年龄</span><select id="ageFilter"></select></label>
+        <label><span>来自哪个地区</span><select id="countryFilter"></select></label>
+        <button disabled title="gender 只有未定义的 0/空值，暂不解释">性别 · 暂不可解释</button>
+      </div>
+      <button class="reset-button" id="resetFilter">重置</button>
+    </section>
+
+    <section id="overviewPage" class="page active">
+      <div class="section-lead" id="overviewVolumeSection"><div><span class="section-no">01</span><p class="eyebrow">GLOBAL OVERVIEW</p><h2>用户量概览</h2></div></div>
+      <div id="globalKpis" class="kpi-grid overview-kpis"></div>
+      <div class="grid two-one" id="overviewTrafficSection">
+        <article class="panel span-2"><div class="panel-head"><div><span class="index">02</span><h3>活跃趋势 · 每日</h3></div><div class="panel-tools"><div class="metric-switch" id="trendMetric"><button data-metric="sessions" class="active">Session</button><button data-metric="users">用户</button><button data-metric="messages">消息</button></div><button type="button" class="insight-trigger" data-insight="traffic">查看分析</button></div></div><div id="trendChart" class="chart trend-chart"></div></article>
+        <article class="panel"><div class="panel-head"><div><span class="index">03</span><h3>入口规模</h3></div><span class="unit">Session</span></div><div id="entryShare" class="stack-list"></div></article>
+      </div>
+      <article id="weeklyTraffic" class="panel weekly-traffic" aria-label="每周流量对比"></article>
+      <article class="panel" id="profilePanel"><div class="panel-head"><div><span class="index">04</span><h3>当前用户构成</h3></div><div class="panel-tools"><label class="profile-week-control"><span>统计周</span><select id="profileWeekFilter" aria-label="用户构成统计周"></select></label><span class="unit">按去重用户 · 响应全部筛选</span><button type="button" class="insight-trigger" data-insight="profile">查看分析</button></div></div><div id="profileEntrySwitch" class="metric-switch profile-entry-switch" role="group" aria-label="用户构成入口"></div><p id="profileScope" class="micro-note profile-scope" role="status"></p><div id="profileOverview" class="profile-grid"></div><p class="micro-note">年龄与 Level 来自用户画像表；“来自哪个地区”取用户最近设备的 current_country，只代表当前地区画像，不代表对话发生位置或用户国籍。“未记录”保留在分母中。条形长度使用统一的 0–100% 刻度。</p></article>
+      <section id="overviewRoundSection" aria-label="轮次分布"><div class="panel-head"><div><span class="index">02C</span><h3>轮次分布</h3></div><span class="unit">三个入口 · 实际已记录轮次</span></div><div id="overviewRoundDistribution"><div id="roundDistribution"></div></div></section>
+      <article class="panel version-panel" id="overviewVersionSection"><div class="panel-head"><div><span class="index">03B</span><h3>版本迭代记录</h3></div><span class="unit">人工维护的产品节点</span></div><div id="versionHistory" class="version-history"></div><p class="micro-note">产品节点只用于理解时间背景；提审或上线日不等于全体用户同时生效，也不直接证明数据变化由该版本造成。</p></article>
+    </section>
+
+
+    <section id="entryPage" class="page">
+      <div class="section-lead"><div><span class="section-no">07</span><p class="eyebrow" id="entryEyebrow">ENTRY / HOME</p><h2 id="entryTitle">HOME 的真实对话</h2></div><p id="entrySummary">—</p></div>
+
+      <section id="entryVolumeSection" class="entry-primary-section" aria-labelledby="entryVolumeTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">01</span><p class="eyebrow">ENTRY AUDIENCE</p><h2 id="entryVolumeTitle">用户量概览</h2></div><p>只统计当前入口下有用户消息的对话与用户，响应顶部全部筛选。</p></div>
+        <div class="kpi-grid overview-kpis entry-volume-kpis" id="entryVolumeKpis"></div>
+        <article class="panel entry-daily-panel"><div class="panel-head"><div><span class="index">01A</span><h3>活跃趋势 · 每日</h3></div><div class="metric-switch" id="entryTrendMetric"><button data-entry-metric="sessions" class="active">Session</button><button data-entry-metric="users">用户</button><button data-entry-metric="messages">消息</button></div></div><div id="entryTrendChart" class="chart trend-chart"></div><p id="entryTrendNote" class="micro-note"></p></article>
+        <article id="entryWeeklyTraffic" class="panel weekly-traffic" aria-label="当前入口每周流量对比"></article>
+      </section>
+
+      <section id="entryProfileSection" class="entry-primary-section" aria-labelledby="entryProfileTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">02</span><p class="eyebrow">WHO IS HERE</p><h2 id="entryProfileTitle">当前用户构成</h2></div><div class="entry-profile-aside"><label class="profile-week-control"><span>统计周</span><select id="entryProfileWeekFilter" aria-label="当前入口用户构成统计周"></select></label><p id="entryProfileScope">—</p></div></div>
+        <article class="panel entry-profile-panel"><div id="entryProfileOverview" class="profile-grid"></div><p class="micro-note">年龄与 Level 来自当前用户画像；地区取用户最近设备记录。“未记录”保留在分母中。</p></article>
+      </section>
+
+      <section id="entryRoundsSection" class="entry-primary-section" aria-labelledby="entryRoundsTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">03</span><p class="eyebrow">CONVERSATION DEPTH</p><h2 id="entryRoundsTitle">对话轮次</h2></div><p>轮次分布与细分档位使用相同的 Session 分母；每段对话只落入一个档位。</p></div>
+        <div id="entryRoundOverview"></div>
+      </section>
+
+      <section id="sampledConversationAnalysisSection" class="entry-primary-section hidden" aria-labelledby="sampledConversationAnalysisTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">04</span><p class="eyebrow">SAMPLED CONVERSATION STUDY</p><h2 id="sampledConversationAnalysisTitle">对话分析</h2></div><p>从固定抽样 Session 中归纳话题、学生行为与可观察意图，并保留完整文本证据。</p></div>
+        <div id="sampledConversationAnalysis"></div>
+      </section>
+
+      <section id="postClassCompletionSection" class="entry-primary-section hidden" aria-labelledby="postClassCompletionTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">04</span><p class="eyebrow">STAGE COMPLETION</p><h2 id="postClassCompletionTitle">环节完成率</h2></div><p>按打开过 POST_CLASS 的去重用户统计；只要完成过 SPEAKING 环节，即记为完成用户。</p></div>
+        <div id="postClassCompletion"></div>
+      </section>
+
+      <section id="postClassConversationAnalysisSection" class="entry-primary-section hidden" aria-labelledby="postClassConversationAnalysisTitle">
+        <div class="entry-section-head"><div><span class="entry-section-number">05</span><p class="eyebrow">CONVERSATION ANALYSIS</p><h2 id="postClassConversationAnalysisTitle">对话分析</h2></div><p>从课程内容与真实对话的对应关系开始，逐项观察 POST_CLASS 对话实际如何展开。</p></div>
+        <article class="conversation-analysis-item" aria-labelledby="postClassTopicAnalysisTitle">
+          <div class="conversation-analysis-item-head"><span>05A</span><div><h3 id="postClassTopicAnalysisTitle">对话主题</h3><p>是否围绕本课所学</p></div></div>
+          <section id="postClassLessonAlignmentSection" class="post-class-lesson-alignment hidden" aria-label="POST_CLASS 课堂所学关联抽样分析"><div id="postClassLessonAlignment"></div></section>
+        </article>
+        <article class="conversation-analysis-item student-behavior-item" aria-labelledby="postClassStudentBehaviorTitle">
+          <div class="conversation-analysis-item-head"><span>05B</span><div><h3 id="postClassStudentBehaviorTitle">学生行为分析</h3><p>学生如何表达困难、语言选择与对话意愿</p></div></div>
+          <div id="postClassStudentBehavior"></div>
+        </article>
+        <article class="conversation-analysis-item student-intent-item" aria-labelledby="postClassStudentIntentTitle">
+          <div class="conversation-analysis-item-head"><span>05C</span><div><h3 id="postClassStudentIntentTitle">学生意图分析</h3><p>孩子想在 Dino 这里达到什么目的，希望 Dino 承担什么功能或角色</p></div></div>
+          <div id="postClassStudentIntent"></div>
+        </article>
+      </section>
+
+    </section>
+
+    <section id="badCasePage" class="page">
+      <div class="section-lead" id="badCaseOverviewSection"><div><p class="eyebrow">QUALITY ARCHIVE / ALL ENTRIES</p><h2>Bad case 库</h2></div><p>集中记录自动识别、人工精选与人工录入的异常对话；每条记录都保留用户画像、入口、问题类型与标签。</p></div>
+      <div id="badCaseLibrary"></div>
+    </section>
+
+  </main>
+
+  <dialog id="badCaseManualDialog" class="bad-case-dialog" aria-labelledby="badCaseManualTitle">
+    <form id="badCaseManualForm">
+      <header><div><p class="eyebrow">MANUAL INTAKE</p><h2 id="badCaseManualTitle">人工录入 Bad case</h2><p>补齐用户画像、入口和其他标签，原文可按需粘贴。</p></div><button type="button" data-bad-case-close aria-label="关闭">×</button></header>
+      <div class="bad-case-form-grid">
+        <label><span>发生日期</span><input name="date" type="date" required></label>
+        <label><span>入口</span><select name="entry" required></select></label>
+        <label><span>年龄</span><select name="age" required></select></label>
+        <label><span>Level</span><select name="level" required></select></label>
+        <label><span>国家／地区</span><select name="country" required></select></label>
+        <label><span>Bad case 类型</span><select name="caseType" required></select></label>
+        <label class="bad-case-form-wide"><span>其他标签</span><input name="otherTags" type="text" placeholder="用逗号分隔，例如：ASR、首轮、需产品确认"></label>
+        <label class="bad-case-form-wide"><span>问题说明</span><textarea name="note" rows="3" required placeholder="说明为什么这是一个 bad case"></textarea></label>
+        <label class="bad-case-form-wide"><span>Original transcript（可选）</span><textarea name="transcript" rows="7" placeholder="忠实粘贴原始对话；如有本地语，请保留原文"></textarea></label>
+      </div>
+      <footer><p>仅保存在当前浏览器，不会写回生产数据库。</p><div><button type="button" data-bad-case-close>取消</button><button type="submit">保存记录</button></div></footer>
+    </form>
+  </dialog>
+  <dialog id="badCaseDetailDialog" class="bad-case-dialog bad-case-detail-dialog" aria-labelledby="badCaseDetailTitle"><div id="badCaseDetail"></div></dialog>
+
+  <aside id="evidenceDrawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">TRANSCRIPT EVIDENCE</p><h2 id="drawerTitle">原始上下文</h2></div><button id="drawerClose" aria-label="关闭">×</button></div><div id="drawerMeta" class="drawer-meta"></div><div id="drawerList" class="drawer-list"></div><p class="drawer-note">保留原文与 ASR 噪声；非英文内容附英文翻译。不展示 user_id、session_id 等技术标识。</p></aside><div id="drawerMask" class="drawer-mask"></div>
+  <aside id="analysisDrawer" class="drawer analysis-drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">DATA ANALYSIS</p><h2 id="analysisDrawerTitle">分析与结论</h2></div><button id="analysisDrawerClose" aria-label="关闭分析">×</button></div><div id="analysisDrawerMeta" class="drawer-meta"></div><div id="analysisDrawerBody" class="analysis-drawer-body"></div><p class="drawer-note">这里只呈现关键数据结论，不生成产品动作，也不直接解释变化原因。</p></aside><div id="analysisDrawerMask" class="drawer-mask analysis-drawer-mask"></div>
+  <footer><span>DINO CHAT · INTERNAL ANALYSIS</span><span id="generatedAt">—</span></footer>
+  <script src="data.js?v=20261012-beijing-time-1"></script>
+  <script src="analysis/entry-analysis.js?v=20261012-beijing-time-1"></script>
+  <script src="round-distribution.js?v=20261012-entry-round-filters-1"></script>
+  <script src="round-transcript-sampler.js?v=20261013-english-overlay-2"></script>
+  <script src="weekly-traffic.js?v=20261012-entry-rebuild-1"></script>
+  <script src="profile-composition.js?v=20261012-1"></script>
+  <script src="post-class-completion-data.js?v=20261012-user-completion-1"></script>
+  <script src="post-class-completion.js?v=20261012-completion-sort-1"></script>
+  <script src="post-class-lesson-alignment-data.js?v=20261012-post-lesson-time-1"></script>
+  <script src="post-class-lesson-alignment.js?v=20261013-english-overlay-2"></script>
+  <script src="post-class-student-behavior-data.js?v=20261012-localized-originals-1"></script>
+  <script src="post-class-student-behavior.js?v=20261013-english-overlay-2"></script>
+  <script src="sampled-conversation-analysis-data.js?v=20261013-home-tool-use-1"></script>
+  <script src="dialogue-translations-data.js?v=20261013-english-overlay-2"></script>
+  <script src="dialogue-translations.js?v=20261013-english-overlay-2"></script>
+  <script src="sampled-conversation-analysis.js?v=20261013-english-overlay-2"></script>
+  <script src="bad-case-library.js?v=20261013-english-overlay-2"></script>
+  <script src="analysis-insights.js?v=20261012-conclusions-1"></script>
+  <script src="app.js?v=20261013-entry-subnav-1"></script>
+</body></html>
